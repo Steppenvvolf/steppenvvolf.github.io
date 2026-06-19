@@ -50,9 +50,7 @@ const featured = [
 
     <div class="hero-text">
       <div class="hero-chip" data-reveal="0">
-        <span>8 YEARS</span><span class="cdot">·</span>
-        <span>4 STUDIOS</span><span class="cdot">·</span>
-        <span>ONE OBSESSION</span>
+        <span>SHIPPING WORLDS SINCE 2018</span>
       </div>
 
       <h1 class="hero-name" data-reveal="1">
@@ -61,7 +59,7 @@ const featured = [
 
       <div class="hero-divider" data-reveal="2">
         <span class="divider-line"></span>
-        <p class="hero-subtitle">SENIOR / LEAD LEVEL &amp; GAME DESIGNER · AAA · VR · OPEN-WORLD</p>
+        <p class="hero-subtitle">LEVEL &amp; GAME DESIGNER · AAA · VR · INDIE</p>
       </div>
 
       <p class="hero-positioning" data-reveal="3">
@@ -69,7 +67,7 @@ const featured = [
       </p>
       <p class="hero-support" data-reveal="3">
         Eight years across AAA, VR, and free-to-play at Ubisoft, RedSixteen,
-        PlayStudios and MILC — from greybox to ship.
+        PlayStudios and MILC.
       </p>
 
       <div class="hero-ctas" data-reveal="4">
@@ -82,6 +80,7 @@ const featured = [
       <div class="hero-bubble-wrap">
         <img src="/assets/comic/bubbles/bubble-oval.webp" alt="" aria-hidden="true" class="bubble-img" />
         <span class="bubble-copy font-comic">LET'S BUILD WORLDS</span>
+        <img src="/assets/comic/icons/rock-hand.webp" alt="" aria-hidden="true" class="bubble-rock-hand" loading="lazy" />
       </div>
       <img
         id="hero-biker"
@@ -92,7 +91,6 @@ const featured = [
         fetchpriority="high"
       />
       <img src="/assets/comic/swooshes/swoosh-1.webp" alt="" aria-hidden="true" class="hero-swoosh" loading="lazy" />
-      <span class="panel-label" aria-hidden="true">PANEL 01</span>
     </div>
 
   </div>
@@ -423,17 +421,14 @@ if (window.matchMedia('(min-width:769px)').matches) {
   pointer-events: none;
   white-space: nowrap;
 }
-.panel-label {
+.bubble-rock-hand {
   position: absolute;
-  top: 10px; left: 10px;
-  background: #F5E8D0;
-  color: #0E0D0D;
-  font-family: 'Oswald', sans-serif;
-  font-size: 0.55rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  padding: 0.15rem 0.5rem;
-  z-index: 4;
+  bottom: -52%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(44px, 5vw, 64px);
+  filter: drop-shadow(2px 2px 0 rgba(14,13,13,0.5));
+  pointer-events: none;
 }
 
 /* ── Sections general ── */
@@ -513,7 +508,7 @@ if (window.matchMedia('(min-width:769px)').matches) {
 }
 .discipline {
   padding: 1.5rem;
-  border: 1px solid #1B1918;
+  border: 1px solid #3D3935;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 .discipline:hover {
@@ -523,7 +518,7 @@ if (window.matchMedia('(min-width:769px)').matches) {
 .discipline-number {
   font-family: 'Anton', sans-serif;
   font-size: 3rem;
-  color: #1B1918;
+  color: #3D3935;
   line-height: 1;
   margin-bottom: 0.5rem;
   user-select: none;
@@ -593,10 +588,10 @@ if (window.matchMedia('(min-width:769px)').matches) {
   font-size: clamp(0.85rem, 2vw, 1.15rem);
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #3D3935;
+  color: #B4AA9A;
   transition: color 0.25s;
 }
-.studio-name:hover { color: #B4AA9A; }
+.studio-name:hover { color: #F5E8D0; }
 .studio-sep { color: #1B1918; }
 
 /* ── CTA Band ── */
