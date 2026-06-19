@@ -3,40 +3,34 @@ import Layout from '../layouts/Layout.astro';
 
 const timeline = [
   {
-    year: "2018",
-    title: "Junior Level Designer",
-    place: "Independent / Indie Projects",
-    desc: "First shipped levels in game jams and indie collaborations. Built spatial reasoning and rapid iteration habits that still define the work today.",
+    year: "2024–NOW",
+    title: "Sr. / Lead Level Designer",
+    place: "RedSixteen Interactive — Tales Edge (UE5)",
+    desc: "Built the LD & world-creation pipeline from scratch; 100+ gym maps, 4 public builds, trailer level. Belgrade / San Diego / Montreal.",
   },
   {
-    year: "2019",
+    year: "2022–2025",
+    title: "Lead Designer (Game & Level)",
+    place: "Welt der Wunder / MILC — MILC Metaverse (UE4→5)",
+    desc: "Led a 9-person team; owned the Product Design Document and Art Bible; ~52 levels. Belgrade / Munich.",
+  },
+  {
+    year: "2022–2023",
+    title: "Technical Artist",
+    place: "PlayStudios — Tetris F2P Mobile",
+    desc: "Built the visual asset pipeline; gameplay logic in C#/Lua/XML. Belgrade / Tel Aviv / Las Vegas.",
+  },
+  {
+    year: "2020–2022",
     title: "Level Designer",
-    place: "Ubisoft — Riders Republic",
-    desc: "Joined the open-world mountain sports title as an LD, responsible for trail design, landmark placement, and large-scale terrain readability across the Riders Ridge.",
+    place: "Ubisoft — Riders Republic, AC Nexus VR",
+    desc: "Designed levels and missions on Assassin's Creed Nexus VR and Riders Republic using Anvil and Unity. Belgrade / Annecy / Montpellier / Düsseldorf.",
   },
   {
-    year: "2021",
-    title: "Level & Mission Designer",
-    place: "Ubisoft — AC Nexus VR",
-    desc: "Designed for VR constraints: comfort, presence, and interaction clarity. Led mission flow for several story sequences in Unity on Meta Quest hardware.",
-  },
-  {
-    year: "2022",
-    title: "Game Designer",
-    place: "PlayStudios — myVEGAS Slots",
-    desc: "Moved into F2P game design: economy tuning, slot machine feature concepting, retention loop design, and live-ops event planning for a multi-million player base.",
-  },
-  {
-    year: "2023",
-    title: "Game Designer",
-    place: "MILC / Welt der Wunder — Tetris Live",
-    desc: "Designed gameplay systems for a live Tetris broadcast format, blending real-time game mechanics with television production requirements.",
-  },
-  {
-    year: "2024",
-    title: "Lead Level Designer",
-    place: "RedSixteen Interactive — Tales Edge",
-    desc: "Leading the level design discipline on an Unreal Engine 5 action title. Responsible for the team's craft standards, mentorship, and the spatial design of key game areas.",
+    year: "2018–2020",
+    title: "Development Tester & Level Designer",
+    place: "Ubisoft — Steep, Steep DLC: Open Japan, Riders Republic",
+    desc: "Development testing and level design work on Steep, its Open Japan DLC, and early Riders Republic on Anvil. Belgrade / Annecy.",
   },
 ];
 
@@ -44,21 +38,35 @@ const beyond = [
   {
     icon: "🏍",
     title: "Motorcycles & Road Trips",
-    desc: "Long-distance riding — the discipline of reading terrain and planning routes directly feeds back into how I think about player navigation.",
-  },
-  {
-    icon: "🎛",
-    title: "Electronic Music Production",
-    desc: "Building tracks in Ableton. Rhythm, tension, and release in music parallel the pacing language of a well-designed level.",
+    desc: "The biker aesthetic isn't decoration. It's how I think about freedom, movement and purpose.",
   },
   {
     icon: "🎸",
-    title: "Rock Art & Visual Culture",
-    desc: "Album art, concert posters, comic books. The visual grammar of rock — bold, raw, high-contrast — shapes the aesthetic sensibility I bring to environmental storytelling.",
+    title: "Rock & Electronic Music",
+    desc: "Music Production and live shows. Sound and rhythm feed directly into how I design space and pacing.",
+  },
+  {
+    icon: "📖",
+    title: "WW2 History & Systems",
+    desc: "I read history the way I read game designs — looking for the decisions behind the decisions.",
   },
 ];
 
-const studios = ["UBISOFT", "REDSIXTEEN", "PLAYSTUDIOS", "MILC"];
+const studios = ["UBISOFT", "REDSIXTEEN INTERACTIVE", "PLAYSTUDIOS", "MILC / WELT DER WUNDER"];
+
+const education = [
+  {
+    degree: "Bachelor of Laws (Hons), LL.B.",
+    institution: "University of Megatrend (John Naisbitt)",
+    years: "2012–2016",
+  },
+  {
+    degree: "Socio-Linguistic Diploma",
+    institution: "Gymnasium Uroš Predić",
+    years: "2008–2011",
+    note: "English, German, Russian, Latin",
+  },
+];
 ---
 
 <Layout
@@ -78,10 +86,13 @@ const studios = ["UBISOFT", "REDSIXTEEN", "PLAYSTUDIOS", "MILC"];
       <h1 class="intro-title font-gothic">About Stefan<span class="accent-dot">.</span></h1>
 
       <p class="intro-para font-body">
-        I'm a Senior / Lead Level &amp; Game Designer with eight years of experience across AAA, VR, and free-to-play games.
+        I'm a Senior Level Designer with eight years across AAA, AA, VR and free-to-play titles. I own the full level-design pipeline — blockout, metrics, pacing, player flow, sightlines and environmental storytelling — and take spaces from greybox to ship.
       </p>
       <p class="intro-para font-body">
-        My journey started in 2018 with a passion for spatial design and interactive storytelling. Today I lead level design at RedSixteen Interactive, working on Tales Edge in Unreal Engine 5.
+        Right now I'm Senior / Lead Level Designer on Tales Edge (Unreal Engine 5), where I built the level-design and world-creation pipeline from the ground up. Before that I designed levels and missions on Assassin's Creed Nexus VR and Riders Republic at Ubisoft, led game and level design on the MILC real-time platform, and shipped F2P mobile at PlayStudios.
+      </p>
+      <p class="intro-para font-body">
+        I came to games sideways — through a law degree. That trained me to read systems, argue a design on its merits, and write documentation people actually use. I'm a generalist by curiosity and a specialist by craft: fluent across Unreal, Unity, Anvil and Hammer, and a fast study on any proprietary toolset you put in front of me.
       </p>
 
       <div class="intro-ctas">
@@ -126,7 +137,7 @@ const studios = ["UBISOFT", "REDSIXTEEN", "PLAYSTUDIOS", "MILC"];
     <ol class="timeline" role="list">
       {timeline.map((item, i) => (
         <li class="timeline-item" data-card-reveal style={`--card-delay:${i * 90}ms`}>
-          <div class="tl-year font-display" aria-label={`Year ${item.year}`}>{item.year}</div>
+          <div class="tl-year font-display" aria-label={`Period ${item.year}`}>{item.year}</div>
           <div class="tl-node" aria-hidden="true">
             <div class="tl-dot"></div>
             <div class="tl-stem"></div>
@@ -139,6 +150,32 @@ const studios = ["UBISOFT", "REDSIXTEEN", "PLAYSTUDIOS", "MILC"];
         </li>
       ))}
     </ol>
+  </div>
+</section>
+
+<!-- ═══════════════════ EDUCATION & LANGUAGES ═══════════════════════════ -->
+<section class="edu-section" data-section>
+  <div class="section-inner">
+    <div class="section-head">
+      <h2 class="section-title">Education</h2>
+      <span class="issue-label">BACKGROUND</span>
+    </div>
+
+    <div class="edu-grid">
+      {education.map((item, i) => (
+        <div class="edu-card" data-card-reveal style={`--card-delay:${i * 110}ms`}>
+          <span class="edu-years font-display">{item.years}</span>
+          <h3 class="edu-degree font-ui">{item.degree}</h3>
+          <p class="edu-institution font-ui">{item.institution}</p>
+          {item.note && <p class="edu-note font-body">{item.note}</p>}
+        </div>
+      ))}
+    </div>
+
+    <div class="lang-block" data-card-reveal style="--card-delay:220ms">
+      <p class="lang-label font-ui">Languages</p>
+      <p class="lang-list font-body">Serbian (native) · English (fluent) · Russian (basic) · German (basic)</p>
+    </div>
   </div>
 </section>
 
@@ -246,7 +283,8 @@ const studios = ["UBISOFT", "REDSIXTEEN", "PLAYSTUDIOS", "MILC"];
 [data-section] .studios-row,
 [data-section] .cta-headline,
 [data-section] .cta-body,
-[data-section] .cta-actions {
+[data-section] .cta-actions,
+[data-section] .lang-block {
   opacity: 0;
   transform: translateY(18px);
   transition: opacity 0.6s ease, transform 0.6s ease;
@@ -262,6 +300,7 @@ const studios = ["UBISOFT", "REDSIXTEEN", "PLAYSTUDIOS", "MILC"];
 [data-section].in-view .cta-headline  { opacity: 1; transform: translateY(0); }
 [data-section].in-view .cta-body      { opacity: 1; transform: translateY(0); transition-delay: 0.1s; }
 [data-section].in-view .cta-actions   { opacity: 1; transform: translateY(0); transition-delay: 0.2s; }
+[data-section].in-view .lang-block    { opacity: 1; transform: translateY(0); transition-delay: 0.28s; }
 
 /* Card stagger */
 [data-card-reveal] {
@@ -425,9 +464,9 @@ const studios = ["UBISOFT", "REDSIXTEEN", "PLAYSTUDIOS", "MILC"];
 }
 
 .tl-year {
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-size: clamp(1rem, 2vw, 1.3rem);
   color: #E6B649;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.02em;
   line-height: 1;
   padding-top: 0.1em;
   text-align: right;
@@ -486,6 +525,80 @@ const studios = ["UBISOFT", "REDSIXTEEN", "PLAYSTUDIOS", "MILC"];
   font-size: 0.85rem;
   color: #B4AA9A;
   line-height: 1.7;
+}
+
+/* ── Education ───────────────────────────────────────────────────────────── */
+.edu-section {
+  padding: 5rem 0;
+  border-top: 1px solid #1B1918;
+}
+
+.edu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.edu-card {
+  padding: 1.75rem 1.5rem;
+  border: 2px solid #1B1918;
+  background: rgba(27, 25, 24, 0.4);
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.edu-card:hover {
+  border-color: #E6B649;
+  box-shadow: 5px 5px 0 #E6B649;
+  transform: translate(-2px, -2px);
+}
+
+.edu-years {
+  display: block;
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  color: #E6B649;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: 0.6rem;
+}
+
+.edu-degree {
+  font-size: 0.84rem;
+  color: #F5E8D0;
+  margin-bottom: 0.3rem;
+}
+
+.edu-institution {
+  font-size: 0.68rem;
+  color: #BB3F2F;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.5rem;
+}
+
+.edu-note {
+  font-size: 0.8rem;
+  color: #B4AA9A;
+  line-height: 1.6;
+}
+
+.lang-block {
+  padding: 1.5rem;
+  border-left: 3px solid #BB3F2F;
+  background: rgba(27, 25, 24, 0.4);
+}
+
+.lang-label {
+  font-size: 0.62rem;
+  color: #5D5954;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.lang-list {
+  font-size: 0.9rem;
+  color: #B4AA9A;
+  line-height: 1.6;
 }
 
 /* ── Beyond ──────────────────────────────────────────────────────────────── */
@@ -616,8 +729,9 @@ const studios = ["UBISOFT", "REDSIXTEEN", "PLAYSTUDIOS", "MILC"];
     grid-template-columns: 3.5rem 1.5rem 1fr;
     gap: 0 1rem;
   }
-  .tl-year { font-size: clamp(1.2rem, 4vw, 1.6rem); }
+  .tl-year { font-size: clamp(0.8rem, 3vw, 1rem); }
 
+  .edu-grid { grid-template-columns: 1fr; }
   .beyond-grid { grid-template-columns: 1fr; }
   .studios-row { gap: 0.5rem 1.5rem; }
   .studio-sep { display: none; }
@@ -630,7 +744,7 @@ const studios = ["UBISOFT", "REDSIXTEEN", "PLAYSTUDIOS", "MILC"];
   .tl-node { display: none; }
   .tl-year {
     text-align: left;
-    font-size: 1.4rem;
+    font-size: 1rem;
     margin-bottom: 0.25rem;
   }
   .cta-actions { flex-direction: column; }

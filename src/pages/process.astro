@@ -3,36 +3,38 @@ import Layout from '../layouts/Layout.astro';
 
 const beliefs = [
   {
-    label: "Spatial Storytelling",
-    desc: "Every room, corridor, and vista is a sentence in the world's narrative. Space speaks before dialogue does.",
+    label: "Space is the tutorial.",
+    desc: "A good layout teaches movement, threat and intent without a UI prompt.",
   },
   {
-    label: "Player Empathy",
-    desc: "Design for the player who has never seen the level before. Clarity is a courtesy, not a compromise.",
+    label: "Greybox is where the game is won.",
+    desc: "I validate flow, pacing and metrics in blockout before a single asset is final.",
   },
   {
-    label: "Iterative Craft",
-    desc: "The first blockout is a hypothesis. Playtesting is the experiment. Iteration is how good levels become great.",
+    label: "Readability beats spectacle.",
+    desc: "If the player can't read the space in seconds, the prettiest scene still fails.",
   },
   {
-    label: "Systems Thinking",
-    desc: "Levels don't exist in isolation. Every design decision must account for the mechanics, economy, and AI that inhabit the space.",
+    label: "Test, then trust.",
+    desc: "Isolated validation gyms and constant playtests turn opinions into decisions.",
   },
 ];
 
 const steps = [
-  { num: "01", title: "Discovery & Research",      desc: "Understand the game pillars, reference the genre, map the player journey." },
-  { num: "02", title: "Concept & Blockout",         desc: "2D maps, flow diagrams, and rough 3D blockout to prove the idea fast." },
-  { num: "03", title: "Design Documentation",       desc: "GDD sections, encounter briefs, and metrics sheets that align the team." },
-  { num: "04", title: "Greybox Implementation",     desc: "Full greybox with tuned metrics, encounter scripting, and first-pass lighting." },
-  { num: "05", title: "Iteration & Playtesting",    desc: "Structured test sessions, annotated walkthroughs, data-driven refinement." },
-  { num: "06", title: "Art-Handover Polish",        desc: "Environmental storytelling layer, set-dressing review, and prop-placement passes." },
-  { num: "07", title: "Ship & Postmortem",          desc: "Final certification pass, analytics review, and documented lessons for the next project." },
+  { num: "01", title: "Brief & references",             desc: "" },
+  { num: "02", title: "2D map / paper design",          desc: "" },
+  { num: "03", title: "Greybox blockout",               desc: "" },
+  { num: "04", title: "Metrics & validation gyms",      desc: "" },
+  { num: "05", title: "Playtest",                       desc: "" },
+  { num: "06", title: "Iterate",                        desc: "" },
+  { num: "07", title: "Art-ready handoff & set dressing", desc: "" },
 ];
 
 const tools = [
-  "Unreal Engine 5", "Unity", "Jira", "Confluence", "Miro",
-  "Figma", "Perforce", "Git", "Maya", "Blender", "Substance Designer",
+  "Unreal Engine 4", "Unreal Engine 5", "Unity", "Anvil Engine", "Hammer",
+  "Houdini", "World Creator", "Blender", "Substance Painter", "ZBrush",
+  "Perforce", "Jira", "Confluence",
+  "Blueprints", "C#", "Python", "Lua", "XML",
 ];
 ---
 
@@ -117,7 +119,7 @@ const tools = [
     <div class="philosophy-callout quote-callout" data-card-reveal style="--card-delay:0ms">
       <span class="callout-label">DESIGN PHILOSOPHY</span>
       <blockquote class="pull-quote font-gothic" lang="en">
-        Every door I place tells a story.<br />Every corridor builds anticipation.
+        Build worlds that read in seconds and reward a second look.
       </blockquote>
       <cite class="pull-cite font-ui">— Stefan Malinovic</cite>
     </div>
