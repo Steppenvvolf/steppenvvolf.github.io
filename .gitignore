@@ -22,10 +22,9 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
-# Large upscaled images — reference only, not deployed (too big for Pages)
-public/assets/illustrations/upscaled-*.png
-public/assets/bg/city-backdrop-2.png
-public/assets/decorative/boom-3.png
-public/assets/decorative/tire-mud.png
-public/assets/illustrations/swoosh-4.png
+# Old / oversized asset folders — replaced by Build Package in public/assets/
+public/assets/illustrations/
+public/assets/decorative/
+public/assets/bg/
+public/assets/logo/
 public/assets/reference-concept.png

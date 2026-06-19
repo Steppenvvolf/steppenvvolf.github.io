@@ -1,0 +1,206 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const { slug } = Astro.params;
+
+export function getStaticPaths() {
+  const slugs = ['tales-edge', 'riders-republic', 'ac-nexus-vr', 'myvegas', 'tetris-live', 'game-jams', 'mobile-apps'];
+  return slugs.map(slug => ({ params: { slug } }));
+}
+
+// Format slug for display: hyphens to spaces, uppercase
+const displayTitle = slug
+  ? slug.replace(/-/g, ' ').toUpperCase()
+  : 'UNKNOWN';
+---
+
+<Layout
+  title={`${displayTitle} — Case Study Coming Soon · Stefan Malinovic`}
+  description={`Case study for ${displayTitle} is being written. Stefan Malinovic — Senior Level & Game Designer.`}
+>
+
+<div class="stub-wrap">
+
+  <!-- Decorative: faint swoosh in corner -->
+  <img
+    src="/assets/comic/swooshes/swoosh-1.webp"
+    alt=""
+    aria-hidden="true"
+    class="stub-swoosh"
+    loading="lazy"
+  />
+
+  <div class="section-inner stub-inner">
+
+    <!-- Eyebrow: the slug as breadcrumb context -->
+    <p class="slug-eyebrow font-ui" data-reveal style="--reveal-delay:0ms">
+      <a href="/work" class="back-link">WORK</a>
+      <span class="eyebrow-sep" aria-hidden="true">→</span>
+      <span class="eyebrow-slug">{displayTitle}</span>
+    </p>
+
+    <!-- Big headline -->
+    <h1 class="stub-headline font-display" data-reveal style="--reveal-delay:80ms">
+      COMING<br/>SOON.
+    </h1>
+
+    <!-- Gothic subtitle -->
+    <p class="stub-gothic font-gothic" data-reveal style="--reveal-delay:180ms">
+      This case study is being written.
+    </p>
+
+    <!-- Callout: what to expect -->
+    <div class="philosophy-callout stub-callout" data-reveal style="--reveal-delay:280ms">
+      <span class="callout-label">WHAT'S COMING</span>
+      <p class="stub-callout-text font-body">
+        The full breakdown — design intent, greybox process, iteration notes,
+        and the decisions that shaped the final space. Check back soon.
+      </p>
+    </div>
+
+    <!-- Back link -->
+    <div class="stub-cta" data-reveal style="--reveal-delay:380ms">
+      <a href="/work" class="btn-primary">← BACK TO WORK</a>
+    </div>
+
+  </div>
+</div>
+
+</Layout>
+
+<style>
+/* ── Reveal ───────────────────────────────────────────────────────── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity  0.6s ease var(--reveal-delay, 0ms),
+    transform 0.6s ease var(--reveal-delay, 0ms);
+}
+[data-reveal].card-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1; transform: none; transition: none; }
+}
+
+/* ── Wrapper ──────────────────────────────────────────────────────── */
+.stub-wrap {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 5rem 0;
+}
+
+/* ── Decorative swoosh ────────────────────────────────────────────── */
+.stub-swoosh {
+  position: absolute;
+  bottom: 6%;
+  right: 4%;
+  width: clamp(100px, 16vw, 220px);
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+  transform: rotate(15deg) scaleX(-1);
+}
+
+/* ── Content ──────────────────────────────────────────────────────── */
+.stub-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.75rem;
+  max-width: 760px;
+}
+
+/* ── Eyebrow ──────────────────────────────────────────────────────── */
+.slug-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  color: var(--body);
+  margin: 0;
+}
+
+.back-link {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.back-link:hover { color: var(--cream); }
+.back-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.eyebrow-sep { color: var(--panel); }
+
+.eyebrow-slug {
+  color: var(--body);
+  opacity: 0.75;
+}
+
+/* ── Headline ─────────────────────────────────────────────────────── */
+.stub-headline {
+  font-size: clamp(3.5rem, 10vw, 9rem);
+  letter-spacing: -0.04em;
+  line-height: 0.86;
+  color: var(--cream);
+  /* Measured restraint: no drop shadow here, reserves the drama for 404 */
+}
+
+/* ── Gothic subtitle ─────────────────────────────────────────────── */
+.stub-gothic {
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  color: var(--body);
+  letter-spacing: 0.03em;
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* ── Callout ──────────────────────────────────────────────────────── */
+.stub-callout {
+  width: 100%;
+  max-width: 580px;
+}
+
+.stub-callout-text {
+  font-size: 0.9rem;
+  color: var(--body);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ── CTA ──────────────────────────────────────────────────────────── */
+.stub-cta {
+  margin-top: 0.25rem;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .stub-wrap { padding: 4rem 0 3rem; }
+  .stub-inner { gap: 1.5rem; }
+}
+
+@media (max-width: 480px) {
+  .stub-headline { line-height: 0.9; }
+  .stub-swoosh { display: none; }
+}
+</style>
+
+<script>
+const obs = new IntersectionObserver(
+  (entries) => entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('card-visible');
+      obs.unobserve(e.target);
+    }
+  }),
+  { threshold: 0.1 }
+);
+document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
+</script>

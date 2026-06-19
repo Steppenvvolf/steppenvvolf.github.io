@@ -1,541 +1,673 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+
+const featured = [
+  {
+    title: "Tales Edge",
+    tag: "CURRENT" as const,
+    studio: "RedSixteen Interactive",
+    role: "Lead Level Designer",
+    engine: "UE5",
+    year: "2024–Present",
+    cover: "/assets/projects/tales-edge/tales-edge-02.webp",
+    href: "/work/tales-edge",
+    featured: true,
+  },
+  {
+    title: "Riders Republic",
+    tag: "AAA" as const,
+    studio: "Ubisoft",
+    role: "Level Designer",
+    engine: "Anvil",
+    year: "2019–2021",
+    cover: "/assets/projects/riders-republic/riders-republic-10.webp",
+    href: "/work/riders-republic",
+    featured: true,
+  },
+  {
+    title: "AC Nexus VR",
+    tag: "VR" as const,
+    studio: "Ubisoft",
+    role: "Level & Mission Designer",
+    engine: "Unity",
+    year: "2021–2022",
+    cover: "/assets/projects/ac-nexus-vr/ac-nexus-vr-01.webp",
+    href: "/work/ac-nexus-vr",
+    featured: true,
+  },
+];
 ---
 
-<Layout title="Stefan Malinovic — Phase 1 Scaffold">
-  <main>
+<Layout
+  title="Stefan Malinovic — Senior Level & Game Designer"
+  description="Portfolio of Stefan Malinovic — eight years designing levels and systems across AAA, VR and open-world at Ubisoft, RedSixteen, PlayStudios and MILC."
+>
 
-    <!-- ── Identity strip ─────────────────────────────────────────────── -->
-    <header class="scaffold-header">
-      <div class="logo-mark">SM<span>.</span></div>
-      <nav>
-        <a href="#">WORK</a>
-        <a href="#">PROCESS</a>
-        <a href="#">ABOUT</a>
-        <a href="#" class="nav-contact">CONTACT</a>
-      </nav>
-    </header>
+<!-- ═══════════════════ HERO ═══════════════════════════════════════════ -->
+<section class="hero">
+  <div class="section-inner hero-inner">
 
-    <!-- ── Scaffold content ───────────────────────────────────────────── -->
-    <div class="container">
-
-      <!-- Phase badge -->
-      <div class="phase-badge">
-        <span>PHASE 1 SCAFFOLD ✓</span>
+    <div class="hero-text">
+      <div class="hero-chip" data-reveal="0">
+        <span>8 YEARS</span><span class="cdot">·</span>
+        <span>4 STUDIOS</span><span class="cdot">·</span>
+        <span>ONE OBSESSION</span>
       </div>
 
-      <!-- Hero name — Anton -->
-      <section class="specimen-block">
-        <div class="specimen-label">FONT: ANTON · HERO DISPLAY</div>
-        <h1 class="hero-name">
-          STEFAN<br/>MALINOVIC<span class="accent-dot">.</span>
-        </h1>
-        <p class="hero-sub">Senior / Lead Level &amp; Game Designer · AAA · VR · Open-World</p>
-      </section>
+      <h1 class="hero-name" data-reveal="1">
+        STEFAN<br/>MALINOVIC<span class="accent-dot">.</span>
+      </h1>
 
-      <!-- Section title — Pirata One -->
-      <section class="specimen-block">
-        <div class="specimen-label">FONT: PIRATA ONE · SECTION TITLES</div>
-        <h2 class="gothic-title">Featured Work</h2>
-        <h2 class="gothic-title">Design Philosophy</h2>
-        <h2 class="gothic-title">My Process</h2>
-      </section>
+      <div class="hero-divider" data-reveal="2">
+        <span class="divider-line"></span>
+        <p class="hero-subtitle">SENIOR / LEAD LEVEL &amp; GAME DESIGNER · AAA · VR · OPEN-WORLD</p>
+      </div>
 
-      <!-- Oswald labels -->
-      <section class="specimen-block">
-        <div class="specimen-label">FONT: OSWALD · UI LABELS / NAV / METADATA</div>
-        <p class="ui-label">LEVEL DESIGNER · UE5 · 2024–PRESENT</p>
-        <p class="ui-label" style="font-weight:500;letter-spacing:0.18em;">UBISOFT · AAA · OPEN-WORLD</p>
-        <p class="ui-label" style="font-weight:400;">DOWNLOAD CV · VIEW THE WORK · CONTACT</p>
-      </section>
+      <p class="hero-positioning" data-reveal="3">
+        I build worlds and the systems that make them worth exploring.
+      </p>
+      <p class="hero-support" data-reveal="3">
+        Eight years across AAA, VR, and free-to-play at Ubisoft, RedSixteen,
+        PlayStudios and MILC — from greybox to ship.
+      </p>
 
-      <!-- Bangers impact -->
-      <section class="specimen-block">
-        <div class="specimen-label">FONT: BANGERS · ACTION CALLOUTS</div>
-        <p class="impact-text">VROOM! BANG! BUILT IN UE5!</p>
-      </section>
+      <div class="hero-ctas" data-reveal="4">
+        <a href="/work" class="btn-primary">VIEW THE WORK →</a>
+        <a href="/cv/stefan-malinovic-portfolio.pdf" target="_blank" rel="noopener" class="btn-secondary">DOWNLOAD CV</a>
+      </div>
+    </div>
 
-      <!-- Comic Neue speech bubble -->
-      <section class="specimen-block">
-        <div class="specimen-label">FONT: COMIC NEUE · SPEECH BUBBLES</div>
-        <div class="speech-bubble-demo">
-          <p class="bubble-text">"Let's build worlds — shall we?"</p>
-          <div class="bubble-tail"></div>
+    <div class="hero-visual" data-reveal-right>
+      <div class="hero-bubble-wrap">
+        <img src="/assets/comic/bubbles/bubble-oval.webp" alt="" aria-hidden="true" class="bubble-img" />
+        <span class="bubble-copy font-comic">LET'S BUILD WORLDS</span>
+      </div>
+      <img
+        id="hero-biker"
+        src="/assets/hero/hero-biker.webp"
+        alt="Stefan Malinovic — illustrated biker portrait"
+        class="hero-biker"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <img src="/assets/comic/swooshes/swoosh-1.webp" alt="" aria-hidden="true" class="hero-swoosh" loading="lazy" />
+      <span class="panel-label" aria-hidden="true">PANEL 01</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════ FEATURED WORK ════════════════════════════════════ -->
+<section class="section featured-work" data-section>
+  <div class="section-inner">
+    <div class="section-head">
+      <h2 class="section-title">Featured Work</h2>
+      <span class="issue-label">ISSUE 04 / 12</span>
+    </div>
+    <div class="card-grid">
+      {featured.map((p, i) => (
+        <div class="card-wrap" style={`--card-delay:${i * 120}ms`} data-card-reveal>
+          <ProjectCard {...p} />
         </div>
-      </section>
+      ))}
+    </div>
+    <div class="view-all">
+      <a href="/work" class="view-all-link">VIEW ALL WORK →</a>
+    </div>
+  </div>
+</section>
 
-      <!-- Inter body -->
-      <section class="specimen-block">
-        <div class="specimen-label">FONT: INTER · LONG-FORM BODY</div>
-        <p class="body-text">
-          A space should teach the player without a single line of instruction.
-          That's the belief behind every zone I've designed — from open-world
-          Landmarks in Riders Republic to tight VR mission corridors in AC Nexus.
+<!-- ═══════════════════ WHAT I DO ════════════════════════════════════════ -->
+<section class="section what-i-do" data-section>
+  <div class="section-inner">
+    <h2 class="section-title" style="margin-bottom:2.5rem;">What I Do</h2>
+    <div class="disciplines-grid">
+
+      <div class="discipline" data-card-reveal style="--card-delay:0ms">
+        <div class="discipline-number">01</div>
+        <h3 class="discipline-name">LEVEL DESIGN</h3>
+        <p class="discipline-desc">
+          Spatial composition from 2D map to ship-ready space — flow, pacing, sightlines and readability.
         </p>
-      </section>
-
-      <!-- Color swatches -->
-      <section class="specimen-block">
-        <div class="specimen-label">COLOR PALETTE · 6 UI TOKENS</div>
-        <div class="swatch-row">
-          <div class="swatch" style="background:#0E0D0D;border:2px solid #F5E8D0;">
-            <span>Ink</span><code>#0E0D0D</code>
-          </div>
-          <div class="swatch" style="background:#1B1918;">
-            <span>Panel</span><code>#1B1918</code>
-          </div>
-          <div class="swatch" style="background:#F5E8D0;color:#0E0D0D;">
-            <span>Cream</span><code>#F5E8D0</code>
-          </div>
-          <div class="swatch" style="background:#B4AA9A;color:#0E0D0D;">
-            <span>Body</span><code>#B4AA9A</code>
-          </div>
-          <div class="swatch" style="background:#BB3F2F;">
-            <span>Accent</span><code>#BB3F2F</code>
-          </div>
-          <div class="swatch" style="background:#E6B649;color:#0E0D0D;">
-            <span>Gold</span><code>#E6B649</code>
-          </div>
+        <div class="chips">
+          <span class="chip">Blockout</span>
+          <span class="chip">Player Flow</span>
+          <span class="chip">Sightlines</span>
+          <span class="chip">Metrics</span>
         </div>
-      </section>
+      </div>
 
-      <!-- Buttons -->
-      <section class="specimen-block">
-        <div class="specimen-label">BUTTONS · PRIMARY + SECONDARY</div>
-        <div class="button-row">
-          <a href="#" class="btn-primary">VIEW THE WORK →</a>
-          <a href="#" class="btn-secondary">DOWNLOAD CV</a>
-        </div>
-      </section>
-
-      <!-- Shadow variants -->
-      <section class="specimen-block">
-        <div class="specimen-label">SHADOW SYSTEM · HARD OFFSET ONLY (NO BLUR)</div>
-        <div class="shadow-row">
-          <div class="shadow-demo shadow-comic-ink">COMIC<br/>(INK)</div>
-          <div class="shadow-demo shadow-comic-red-demo">COMIC-RED<br/>(ACCENT)</div>
-          <div class="shadow-demo shadow-comic-card-demo">COMIC-CARD<br/>(+1PX)</div>
-        </div>
-      </section>
-
-      <!-- Design rule summary -->
-      <section class="specimen-block philosophy-callout">
-        <div class="callout-label">DESIGN PHILOSOPHY</div>
-        <p class="callout-quote">
-          "A space should teach the player without a single line of instruction."
+      <div class="discipline" data-card-reveal style="--card-delay:120ms">
+        <div class="discipline-number">02</div>
+        <h3 class="discipline-name">GAME DESIGN</h3>
+        <p class="discipline-desc">
+          Core loop, encounters and systems — designing the rules the spaces are built around.
         </p>
-      </section>
-
-      <!-- Stack confirmation -->
-      <section class="specimen-block stack-info">
-        <div class="specimen-label">STACK · CONFIRMED WORKING</div>
-        <div class="stack-chips">
-          <span class="chip">Astro 6</span>
-          <span class="chip">Tailwind 3</span>
-          <span class="chip">MDX</span>
-          <span class="chip">PostCSS</span>
-          <span class="chip">GitHub Pages</span>
-          <span class="chip">Anton ✓</span>
-          <span class="chip">Pirata One ✓</span>
-          <span class="chip">Oswald ✓</span>
-          <span class="chip">Bangers ✓</span>
-          <span class="chip">Comic Neue ✓</span>
-          <span class="chip">Inter ✓</span>
+        <div class="chips">
+          <span class="chip">Core Loop</span>
+          <span class="chip">Encounters</span>
+          <span class="chip">Systems</span>
+          <span class="chip">Balance</span>
         </div>
-      </section>
+      </div>
 
-    </div><!-- /container -->
+      <div class="discipline" data-card-reveal style="--card-delay:240ms">
+        <div class="discipline-number">03</div>
+        <h3 class="discipline-name">3D / ENVIRONMENT</h3>
+        <p class="discipline-desc">
+          Worldbuilding and set dressing — from PCG terrain to real-time-optimized, art-ready spaces.
+        </p>
+        <div class="chips">
+          <span class="chip">Worldbuilding</span>
+          <span class="chip">Set Dressing</span>
+          <span class="chip">PCG</span>
+          <span class="chip">Optimization</span>
+        </div>
+      </div>
 
-    <footer class="scaffold-footer">
-      <span class="label-oswald">STEFAN MALINOVIC</span>
-      <span class="label-oswald muted">SENIOR LEVEL &amp; GAME DESIGNER</span>
-      <span class="label-oswald muted">PHASE 1 COMPLETE · NEXT: LAYOUT + HEADER</span>
-    </footer>
+    </div>
+  </div>
+</section>
 
-  </main>
+<!-- ═══════════════════ DESIGN PHILOSOPHY ════════════════════════════════ -->
+<section class="section philosophy-section" data-section>
+  <div class="section-inner">
+    <div class="philosophy-callout" data-card-reveal style="--card-delay:0ms">
+      <span class="callout-label">DESIGN PHILOSOPHY</span>
+      <blockquote class="philosophy-quote">
+        A space should teach the player without a single line of instruction.
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ WORKED WITH ══════════════════════════════════════ -->
+<section class="section worked-with" data-section>
+  <div class="section-inner">
+    <p class="worked-label">WORKED WITH</p>
+    <div class="studio-row">
+      <span class="studio-name">UBISOFT</span>
+      <span class="studio-sep" aria-hidden="true">·</span>
+      <span class="studio-name">REDSIXTEEN INTERACTIVE</span>
+      <span class="studio-sep" aria-hidden="true">·</span>
+      <span class="studio-name">PLAYSTUDIOS</span>
+      <span class="studio-sep" aria-hidden="true">·</span>
+      <span class="studio-name">MILC / WELT DER WUNDER</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ CTA BAND ══════════════════════════════════════════ -->
+<section class="section cta-band" data-section>
+  <div class="section-inner cta-inner">
+    <div class="cta-text" data-card-reveal style="--card-delay:0ms">
+      <p class="cta-headline">
+        Looking for someone who designs worlds <em>and</em> the systems inside them?
+      </p>
+      <p class="cta-sub">Let's talk.</p>
+      <a href="/contact" class="btn-primary">GET IN TOUCH</a>
+    </div>
+    <div class="cta-rock" aria-hidden="true" data-card-reveal style="--card-delay:150ms">
+      <img src="/assets/comic/icons/rock-hand.webp" alt="" class="rock-hand-img" loading="lazy" />
+      <div class="rock-bubble">
+        <span class="font-comic">LET'S TALK</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 </Layout>
 
+<script>
+// Scroll-reveal via IntersectionObserver
+const sectionObs = new IntersectionObserver(
+  (entries) => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); sectionObs.unobserve(e.target); } }),
+  { threshold: 0.1 }
+);
+document.querySelectorAll('[data-section]').forEach(el => sectionObs.observe(el));
+
+const cardObs = new IntersectionObserver(
+  (entries) => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('card-visible'); cardObs.unobserve(e.target); } }),
+  { threshold: 0.08 }
+);
+document.querySelectorAll('[data-card-reveal]').forEach(el => cardObs.observe(el));
+
+// Parallax on hero biker (desktop only)
+if (window.matchMedia('(min-width:769px)').matches) {
+  const biker = document.getElementById('hero-biker') as HTMLElement | null;
+  if (biker) {
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          biker.style.transform = `translateY(${window.scrollY * 0.07}px)`;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+}
+</script>
+
 <style>
-  /* ── Layout ────────────────────────────────────────────────────── */
-  .scaffold-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.25rem 2rem;
-    border-bottom: 2px solid #F5E8D0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: #0E0D0D;
+/* ── Hero ────────────────────────────────────────────────────────── */
+.hero {
+  min-height: calc(100svh - 64px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3rem;
+  align-items: center;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+/* Hero entrance animations */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  animation: heroUp 0.7s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+[data-reveal="0"] { animation-delay: 0.05s; }
+[data-reveal="1"] { animation-delay: 0.22s; }
+[data-reveal="2"] { animation-delay: 0.42s; }
+[data-reveal="3"] { animation-delay: 0.58s; }
+[data-reveal="4"] { animation-delay: 0.78s; }
+
+[data-reveal-right] {
+  opacity: 0;
+  transform: translateX(60px);
+  animation: heroRight 1s cubic-bezier(0.22,1,0.36,1) 0.15s forwards;
+}
+
+@keyframes heroUp    { to { opacity:1; transform:translateY(0); } }
+@keyframes heroRight { to { opacity:1; transform:translateX(0); } }
+
+/* ── Chip ── */
+.hero-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #F5E8D0;
+  color: #0E0D0D;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.9rem;
+  border: 2px solid #0E0D0D;
+  box-shadow: 3px 3px 0 #0E0D0D;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+.hero-chip::after {
+  content:'';
+  position:absolute; bottom:-12px; left:20px;
+  width:0; height:0;
+  border-left:8px solid transparent; border-right:8px solid transparent;
+  border-top:12px solid #0E0D0D;
+}
+.cdot { color:#BB3F2F; }
+
+/* ── Name ── */
+.hero-name {
+  font-family: 'Anton', Impact, sans-serif;
+  font-size: clamp(3.2rem, 7.5vw, 7rem);
+  letter-spacing: -0.03em;
+  line-height: 0.88;
+  color: #F5E8D0;
+  margin-bottom: 1.5rem;
+}
+.accent-dot { color: #BB3F2F; }
+
+/* ── Divider ── */
+.hero-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+.divider-line {
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: #BB3F2F;
+  flex-shrink: 0;
+}
+.hero-subtitle {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #B4AA9A;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ── Body ── */
+.hero-positioning {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #F5E8D0;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+.hero-support {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  color: #B4AA9A;
+  line-height: 1.65;
+  margin-bottom: 2rem;
+}
+
+/* ── CTAs ── */
+.hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* ── Visual ── */
+.hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.hero-biker {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 540px;
+  max-height: 78vh;
+  object-fit: contain;
+  object-position: center bottom;
+  filter: drop-shadow(6px 6px 0 rgba(187,63,47,0.25));
+}
+.hero-swoosh {
+  position: absolute;
+  left: -8%;
+  bottom: 4%;
+  width: 38%;
+  z-index: 1;
+  opacity: 0.65;
+  pointer-events: none;
+}
+.hero-bubble-wrap {
+  position: absolute;
+  top: 6%;
+  right: 2%;
+  z-index: 3;
+  width: clamp(100px, 12vw, 150px);
+}
+.hero-bubble-wrap .bubble-img { width: 100%; }
+.bubble-copy {
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  transform: translate(-50%, -56%);
+  font-size: 0.7rem;
+  color: #0E0D0D;
+  text-align: center;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.panel-label {
+  position: absolute;
+  top: 10px; left: 10px;
+  background: #F5E8D0;
+  color: #0E0D0D;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  padding: 0.15rem 0.5rem;
+  z-index: 4;
+}
+
+/* ── Sections general ── */
+.section {
+  padding: 5rem 0;
+  border-top: 1px solid #1B1918;
+}
+
+/* Section scroll-reveal */
+[data-section] .section-title,
+[data-section] .section-head,
+[data-section] .worked-label,
+[data-section] .studio-row,
+[data-section] .view-all {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+[data-section].in-view .section-title,
+[data-section].in-view .section-head,
+[data-section].in-view .worked-label,
+[data-section].in-view .studio-row { opacity:1; transform:translateY(0); }
+[data-section].in-view .view-all { opacity:1; transform:translateY(0); transition-delay:0.3s; }
+
+/* Card stagger */
+[data-card-reveal] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.55s ease var(--card-delay,0ms), transform 0.55s ease var(--card-delay,0ms);
+}
+[data-card-reveal].card-visible { opacity:1; transform:translateY(0); }
+
+/* ── Section head ── */
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #1B1918;
+  margin-bottom: 2.5rem;
+}
+.issue-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #5D5954;
+}
+
+/* ── Card grid ── */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* ── View all ── */
+.view-all { text-align: right; margin-top: 1.5rem; }
+.view-all-link {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #BB3F2F;
+  transition: letter-spacing 0.25s;
+}
+.view-all-link:hover { letter-spacing: 0.28em; }
+
+/* ── Disciplines ── */
+.disciplines-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  border-top: 2px solid #1B1918;
+  padding-top: 2rem;
+}
+.discipline {
+  padding: 1.5rem;
+  border: 1px solid #1B1918;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.discipline:hover {
+  border-color: #BB3F2F;
+  box-shadow: 4px 4px 0 #BB3F2F;
+}
+.discipline-number {
+  font-family: 'Anton', sans-serif;
+  font-size: 3rem;
+  color: #1B1918;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  user-select: none;
+  transition: color 0.2s;
+}
+.discipline:hover .discipline-number { color: rgba(187,63,47,0.15); }
+.discipline-name {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #F5E8D0;
+  margin-bottom: 0.75rem;
+}
+.discipline-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.83rem;
+  color: #B4AA9A;
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+}
+.chips { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.chip {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #F5E8D0;
+  padding: 0.2rem 0.55rem;
+  border: 1px solid #5D5954;
+}
+
+/* ── Philosophy ── */
+.philosophy-section { padding: 4rem 0; }
+.philosophy-quote {
+  font-family: 'Inter', sans-serif;
+  font-style: italic;
+  font-size: clamp(1.05rem, 2.4vw, 1.4rem);
+  line-height: 1.65;
+  color: #F5E8D0;
+  margin: 0;
+}
+
+/* ── Worked With ── */
+.worked-with { padding: 4rem 0; text-align: center; }
+.worked-label {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+  font-size: 0.62rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #5D5954;
+  margin-bottom: 1.5rem;
+}
+.studio-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem 2.5rem;
+}
+.studio-name {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: clamp(0.85rem, 2vw, 1.15rem);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #3D3935;
+  transition: color 0.25s;
+}
+.studio-name:hover { color: #B4AA9A; }
+.studio-sep { color: #1B1918; }
+
+/* ── CTA Band ── */
+.cta-band {
+  background: rgba(14,13,13,0.9);
+  border-top: 2px solid #BB3F2F;
+  padding: 5rem 0;
+}
+.cta-inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3rem;
+  align-items: center;
+}
+.cta-headline {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1rem, 2.2vw, 1.4rem);
+  font-weight: 500;
+  color: #F5E8D0;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+.cta-headline em { color: #BB3F2F; }
+.cta-sub {
+  font-family: 'Pirata One', serif;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  color: #F5E8D0;
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+.cta-rock { position: relative; text-align: center; }
+.rock-hand-img { width: clamp(70px, 10vw, 130px); opacity: 0.9; margin: 0 auto; }
+.rock-bubble {
+  position: absolute;
+  top: -16px; right: -8px;
+  background: #F5E8D0;
+  color: #0E0D0D;
+  padding: 0.25rem 0.7rem;
+  border: 2px solid #0E0D0D;
+  box-shadow: 3px 3px 0 #0E0D0D;
+  white-space: nowrap;
+  font-size: 0.75rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .hero-inner { gap: 2rem; }
+  .card-grid { grid-template-columns: repeat(2,1fr); }
+  .disciplines-grid { grid-template-columns: repeat(2,1fr); }
+}
+
+@media (max-width: 768px) {
+  .hero { min-height: auto; }
+  .hero-inner {
+    grid-template-columns: 1fr;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
+  .hero-visual { order: -1; max-height: 55vw; margin-bottom: 1.5rem; }
+  .hero-biker  { max-height: 55vw; width: auto; max-width: 100%; }
+  .hero-bubble-wrap { width: 90px; top: 2%; right: 4%; }
+  .card-grid { grid-template-columns: 1fr; }
+  .disciplines-grid { grid-template-columns: 1fr; }
+  .cta-inner { grid-template-columns: 1fr; text-align: center; }
+  .cta-rock { display: none; }
+  .studio-row { gap: 0.5rem 1.5rem; }
+  .studio-sep { display: none; }
+}
 
-  .logo-mark {
-    font-family: 'Anton', Impact, sans-serif;
-    font-size: 1.75rem;
-    letter-spacing: -0.02em;
-    color: #F5E8D0;
-  }
-
-  .logo-mark span {
-    color: #BB3F2F;
-  }
-
-  nav {
-    display: flex;
-    gap: 2rem;
-    font-family: 'Oswald', system-ui, sans-serif;
-    font-weight: 700;
-    font-size: 0.8rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-  }
-
-  nav a {
-    color: #F5E8D0;
-    transition: color 0.15s;
-  }
-
-  nav a:hover { color: #BB3F2F; }
-
-  .nav-contact {
-    color: #BB3F2F !important;
-    border: 2px solid #BB3F2F;
-    padding: 0.25rem 0.75rem;
-  }
-
-  .container {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 3rem 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
-  }
-
-  /* ── Phase badge ───────────────────────────────────────────────── */
-  .phase-badge {
-    display: inline-flex;
-    align-items: center;
-    background: #BB3F2F;
-    color: #F5E8D0;
-    font-family: 'Oswald', sans-serif;
-    font-weight: 700;
-    font-size: 0.75rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    padding: 0.4rem 1rem;
-    box-shadow: 4px 4px 0 #F5E8D0;
-  }
-
-  /* ── Specimen blocks ───────────────────────────────────────────── */
-  .specimen-block {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    border-left: 3px dashed #BB3F2F;
-    padding-left: 1.5rem;
-  }
-
-  .specimen-label {
-    font-family: 'Oswald', sans-serif;
-    font-weight: 400;
-    font-size: 0.65rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: #5D5954;
-  }
-
-  /* ── Hero name ─────────────────────────────────────────────────── */
-  .hero-name {
-    font-family: 'Anton', Impact, sans-serif;
-    font-size: clamp(3rem, 10vw, 7rem);
-    letter-spacing: -0.03em;
-    line-height: 0.88;
-    color: #F5E8D0;
-  }
-
-  .accent-dot { color: #BB3F2F; }
-
-  .hero-sub {
-    font-family: 'Oswald', sans-serif;
-    font-weight: 500;
-    font-size: 0.9rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #B4AA9A;
-  }
-
-  /* ── Gothic title ──────────────────────────────────────────────── */
-  .gothic-title {
-    font-family: 'Pirata One', serif;
-    font-size: clamp(1.5rem, 4vw, 2.5rem);
-    color: #F5E8D0;
-    letter-spacing: 0.04em;
-    font-weight: 400;
-  }
-
-  /* ── UI labels ─────────────────────────────────────────────────── */
-  .ui-label {
-    font-family: 'Oswald', sans-serif;
-    font-weight: 700;
-    font-size: 1rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #F5E8D0;
-  }
-
-  /* ── Impact callouts ───────────────────────────────────────────── */
-  .impact-text {
-    font-family: 'Bangers', cursive;
-    font-size: clamp(2rem, 6vw, 4rem);
-    letter-spacing: 0.05em;
-    color: #BB3F2F;
-    line-height: 1;
-  }
-
-  /* ── Speech bubble demo ────────────────────────────────────────── */
-  .speech-bubble-demo {
-    position: relative;
-    display: inline-block;
-    background: #F5E8D0;
-    border: 3px solid #0E0D0D;
-    border-radius: 12px;
-    padding: 1rem 1.5rem;
-    max-width: 400px;
-    box-shadow: 4px 4px 0 #0E0D0D;
-  }
-
-  .bubble-text {
-    font-family: 'Comic Neue', cursive;
-    font-weight: 700;
-    font-style: italic;
-    font-size: 1.1rem;
-    color: #0E0D0D;
-    margin: 0;
-  }
-
-  .bubble-tail {
-    position: absolute;
-    bottom: -16px;
-    left: 24px;
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 16px solid #0E0D0D;
-  }
-
-  .bubble-tail::after {
-    content: '';
-    position: absolute;
-    top: -19px;
-    left: -8px;
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-top: 14px solid #F5E8D0;
-  }
-
-  /* ── Body text ─────────────────────────────────────────────────── */
-  .body-text {
-    font-family: 'Inter', system-ui, sans-serif;
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 1.7;
-    color: #B4AA9A;
-    max-width: 620px;
-  }
-
-  /* ── Color swatches ────────────────────────────────────────────── */
-  .swatch-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-  }
-
-  .swatch {
-    width: 120px;
-    padding: 0.75rem;
-    border: 1px solid rgba(245,232,208,0.2);
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-
-  .swatch span {
-    font-family: 'Oswald', sans-serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    font-weight: 600;
-  }
-
-  .swatch code {
-    font-family: 'Courier New', monospace;
-    font-size: 0.65rem;
-    color: inherit;
-    opacity: 0.7;
-  }
-
-  /* ── Buttons ───────────────────────────────────────────────────── */
-  .button-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    align-items: center;
-  }
-
-  .btn-primary {
-    display: inline-block;
-    background: #BB3F2F;
-    color: #F5E8D0;
-    font-family: 'Oswald', sans-serif;
-    font-weight: 700;
-    font-size: 0.85rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    padding: 0.75rem 1.75rem;
-    border: 2px solid #BB3F2F;
-    box-shadow: 4px 4px 0 #F5E8D0;
-    transition: box-shadow 0.1s, transform 0.1s;
-    cursor: pointer;
-  }
-
-  .btn-primary:hover {
-    box-shadow: 2px 2px 0 #F5E8D0;
-    transform: translate(2px, 2px);
-  }
-
-  .btn-secondary {
-    display: inline-block;
-    background: transparent;
-    color: #F5E8D0;
-    font-family: 'Oswald', sans-serif;
-    font-weight: 700;
-    font-size: 0.85rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    padding: 0.75rem 1.75rem;
-    border: 2px solid #F5E8D0;
-    box-shadow: 4px 4px 0 #BB3F2F;
-    transition: box-shadow 0.1s, transform 0.1s;
-    cursor: pointer;
-  }
-
-  .btn-secondary:hover {
-    box-shadow: 2px 2px 0 #BB3F2F;
-    transform: translate(2px, 2px);
-  }
-
-  /* ── Shadow demos ──────────────────────────────────────────────── */
-  .shadow-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    align-items: flex-start;
-  }
-
-  .shadow-demo {
-    background: #1B1918;
-    color: #F5E8D0;
-    font-family: 'Oswald', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding: 1rem 1.5rem;
-    border: 2px solid #F5E8D0;
-    text-align: center;
-    line-height: 1.4;
-  }
-
-  .shadow-comic-ink       { box-shadow: 4px 4px 0 #0E0D0D; border-color: #F5E8D0; }
-  .shadow-comic-red-demo  { box-shadow: 4px 4px 0 #BB3F2F; }
-  .shadow-comic-card-demo { box-shadow: 5px 5px 0 #BB3F2F; }
-
-  /* ── Philosophy callout ────────────────────────────────────────── */
-  .philosophy-callout {
-    position: relative;
-    border: 2px dashed #BB3F2F;
-    padding: 2rem 1.5rem 1.5rem;
-    margin-top: 1rem;
-    border-left: none;
-  }
-
-  .callout-label {
-    position: absolute;
-    top: -0.65rem;
-    left: 1.5rem;
-    background: #0E0D0D;
-    padding: 0 0.5rem;
-    font-family: 'Oswald', sans-serif;
-    font-weight: 700;
-    font-size: 0.65rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: #BB3F2F;
-  }
-
-  .callout-quote {
-    font-family: 'Inter', sans-serif;
-    font-style: italic;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #F5E8D0;
-    margin: 0;
-  }
-
-  /* ── Stack chips ───────────────────────────────────────────────── */
-  .stack-info { border-color: #E6B649; }
-
-  .stack-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .chip {
-    background: #1B1918;
-    color: #F5E8D0;
-    font-family: 'Oswald', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding: 0.3rem 0.75rem;
-    border: 1px solid #5D5954;
-  }
-
-  /* ── Footer ────────────────────────────────────────────────────── */
-  .scaffold-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    padding: 1.25rem 2rem;
-    border-top: 1px solid #1B1918;
-    margin-top: 4rem;
-  }
-
-  .label-oswald {
-    font-family: 'Oswald', sans-serif;
-    font-weight: 700;
-    font-size: 0.7rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: #F5E8D0;
-  }
-
-  .label-oswald.muted { color: #5D5954; }
-
-  /* ── Responsive ────────────────────────────────────────────────── */
-  @media (max-width: 640px) {
-    .scaffold-header { flex-direction: column; gap: 1rem; text-align: center; }
-    nav { gap: 1rem; }
-    .scaffold-footer { justify-content: center; text-align: center; }
-    .swatch-row { gap: 0.5rem; }
-    .swatch { width: calc(50% - 0.25rem); }
-  }
+@media (max-width: 480px) {
+  .hero-ctas { flex-direction: column; }
+  .hero-name { font-size: clamp(2.5rem, 15vw, 4rem); }
+}
 </style>

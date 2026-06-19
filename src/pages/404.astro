@@ -1,0 +1,258 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="404 — Page Not Found · Stefan Malinovic"
+  description="This page doesn't exist — but the work does."
+>
+
+<div class="panel-404">
+
+  <!-- Motion lines: CSS-drawn, no external asset dependency -->
+  <div class="motion-lines" aria-hidden="true">
+    <span class="line l1"></span>
+    <span class="line l2"></span>
+    <span class="line l3"></span>
+    <span class="line l4"></span>
+    <span class="line l5"></span>
+    <span class="line l6"></span>
+    <span class="line l7"></span>
+    <span class="line l8"></span>
+  </div>
+
+  <!-- Decorative vroom overlay -->
+  <img
+    src="/assets/comic/vroom.png"
+    alt=""
+    aria-hidden="true"
+    class="vroom-bg"
+    loading="lazy"
+  />
+
+  <!-- Decorative swoosh -->
+  <img
+    src="/assets/comic/swooshes/swoosh-1.webp"
+    alt=""
+    aria-hidden="true"
+    class="swoosh-deco"
+    loading="lazy"
+  />
+
+  <div class="panel-inner">
+
+    <!-- Sound-effect numeral — the one big swing -->
+    <div class="numeral-wrap" data-reveal style="--reveal-delay:0ms">
+      <span class="numeral-404 font-display" aria-label="404">404</span>
+    </div>
+
+    <!-- Subtitle -->
+    <p class="wrong-turn font-gothic" data-reveal style="--reveal-delay:80ms">
+      Wrong Turn, Rider.
+    </p>
+
+    <!-- Speech bubble -->
+    <div class="speech-bubble" data-reveal style="--reveal-delay:200ms" role="note">
+      <p class="bubble-text font-comic">This page doesn't exist — but the work does.</p>
+    </div>
+
+    <!-- Back home -->
+    <div class="back-wrap" data-reveal style="--reveal-delay:320ms">
+      <a href="/" class="btn-primary">← BACK TO HOME</a>
+    </div>
+
+  </div>
+
+</div>
+
+</Layout>
+
+<style>
+/* ── Reveal ───────────────────────────────────────────────────────── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity  0.6s ease var(--reveal-delay, 0ms),
+    transform 0.6s ease var(--reveal-delay, 0ms);
+}
+[data-reveal].card-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1; transform: none; transition: none; }
+}
+
+/* ── Full-panel layout ───────────────────────────────────────────── */
+.panel-404 {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--ink);
+  /* Deliberate: no grunge texture here — the clean, stark ground makes the 404 hit harder */
+}
+
+/* ── Decorative overlays ──────────────────────────────────────────── */
+.vroom-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.045;
+  pointer-events: none;
+  z-index: 0;
+  user-select: none;
+}
+
+.swoosh-deco {
+  position: absolute;
+  bottom: 8%;
+  left: 5%;
+  width: clamp(120px, 18vw, 260px);
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 1;
+  transform: rotate(-12deg);
+}
+
+/* ── CSS motion lines (the aesthetic risk: speed lines radiating from center) */
+.motion-lines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.line {
+  position: absolute;
+  background: var(--panel);
+  transform-origin: center center;
+  left: 50%;
+  top: 50%;
+}
+
+/* Eight radial lines spaced 22.5° apart — hand-placed for asymmetry */
+.l1 { width: 2px; height: 60vh; transform: translate(-50%, -100%) rotate(0deg);   opacity: 0.6; }
+.l2 { width: 1px; height: 50vh; transform: translate(-50%, -100%) rotate(30deg);  opacity: 0.4; }
+.l3 { width: 2px; height: 70vh; transform: translate(-50%, -100%) rotate(60deg);  opacity: 0.55; }
+.l4 { width: 1px; height: 45vh; transform: translate(-50%, -100%) rotate(90deg);  opacity: 0.35; }
+.l5 { width: 2px; height: 65vh; transform: translate(-50%, -100%) rotate(135deg); opacity: 0.5; }
+.l6 { width: 1px; height: 55vh; transform: translate(-50%, -100%) rotate(165deg); opacity: 0.4; }
+.l7 { width: 2px; height: 58vh; transform: translate(-50%, -100%) rotate(210deg); opacity: 0.55; }
+.l8 { width: 1px; height: 48vh; transform: translate(-50%, -100%) rotate(255deg); opacity: 0.35; }
+
+/* ── Content ──────────────────────────────────────────────────────── */
+.panel-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  gap: 1.5rem;
+}
+
+/* ── The 404 itself: sound-effect scale, cream drop shadow ─────────
+   Risk justification: the numeral is treated as a comic onomatopoeia
+   (like BOOM or KRAK) — enormous, flat cream drop shadow reads as
+   a halftone explosion, not a typo error. ────────────────────────── */
+.numeral-wrap {
+  line-height: 0.82;
+}
+
+.numeral-404 {
+  font-size: clamp(6rem, 20vw, 14rem);
+  letter-spacing: -0.05em;
+  color: var(--accent);
+  /* Two-color drop shadow: cream close, ink far — mimics Ben-Day dot printing */
+  text-shadow:
+    6px  6px  0 var(--cream),
+    10px 10px 0 var(--ink);
+  display: block;
+  user-select: none;
+}
+
+/* ── Subtitle ─────────────────────────────────────────────────────── */
+.wrong-turn {
+  font-size: clamp(1.4rem, 4vw, 2.5rem);
+  color: var(--cream);
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  margin: 0;
+}
+
+/* ── Speech bubble ───────────────────────────────────────────────── */
+.speech-bubble {
+  background: var(--cream);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--accent);
+  padding: 1rem 1.75rem;
+  position: relative;
+  max-width: 38ch;
+}
+
+/* Tail pointing down-left */
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -14px;
+  left: 2rem;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 0px solid transparent;
+  border-top: 14px solid var(--ink);
+}
+.speech-bubble::before {
+  content: '';
+  position: absolute;
+  bottom: -11px;
+  left: 2.15rem;
+  width: 0;
+  height: 0;
+  border-left: 9px solid transparent;
+  border-right: 0px solid transparent;
+  border-top: 12px solid var(--cream);
+  z-index: 1;
+}
+
+.bubble-text {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--ink);
+  margin: 0;
+}
+
+/* ── Back link ────────────────────────────────────────────────────── */
+.back-wrap {
+  margin-top: 0.5rem;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .panel-inner { gap: 1.25rem; padding: 1.5rem 1rem; }
+  .speech-bubble { padding: 0.9rem 1.25rem; }
+  .swoosh-deco { display: none; }
+}
+</style>
+
+<script>
+const obs = new IntersectionObserver(
+  (entries) => entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('card-visible');
+      obs.unobserve(e.target);
+    }
+  }),
+  { threshold: 0.1 }
+);
+document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
+</script>

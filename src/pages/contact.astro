@@ -1,0 +1,312 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Contact — Stefan Malinovic"
+  description="Get in touch with Stefan Malinovic — Senior Level & Game Designer. Open for AAA, VR, indie, and remote opportunities."
+>
+
+<!-- ══════════════════ CONTACT HERO ═══════════════════════════════════ -->
+<section class="contact-hero">
+  <div class="section-inner">
+    <div class="hero-text-block" data-reveal style="--reveal-delay:0ms">
+      <h1 class="contact-headline font-display">LET'S BUILD<br/>SOMETHING.</h1>
+      <p class="contact-sub font-body">
+        Open for new opportunities — AAA, VR, indie, and everything between.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ CONTACT BODY ═══════════════════════════════════ -->
+<section class="contact-body">
+  <div class="section-inner contact-columns">
+
+    <!-- LEFT: Link blocks -->
+    <div class="links-column">
+
+      <a href="mailto:stefans.malinovic@gmail.com" class="contact-link-block" data-reveal style="--reveal-delay:60ms">
+        <span class="link-label font-ui">EMAIL</span>
+        <span class="link-value font-ui">stefans.malinovic@gmail.com</span>
+        <span class="link-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a href="#" class="contact-link-block" data-reveal style="--reveal-delay:140ms" rel="noopener noreferrer" target="_blank">
+        <span class="link-label font-ui">LINKEDIN</span>
+        <span class="link-value font-ui">linkedin.com/in/stefanmalinovic</span>
+        <span class="link-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a href="#" class="contact-link-block" data-reveal style="--reveal-delay:220ms" rel="noopener noreferrer" target="_blank">
+        <span class="link-label font-ui">ARTSTATION</span>
+        <span class="link-value font-ui">artstation.com/stefanmalinovic</span>
+        <span class="link-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a href="https://github.com/Steppenvvolf" class="contact-link-block" data-reveal style="--reveal-delay:300ms" rel="noopener noreferrer" target="_blank">
+        <span class="link-label font-ui">GITHUB</span>
+        <span class="link-value font-ui">github.com/Steppenvvolf</span>
+        <span class="link-arrow" aria-hidden="true">→</span>
+      </a>
+
+    </div>
+
+    <!-- RIGHT: Downloads + bubble -->
+    <div class="downloads-column" data-reveal style="--reveal-delay:120ms">
+
+      <div class="downloads-header">
+        <h2 class="downloads-title section-title">GRAB THE DOCS</h2>
+      </div>
+
+      <div class="download-buttons">
+        <a
+          href="/cv/stefan-malinovic-portfolio.pdf"
+          target="_blank"
+          rel="noopener"
+          class="btn-primary"
+        >PORTFOLIO PDF →</a>
+
+        <a
+          href="/cv/stefan-malinovic-level-design-cv.docx"
+          target="_blank"
+          rel="noopener"
+          class="btn-secondary"
+        >LEVEL DESIGN CV →</a>
+      </div>
+
+      <p class="files-note font-body">(Files updated when Stefan pushes to GitHub)</p>
+
+      <div class="hire-bubble philosophy-callout" role="note">
+        <span class="callout-label">OPEN TO WORK</span>
+        <p class="hire-text font-comic">HIRE ME!</p>
+        <p class="hire-sub font-body">Belgrade-based · remote worldwide · relocation negotiable</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════ LOCATION FOOTER ═══════════════════════════════ -->
+<div class="location-band">
+  <p class="location-text font-ui">BASED IN BELGRADE, SERBIA · REMOTE WORLDWIDE</p>
+</div>
+
+</Layout>
+
+<style>
+/* ── Reveal animation (IntersectionObserver-driven) ─────────────── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity  0.6s ease var(--reveal-delay, 0ms),
+    transform 0.6s ease var(--reveal-delay, 0ms);
+}
+[data-reveal].card-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1; transform: none; transition: none; }
+}
+
+/* ── Hero ─────────────────────────────────────────────────────────── */
+.contact-hero {
+  padding: 5rem 0 3rem;
+}
+
+.hero-text-block {
+  max-width: 820px;
+}
+
+.contact-headline {
+  font-size: clamp(3rem, 9vw, 7.5rem);
+  letter-spacing: -0.03em;
+  line-height: 0.88;
+  color: var(--cream);
+  margin-bottom: 1.5rem;
+  /* The one deliberate typographic push: cream text with no stroke, relying purely on size */
+}
+
+.contact-sub {
+  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+  color: var(--body);
+  max-width: 52ch;
+  line-height: 1.65;
+}
+
+/* ── Body layout ──────────────────────────────────────────────────── */
+.contact-body {
+  padding: 1rem 0 4rem;
+}
+
+.contact-columns {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* ── Link blocks ─────────────────────────────────────────────────── */
+.links-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-link-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 1.25rem 1.5rem;
+  border: 2px solid var(--cream);
+  box-shadow: 4px 4px 0 var(--accent);
+  position: relative;
+  background: transparent;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s, box-shadow 0.1s, transform 0.1s;
+  cursor: pointer;
+}
+
+.contact-link-block:hover {
+  background: var(--accent);
+  box-shadow: 2px 2px 0 var(--accent);
+  transform: translate(2px, 2px);
+}
+
+.contact-link-block:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.link-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  color: var(--body);
+  transition: color 0.15s;
+}
+
+.link-value {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--cream);
+  letter-spacing: 0.04em;
+  transition: color 0.15s;
+  word-break: break-all;
+}
+
+.link-arrow {
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--accent);
+  transition: color 0.15s, transform 0.15s;
+  pointer-events: none;
+}
+
+.contact-link-block:hover .link-label,
+.contact-link-block:hover .link-value {
+  color: var(--cream);
+}
+
+.contact-link-block:hover .link-arrow {
+  color: var(--cream);
+  transform: translateY(-50%) translateX(4px);
+}
+
+/* ── Downloads column ────────────────────────────────────────────── */
+.downloads-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.downloads-header {
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--panel);
+}
+
+.downloads-title {
+  font-family: 'Pirata One', serif;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: var(--cream);
+}
+
+.download-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.files-note {
+  font-size: 0.78rem;
+  color: var(--body);
+  opacity: 0.7;
+  line-height: 1.5;
+}
+
+/* ── Hire bubble ─────────────────────────────────────────────────── */
+.hire-bubble {
+  margin-top: 0.5rem;
+}
+
+.hire-text {
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
+  color: var(--ink);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.hire-sub {
+  font-size: 0.82rem;
+  color: var(--ink);
+  opacity: 0.75;
+  line-height: 1.5;
+}
+
+/* ── Location band ───────────────────────────────────────────────── */
+.location-band {
+  border-top: 1px solid var(--panel);
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.location-text {
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  color: var(--body);
+  opacity: 0.6;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .contact-columns {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-headline { line-height: 0.9; }
+  .download-buttons { gap: 0.75rem; }
+}
+</style>
+
+<script>
+const obs = new IntersectionObserver(
+  (entries) => entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('card-visible');
+      obs.unobserve(e.target);
+    }
+  }),
+  { threshold: 0.1 }
+);
+document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
+</script>

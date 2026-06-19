@@ -1,12 +1,12 @@
 /* ─── Google Fonts ─────────────────────────────────────────────────────── */
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Bangers&family=Comic+Neue:ital,wght@0,400;0,700;1,700&family=Inter:wght@400;500;600&family=Oswald:wght@400;500;600;700&family=Pirata+One&display=swap');
 
-/* ─── Tailwind layers ─────────────────────────────────────────────────── */
+/* ─── Tailwind ────────────────────────────────────────────────────────── */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ─── CSS custom properties (mirror Tailwind tokens) ─────────────────── */
+/* ─── CSS tokens ──────────────────────────────────────────────────────── */
 :root {
   --ink:    #0E0D0D;
   --panel:  #1B1918;
@@ -16,10 +16,8 @@
   --gold:   #E6B649;
 }
 
-/* ─── Base ────────────────────────────────────────────────────────────── */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
+/* ─── Base reset ──────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
 
 html {
   scroll-behavior: smooth;
@@ -29,91 +27,144 @@ html {
 
 body {
   margin: 0;
+  min-height: 100dvh;
   background-color: var(--ink);
   color: var(--cream);
   font-family: 'Oswald', system-ui, sans-serif;
-  min-height: 100dvh;
-  /* Grunge atmosphere: dark base + subtle CSS halftone dots */
-  background-image:
-    radial-gradient(ellipse 80% 60% at 50% -10%, #2a1a14 0%, transparent 70%),
-    radial-gradient(ellipse 60% 40% at 90% 100%, #1a0f0c 0%, transparent 60%),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Ccircle cx='2' cy='2' r='0.5' fill='%23F5E8D0' opacity='0.04'/%3E%3C/svg%3E");
-  background-size: cover, cover, 4px 4px;
-  background-attachment: fixed, fixed, fixed;
+  /* Grunge background texture */
+  background-image: url('/assets/textures/grunge-bg.jpg');
+  background-size: cover;
+  background-position: center top;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
-/* When the real grunge bg image is in place, swap this: */
-.has-grunge-bg {
-  background-image:
-    url('/assets/bg/grunge-bg.jpg'),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Ccircle cx='2' cy='2' r='0.5' fill='%23F5E8D0' opacity='0.04'/%3E%3C/svg%3E");
-  background-blend-mode: multiply, normal;
+h1, h2, h3, h4, h5, h6 { margin: 0; line-height: 1; }
+p { margin: 0; line-height: 1.6; }
+a { color: inherit; text-decoration: none; }
+img, svg { display: block; max-width: 100%; }
+button { cursor: pointer; }
+
+/* ─── Section wrapper ─────────────────────────────────────────────────── */
+.section-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
-/* ─── Typography scale ────────────────────────────────────────────────── */
-h1, h2, h3, h4, h5, h6 {
-  margin: 0;
-  line-height: 1;
-}
+/* ─── Typography utilities ────────────────────────────────────────────── */
+.font-display  { font-family: 'Anton', Impact, sans-serif; }
+.font-gothic   { font-family: 'Pirata One', serif; }
+.font-ui       { font-family: 'Oswald', system-ui, sans-serif; text-transform: uppercase; letter-spacing: 0.12em; }
+.font-impact   { font-family: 'Bangers', cursive; }
+.font-comic    { font-family: 'Comic Neue', cursive; font-weight: 700; font-style: italic; }
+.font-body     { font-family: 'Inter', system-ui, sans-serif; }
 
-p {
-  margin: 0;
-  line-height: 1.6;
-}
+/* ─── Comic design tokens ─────────────────────────────────────────────── */
+.shadow-comic       { box-shadow: 4px 4px 0 var(--ink); }
+.shadow-comic-red   { box-shadow: 4px 4px 0 var(--accent); }
+.shadow-comic-cream { box-shadow: 4px 4px 0 var(--cream); }
+.shadow-comic-card  { box-shadow: 5px 5px 0 var(--accent); }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-img, svg {
-  display: block;
-  max-width: 100%;
-}
-
-/* ─── Comic design rules ──────────────────────────────────────────────── */
-/* Hard offset shadows only — no blur radius */
-.shadow-comic      { box-shadow: 4px 4px 0 var(--ink); }
-.shadow-comic-red  { box-shadow: 4px 4px 0 var(--accent); }
-.shadow-comic-card { box-shadow: 5px 5px 0 var(--accent); }
-.shadow-comic-cream{ box-shadow: 4px 4px 0 var(--cream); }
-
-/* ALL-CAPS Oswald label utility */
-.label-ui {
-  font-family: 'Oswald', system-ui, sans-serif;
+/* ─── CTA Buttons ─────────────────────────────────────────────────────── */
+.btn-primary {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--cream);
+  font-family: 'Oswald', sans-serif;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
+  padding: 0.85rem 2rem;
+  border: 2px solid var(--accent);
+  box-shadow: 4px 4px 0 var(--cream);
+  transition: box-shadow 0.1s, transform 0.1s;
+  white-space: nowrap;
 }
 
-/* Pirata One gothic heading */
-.heading-gothic {
-  font-family: '"Pirata One"', serif;
+.btn-primary:hover {
+  box-shadow: 2px 2px 0 var(--cream);
+  transform: translate(2px, 2px);
+}
+
+.btn-secondary {
+  display: inline-block;
+  background: transparent;
+  color: var(--cream);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.85rem 2rem;
+  border: 2px solid var(--cream);
+  box-shadow: 4px 4px 0 var(--accent);
+  transition: box-shadow 0.1s, transform 0.1s;
+  white-space: nowrap;
+}
+
+.btn-secondary:hover {
+  box-shadow: 2px 2px 0 var(--accent);
+  transform: translate(2px, 2px);
+}
+
+/* ─── Design philosophy callout ───────────────────────────────────────── */
+.philosophy-callout {
+  position: relative;
+  border: 2px dashed var(--accent);
+  padding: 2.5rem 2rem 2rem;
+}
+
+.philosophy-callout .callout-label {
+  position: absolute;
+  top: -0.65rem;
+  left: 1.5rem;
+  background: var(--ink);
+  padding: 0 0.5rem;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ─── Section title (Pirata One) ─────────────────────────────────────── */
+.section-title {
+  font-family: 'Pirata One', serif;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 400;
+  color: var(--cream);
   letter-spacing: 0.04em;
 }
 
-/* Anton display */
-.heading-display {
-  font-family: 'Anton', Impact, sans-serif;
-  letter-spacing: -0.02em;
-  line-height: 0.9;
-}
-
-/* ─── Scroll reveal ───────────────────────────────────────────────────── */
-@keyframes fadeSlideUp {
-  from { opacity: 0; transform: translateY(24px); }
+/* ─── Scroll reveal animation ─────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
 .reveal {
-  animation: fadeSlideUp 0.6s ease forwards;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards;
 }
+
+.reveal-delay-1 { animation-delay: 0.1s; }
+.reveal-delay-2 { animation-delay: 0.2s; }
+.reveal-delay-3 { animation-delay: 0.3s; }
+.reveal-delay-4 { animation-delay: 0.4s; }
+.reveal-delay-5 { animation-delay: 0.5s; }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal { animation: none; opacity: 1; transform: none; }
+  .reveal, [class*="reveal-delay"] {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
 }
 
-/* ─── Focus visible (accessibility) ──────────────────────────────────── */
+/* ─── Focus visible ───────────────────────────────────────────────────── */
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;

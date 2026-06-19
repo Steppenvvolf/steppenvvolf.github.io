@@ -1,0 +1,206 @@
+---
+const pathname = Astro.url.pathname;
+
+function isActive(href: string): boolean {
+  if (href === '/') return pathname === '/';
+  return pathname.startsWith(href);
+}
+---
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="/assets/brand/sm-logo.webp" alt="Stefan Malinovic" height="36" />
+      <span class="logo-text">SM<span class="logo-dot">.</span></span>
+    </a>
+
+    <nav class="desktop-nav">
+      <a href="/work" class={`nav-link${isActive('/work') ? ' active' : ''}`}>WORK</a>
+      <a href="/process" class={`nav-link${isActive('/process') ? ' active' : ''}`}>PROCESS</a>
+      <a href="/about" class={`nav-link${isActive('/about') ? ' active' : ''}`}>ABOUT</a>
+      <a href="/contact" class={`nav-link nav-contact${isActive('/contact') ? ' active' : ''}`}>CONTACT</a>
+    </nav>
+
+    <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="/work" class={`mobile-link${isActive('/work') ? ' active' : ''}`}>WORK</a>
+    <a href="/process" class={`mobile-link${isActive('/process') ? ' active' : ''}`}>PROCESS</a>
+    <a href="/about" class={`mobile-link${isActive('/about') ? ' active' : ''}`}>ABOUT</a>
+    <a href="/contact" class={`mobile-link${isActive('/contact') ? ' active' : ''}`}>CONTACT</a>
+  </nav>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(14, 13, 13, 0.97);
+    border-bottom: 2px solid #F5E8D0;
+  }
+
+  .header-inner {
+    max-width: 1280px;
+    margin: auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: #F5E8D0;
+  }
+
+  .logo img {
+    display: block;
+  }
+
+  .logo-text {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.75rem;
+    line-height: 1;
+    color: #F5E8D0;
+  }
+
+  .logo-dot {
+    color: #BB3F2F;
+  }
+
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .nav-link {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #B4AA9A;
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: #BB3F2F;
+  }
+
+  .nav-contact {
+    border: 2px solid #BB3F2F;
+    padding: 0.3rem 0.75rem;
+    color: #BB3F2F;
+    transition: color 0.15s, background 0.15s;
+  }
+
+  .nav-contact:hover {
+    background: #BB3F2F;
+    color: #F5E8D0;
+  }
+
+  .nav-contact.active {
+    background: #BB3F2F;
+    color: #F5E8D0;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #F5E8D0;
+    transition: transform 0.2s, opacity 0.2s;
+  }
+
+  .hamburger[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .hamburger[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .mobile-nav {
+    display: none;
+    flex-direction: column;
+    background: rgba(14, 13, 13, 0.97);
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.25s ease;
+  }
+
+  .mobile-nav.open {
+    max-height: 400px;
+  }
+
+  .mobile-link {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #B4AA9A;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #1B1918;
+    transition: color 0.15s, background 0.15s;
+  }
+
+  .mobile-link:hover,
+  .mobile-link.active {
+    color: #BB3F2F;
+    background: #1B1918;
+  }
+
+  @media (max-width: 768px) {
+    .desktop-nav {
+      display: none;
+    }
+
+    .hamburger {
+      display: flex;
+    }
+
+    .mobile-nav {
+      display: flex;
+    }
+  }
+</style>
+
+<script>
+  const hamburger = document.querySelector('.hamburger') as HTMLButtonElement | null;
+  const mobileNav = document.getElementById('mobile-nav');
+
+  if (hamburger && mobileNav) {
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', String(isOpen));
+    });
+  }
+</script>

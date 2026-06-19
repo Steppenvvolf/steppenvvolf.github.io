@@ -1,0 +1,127 @@
+---
+interface Props {
+  title: string;
+  tag: 'CURRENT' | 'AAA' | 'VR' | 'F2P' | 'JAM' | 'INDIE';
+  studio: string;
+  role: string;
+  engine: string;
+  year: string;
+  cover: string;
+  href: string;
+  featured?: boolean;
+}
+
+const { title, tag, studio, role, engine, year, cover, href, featured = false } = Astro.props;
+
+const tagClass = `tag tag--${tag.toLowerCase()}`;
+---
+
+<a href={href} class={`project-card${featured ? ' project-card--featured' : ''}`}>
+  <span class={tagClass}>{tag}</span>
+  <img src={cover} alt={title} class="card-cover" />
+  <div class="card-strip">
+    <h3 class="card-title">{title}</h3>
+    <p class="card-meta">{studio.toUpperCase()} · {role.toUpperCase()} · {engine.toUpperCase()} · {year}</p>
+  </div>
+</a>
+
+<style>
+  .project-card {
+    position: relative;
+    display: block;
+    border: 2px solid #F5E8D0;
+    box-shadow: 5px 5px 0 #BB3F2F;
+    transition: transform 0.15s, box-shadow 0.15s;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    background: #1B1918;
+    text-decoration: none;
+  }
+
+  .project-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0 #BB3F2F;
+  }
+
+  .tag {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 2;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.5rem;
+    line-height: 1.4;
+  }
+
+  /* CURRENT — red fill, cream text */
+  .tag--current {
+    background: #BB3F2F;
+    color: #F5E8D0;
+    border: 2px solid #BB3F2F;
+  }
+
+  /* AAA — gold fill, ink text */
+  .tag--aaa {
+    background: #E6B649;
+    color: #0E0D0D;
+    border: 2px solid #E6B649;
+  }
+
+  /* VR — transparent, cream border + text */
+  .tag--vr {
+    background: transparent;
+    color: #F5E8D0;
+    border: 2px solid #F5E8D0;
+  }
+
+  /* F2P, JAM, INDIE — dark fill, cream border + text */
+  .tag--f2p,
+  .tag--jam,
+  .tag--indie {
+    background: #1B1918;
+    color: #F5E8D0;
+    border: 2px solid #F5E8D0;
+  }
+
+  .card-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .card-strip {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, #0E0D0D 0%, transparent 100%);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .card-title {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    color: #F5E8D0;
+    margin: 0;
+    line-height: 1.1;
+  }
+
+  .card-meta {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #B4AA9A;
+    margin: 0;
+    line-height: 1.4;
+  }
+</style>

@@ -1,0 +1,447 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const beliefs = [
+  {
+    label: "Spatial Storytelling",
+    desc: "Every room, corridor, and vista is a sentence in the world's narrative. Space speaks before dialogue does.",
+  },
+  {
+    label: "Player Empathy",
+    desc: "Design for the player who has never seen the level before. Clarity is a courtesy, not a compromise.",
+  },
+  {
+    label: "Iterative Craft",
+    desc: "The first blockout is a hypothesis. Playtesting is the experiment. Iteration is how good levels become great.",
+  },
+  {
+    label: "Systems Thinking",
+    desc: "Levels don't exist in isolation. Every design decision must account for the mechanics, economy, and AI that inhabit the space.",
+  },
+];
+
+const steps = [
+  { num: "01", title: "Discovery & Research",      desc: "Understand the game pillars, reference the genre, map the player journey." },
+  { num: "02", title: "Concept & Blockout",         desc: "2D maps, flow diagrams, and rough 3D blockout to prove the idea fast." },
+  { num: "03", title: "Design Documentation",       desc: "GDD sections, encounter briefs, and metrics sheets that align the team." },
+  { num: "04", title: "Greybox Implementation",     desc: "Full greybox with tuned metrics, encounter scripting, and first-pass lighting." },
+  { num: "05", title: "Iteration & Playtesting",    desc: "Structured test sessions, annotated walkthroughs, data-driven refinement." },
+  { num: "06", title: "Art-Handover Polish",        desc: "Environmental storytelling layer, set-dressing review, and prop-placement passes." },
+  { num: "07", title: "Ship & Postmortem",          desc: "Final certification pass, analytics review, and documented lessons for the next project." },
+];
+
+const tools = [
+  "Unreal Engine 5", "Unity", "Jira", "Confluence", "Miro",
+  "Figma", "Perforce", "Git", "Maya", "Blender", "Substance Designer",
+];
+---
+
+<Layout
+  title="Process & Philosophy — Stefan Malinovic"
+  description="How Stefan Malinovic approaches level and game design — from discovery to ship, and the beliefs that drive every decision."
+>
+
+<!-- ═══════════════════ PAGE HEADER ═══════════════════════════════════════ -->
+<section class="page-header" data-section>
+  <div class="section-inner page-header-inner">
+    <div class="page-header-eyebrow">
+      <span class="eyebrow-line"></span>
+      <span class="eyebrow-label">HOW I WORK</span>
+    </div>
+    <h1 class="page-title font-gothic">Process &amp; Philosophy<span class="accent-dot">.</span></h1>
+    <p class="page-subtitle font-body">
+      Eight years of shipping games across four studios distilled into a way of working — disciplined enough to scale, fluid enough to adapt.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════ BELIEFS ══════════════════════════════════════════ -->
+<section class="beliefs-section" data-section>
+  <div class="section-inner">
+    <div class="section-head">
+      <h2 class="section-title">Four Beliefs</h2>
+      <span class="issue-label">DESIGN PILLARS</span>
+    </div>
+    <div class="beliefs-grid">
+      {beliefs.map((b, i) => (
+        <div class="belief-card" data-card-reveal style={`--card-delay:${i * 100}ms`}>
+          <div class="belief-number" aria-hidden="true">0{i + 1}</div>
+          <h3 class="belief-label font-ui">{b.label}</h3>
+          <p class="belief-desc font-body">{b.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ WORKFLOW ════════════════════════════════════════ -->
+<section class="workflow-section" data-section>
+  <div class="section-inner">
+    <div class="section-head">
+      <h2 class="section-title">The Workflow</h2>
+      <span class="issue-label">01 → 07</span>
+    </div>
+    <ol class="steps-list" role="list">
+      {steps.map((step, i) => (
+        <li class="step-item" data-card-reveal style={`--card-delay:${i * 80}ms`}>
+          <div class="step-num font-display" aria-hidden="true">{step.num}</div>
+          <div class="step-body">
+            <h3 class="step-title font-ui">{step.title}</h3>
+            <p class="step-desc font-body">{step.desc}</p>
+          </div>
+          <div class="step-line" aria-hidden="true"></div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<!-- ═══════════════════ TOOLBOX ════════════════════════════════════════ -->
+<section class="toolbox-section" data-section>
+  <div class="section-inner">
+    <div class="section-head">
+      <h2 class="section-title">Toolbox</h2>
+      <span class="issue-label">DAILY DRIVERS</span>
+    </div>
+    <div class="tool-chips" data-card-reveal style="--card-delay:0ms">
+      {tools.map(tool => (
+        <span class="tool-chip font-ui">{tool}</span>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PULL QUOTE ══════════════════════════════════════ -->
+<section class="quote-section" data-section>
+  <div class="section-inner">
+    <div class="philosophy-callout quote-callout" data-card-reveal style="--card-delay:0ms">
+      <span class="callout-label">DESIGN PHILOSOPHY</span>
+      <blockquote class="pull-quote font-gothic" lang="en">
+        Every door I place tells a story.<br />Every corridor builds anticipation.
+      </blockquote>
+      <cite class="pull-cite font-ui">— Stefan Malinovic</cite>
+    </div>
+  </div>
+</section>
+
+</Layout>
+
+<script>
+  // ── Scroll reveal ───────────────────────────────────────────────────────
+  const sectionObs = new IntersectionObserver(
+    (entries) => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in-view'); sectionObs.unobserve(e.target); }
+    }),
+    { threshold: 0.08 }
+  );
+  document.querySelectorAll('[data-section]').forEach(el => sectionObs.observe(el));
+
+  const cardObs = new IntersectionObserver(
+    (entries) => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('card-visible'); cardObs.unobserve(e.target); }
+    }),
+    { threshold: 0.06 }
+  );
+  document.querySelectorAll('[data-card-reveal]').forEach(el => cardObs.observe(el));
+</script>
+
+<style>
+/* ── Shared section chrome ───────────────────────────────────────────────── */
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #1B1918;
+  margin-bottom: 2.5rem;
+}
+.issue-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #5D5954;
+}
+
+/* Section reveal */
+[data-section] .section-head,
+[data-section] .page-header-eyebrow,
+[data-section] .page-title,
+[data-section] .page-subtitle {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+[data-section].in-view .page-header-eyebrow { opacity: 1; transform: translateY(0); }
+[data-section].in-view .page-title          { opacity: 1; transform: translateY(0); transition-delay: 0.1s; }
+[data-section].in-view .page-subtitle       { opacity: 1; transform: translateY(0); transition-delay: 0.2s; }
+[data-section].in-view .section-head        { opacity: 1; transform: translateY(0); }
+
+/* Card stagger */
+[data-card-reveal] {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.55s ease var(--card-delay, 0ms), transform 0.55s ease var(--card-delay, 0ms);
+}
+[data-card-reveal].card-visible { opacity: 1; transform: translateY(0); }
+
+/* ── Page header ─────────────────────────────────────────────────────────── */
+.page-header {
+  padding: 5rem 0 3.5rem;
+  border-bottom: 1px solid #1B1918;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-header::before {
+  content: 'PROCESS';
+  position: absolute;
+  right: -0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Anton', Impact, sans-serif;
+  font-size: clamp(4rem, 12vw, 11rem);
+  color: #1B1918;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  letter-spacing: -0.03em;
+}
+
+.page-header-inner { position: relative; z-index: 1; }
+
+.page-header-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+.eyebrow-line {
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: #BB3F2F;
+  flex-shrink: 0;
+}
+.eyebrow-label {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #BB3F2F;
+}
+
+.page-title {
+  font-size: clamp(2.2rem, 6vw, 4.5rem);
+  font-weight: 400;
+  color: #F5E8D0;
+  letter-spacing: 0.03em;
+  line-height: 0.95;
+  margin-bottom: 1.25rem;
+}
+.accent-dot { color: #BB3F2F; }
+
+.page-subtitle {
+  font-size: 0.95rem;
+  color: #B4AA9A;
+  line-height: 1.7;
+  max-width: 52ch;
+}
+
+/* ── Beliefs ─────────────────────────────────────────────────────────────── */
+.beliefs-section { padding: 5rem 0; }
+
+.beliefs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.belief-card {
+  padding: 2rem;
+  border: 2px solid #1B1918;
+  position: relative;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  background: rgba(27, 25, 24, 0.4);
+}
+
+.belief-card:hover {
+  border-color: #BB3F2F;
+  box-shadow: 5px 5px 0 #BB3F2F;
+  transform: translate(-2px, -2px);
+}
+
+.belief-number {
+  font-family: 'Anton', Impact, sans-serif;
+  font-size: 4rem;
+  color: #1B1918;
+  line-height: 1;
+  margin-bottom: 0.75rem;
+  user-select: none;
+  transition: color 0.25s;
+}
+
+.belief-card:hover .belief-number { color: rgba(187, 63, 47, 0.15); }
+
+.belief-label {
+  font-size: 0.88rem;
+  color: #F5E8D0;
+  margin-bottom: 0.75rem;
+}
+
+.belief-desc {
+  font-size: 0.87rem;
+  color: #B4AA9A;
+  line-height: 1.7;
+}
+
+/* ── Workflow ────────────────────────────────────────────────────────────── */
+.workflow-section { padding: 5rem 0; border-top: 1px solid #1B1918; }
+
+.steps-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.step-item {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: 0 2rem;
+  align-items: start;
+  position: relative;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid #1B1918;
+}
+
+.step-item:first-child { border-top: 1px solid #1B1918; }
+
+/* Vertical progress line */
+.step-item::before {
+  content: '';
+  position: absolute;
+  left: calc(7rem / 2 - 1px);
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #1B1918;
+  z-index: 0;
+}
+
+.step-item:last-child::before { bottom: 50%; }
+.step-item:first-child::before { top: 50%; }
+
+.step-num {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: #E6B649;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  position: relative;
+  z-index: 1;
+  padding-top: 0.1em;
+  transition: color 0.2s;
+}
+
+.step-item:hover .step-num { color: #BB3F2F; }
+
+.step-body { padding-top: 0.25rem; }
+
+.step-title {
+  font-size: 0.88rem;
+  color: #F5E8D0;
+  margin-bottom: 0.5rem;
+}
+
+.step-desc {
+  font-size: 0.85rem;
+  color: #B4AA9A;
+  line-height: 1.7;
+}
+
+.step-line { display: none; }
+
+/* ── Toolbox ─────────────────────────────────────────────────────────────── */
+.toolbox-section { padding: 5rem 0; border-top: 1px solid #1B1918; }
+
+.tool-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.tool-chip {
+  font-size: 0.72rem;
+  color: #F5E8D0;
+  background: #1B1918;
+  border: 2px solid #3D3935;
+  padding: 0.5rem 1.1rem;
+  transition: border-color 0.2s, box-shadow 0.15s, transform 0.15s, color 0.2s;
+  cursor: default;
+}
+
+.tool-chip:hover {
+  border-color: #E6B649;
+  color: #E6B649;
+  box-shadow: 3px 3px 0 #E6B649;
+  transform: translate(-1px, -1px);
+}
+
+/* ── Pull quote ──────────────────────────────────────────────────────────── */
+.quote-section {
+  padding: 5rem 0 6rem;
+  border-top: 1px solid #1B1918;
+}
+
+.quote-callout {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.pull-quote {
+  font-size: clamp(1.6rem, 4vw, 3rem);
+  font-weight: 400;
+  color: #F5E8D0;
+  letter-spacing: 0.03em;
+  line-height: 1.25;
+  margin: 0 0 1.5rem;
+}
+
+.pull-cite {
+  font-size: 0.68rem;
+  color: #BB3F2F;
+  letter-spacing: 0.2em;
+  display: block;
+  font-style: normal;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .page-header { padding: 3.5rem 0 2.5rem; }
+  .page-header::before { display: none; }
+
+  .beliefs-grid { grid-template-columns: 1fr; }
+
+  .step-item {
+    grid-template-columns: 4.5rem 1fr;
+    gap: 0 1rem;
+  }
+  .step-item::before { left: calc(4.5rem / 2 - 1px); }
+  .step-num { font-size: clamp(2rem, 8vw, 2.8rem); }
+
+  .quote-section { padding: 4rem 0; }
+  .pull-quote { font-size: clamp(1.4rem, 5.5vw, 2rem); }
+}
+
+@media (max-width: 480px) {
+  .step-item {
+    grid-template-columns: 1fr;
+  }
+  .step-item::before { display: none; }
+  .step-num { font-size: 2rem; }
+}
+</style>

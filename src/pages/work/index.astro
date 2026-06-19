@@ -1,0 +1,413 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+
+const projects = [
+  {
+    title: "Tales Edge",
+    tag: "CURRENT" as const,
+    studio: "RedSixteen Interactive",
+    role: "Lead Level Designer",
+    engine: "UE5",
+    year: "2024–Present",
+    cover: "/assets/projects/tales-edge/tales-edge-02.webp",
+    href: "/work/tales-edge",
+    discipline: "Level Design",
+  },
+  {
+    title: "Riders Republic",
+    tag: "AAA" as const,
+    studio: "Ubisoft",
+    role: "Level Designer",
+    engine: "Anvil",
+    year: "2019–2021",
+    cover: "/assets/projects/riders-republic/riders-republic-10.webp",
+    href: "/work/riders-republic",
+    discipline: "Level Design",
+  },
+  {
+    title: "AC Nexus VR",
+    tag: "VR" as const,
+    studio: "Ubisoft",
+    role: "Level & Mission Designer",
+    engine: "Unity",
+    year: "2021–2022",
+    cover: "/assets/projects/ac-nexus-vr/ac-nexus-vr-01.webp",
+    href: "/work/ac-nexus-vr",
+    discipline: "Level Design",
+  },
+  {
+    title: "myVEGAS Slots",
+    tag: "F2P" as const,
+    studio: "PlayStudios",
+    role: "Game Designer",
+    engine: "Unity",
+    year: "2022–2023",
+    cover: "/assets/projects/milc/milc-01.webp",
+    href: "/work/myvegas",
+    discipline: "Game Design",
+  },
+  {
+    title: "Tetris Live",
+    tag: "F2P" as const,
+    studio: "MILC",
+    role: "Game Designer",
+    engine: "Custom",
+    year: "2023–2024",
+    cover: "/assets/projects/tetris/tetris-01.webp",
+    href: "/work/tetris-live",
+    discipline: "Game Design",
+  },
+  {
+    title: "Game Jams",
+    tag: "JAM" as const,
+    studio: "Independent",
+    role: "Designer & Developer",
+    engine: "Various",
+    year: "2018–Present",
+    cover: "/assets/projects/jams/jams-01.webp",
+    href: "/work/game-jams",
+    discipline: "Indie",
+  },
+  {
+    title: "Mobile Apps",
+    tag: "INDIE" as const,
+    studio: "Triardor DOO",
+    role: "Product Designer",
+    engine: "React Native",
+    year: "2020–Present",
+    cover: "/assets/projects/apps/apps-01.webp",
+    href: "/work/mobile-apps",
+    discipline: "Indie",
+  },
+];
+---
+
+<Layout
+  title="All Work — Stefan Malinovic"
+  description="The full project archive of Stefan Malinovic — eight years of level design, game design, and indie work across AAA, VR, and free-to-play."
+>
+
+<!-- ═══════════════════ PAGE HEADER ═══════════════════════════════════════ -->
+<section class="page-header" data-section>
+  <div class="section-inner page-header-inner">
+    <div class="page-header-eyebrow">
+      <span class="eyebrow-line"></span>
+      <span class="eyebrow-label">PORTFOLIO ARCHIVE</span>
+    </div>
+    <h1 class="page-title">ALL WORK<span class="accent-dot">.</span></h1>
+    <p class="page-subtitle font-body">
+      Eight years. Four studios. One obsession with how space shapes experience.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════ FILTER + GRID ════════════════════════════════════ -->
+<section class="work-section" data-section>
+  <div class="section-inner">
+
+    <!-- Filter bar -->
+    <div class="filter-bar" role="group" aria-label="Filter projects by discipline">
+      <button class="filter-btn active" data-filter="ALL">ALL</button>
+      <button class="filter-btn" data-filter="Level Design">LEVEL DESIGN</button>
+      <button class="filter-btn" data-filter="Game Design">GAME DESIGN</button>
+      <button class="filter-btn" data-filter="Indie">INDIE</button>
+      <span class="filter-count" id="filter-count">{projects.length} PROJECTS</span>
+    </div>
+
+    <!-- Project grid -->
+    <div class="work-grid" id="work-grid">
+      {projects.map((project, i) => (
+        <div
+          class="card-wrap"
+          data-card-reveal
+          data-discipline={project.discipline}
+          style={`--card-delay:${i * 80}ms`}
+        >
+          <ProjectCard {...project} />
+        </div>
+      ))}
+    </div>
+
+    <!-- Empty state -->
+    <div class="empty-state" id="empty-state" aria-live="polite">
+      <span class="empty-icon">✕</span>
+      <p>No projects match this filter.</p>
+    </div>
+
+  </div>
+</section>
+
+</Layout>
+
+<script>
+  // ── Scroll reveal ────────────────────────────────────────────────────────
+  const sectionObs = new IntersectionObserver(
+    (entries) => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in-view'); sectionObs.unobserve(e.target); }
+    }),
+    { threshold: 0.08 }
+  );
+  document.querySelectorAll('[data-section]').forEach(el => sectionObs.observe(el));
+
+  const cardObs = new IntersectionObserver(
+    (entries) => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('card-visible'); cardObs.unobserve(e.target); }
+    }),
+    { threshold: 0.06 }
+  );
+  document.querySelectorAll('[data-card-reveal]').forEach(el => cardObs.observe(el));
+
+  // ── Filter logic ─────────────────────────────────────────────────────────
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.card-wrap');
+  const countEl = document.getElementById('filter-count');
+  const emptyEl = document.getElementById('empty-state');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.getAttribute('data-filter');
+
+      // Update active state
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // Show/hide cards
+      let visible = 0;
+      cards.forEach(card => {
+        const discipline = card.getAttribute('data-discipline');
+        const show = filter === 'ALL' || discipline === filter;
+
+        if (show) {
+          card.classList.remove('card-hidden');
+          card.classList.add('card-visible');
+          visible++;
+        } else {
+          card.classList.add('card-hidden');
+        }
+      });
+
+      // Update count
+      if (countEl) {
+        countEl.textContent = `${visible} PROJECT${visible !== 1 ? 'S' : ''}`;
+      }
+
+      // Empty state
+      if (emptyEl) {
+        emptyEl.classList.toggle('empty-visible', visible === 0);
+      }
+    });
+  });
+</script>
+
+<style>
+/* ── Page header ─────────────────────────────────────────────────────────── */
+.page-header {
+  padding: 5rem 0 3rem;
+  border-bottom: 2px solid #1B1918;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-header::before {
+  content: 'WORK';
+  position: absolute;
+  right: -0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Anton', Impact, sans-serif;
+  font-size: clamp(6rem, 16vw, 14rem);
+  color: #1B1918;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  letter-spacing: -0.04em;
+}
+
+.page-header-inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* Section reveal */
+[data-section] .page-header-eyebrow,
+[data-section] .page-title,
+[data-section] .page-subtitle {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+[data-section].in-view .page-header-eyebrow { opacity: 1; transform: translateY(0); }
+[data-section].in-view .page-title          { opacity: 1; transform: translateY(0); transition-delay: 0.1s; }
+[data-section].in-view .page-subtitle       { opacity: 1; transform: translateY(0); transition-delay: 0.2s; }
+
+[data-section] .filter-bar {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.55s ease 0.1s, transform 0.55s ease 0.1s;
+}
+[data-section].in-view .filter-bar { opacity: 1; transform: translateY(0); }
+
+.page-header-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+.eyebrow-line {
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: #BB3F2F;
+  flex-shrink: 0;
+}
+.eyebrow-label {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #BB3F2F;
+}
+
+.page-title {
+  font-family: 'Anton', Impact, sans-serif;
+  font-size: clamp(3rem, 8vw, 7rem);
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+  color: #F5E8D0;
+  margin-bottom: 1.25rem;
+}
+.accent-dot { color: #BB3F2F; }
+
+.page-subtitle {
+  font-size: 0.95rem;
+  color: #B4AA9A;
+  line-height: 1.65;
+  max-width: 48ch;
+}
+
+/* ── Work section ────────────────────────────────────────────────────────── */
+.work-section { padding: 3rem 0 6rem; }
+
+/* ── Filter bar ──────────────────────────────────────────────────────────── */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #1B1918;
+}
+
+.filter-btn {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #B4AA9A;
+  background: transparent;
+  border: 2px solid #3D3935;
+  padding: 0.45rem 1.1rem;
+  transition: color 0.15s, border-color 0.15s, background 0.15s, box-shadow 0.15s, transform 0.1s;
+}
+
+.filter-btn:hover {
+  color: #F5E8D0;
+  border-color: #F5E8D0;
+}
+
+.filter-btn.active {
+  background: #BB3F2F;
+  color: #F5E8D0;
+  border-color: #BB3F2F;
+  box-shadow: 3px 3px 0 #F5E8D0;
+}
+
+.filter-btn.active:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 #F5E8D0;
+}
+
+.filter-count {
+  margin-left: auto;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #5D5954;
+}
+
+/* ── Work grid ───────────────────────────────────────────────────────────── */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* Card wrap reveal + hide */
+.card-wrap {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 0.5s ease var(--card-delay, 0ms),
+    transform 0.5s ease var(--card-delay, 0ms),
+    visibility 0s linear 0s;
+}
+
+.card-wrap.card-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card-wrap.card-hidden {
+  opacity: 0;
+  transform: translateY(12px) scale(0.97);
+  pointer-events: none;
+  position: absolute;
+  visibility: hidden;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* ── Empty state ─────────────────────────────────────────────────────────── */
+.empty-state {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 4rem 2rem;
+  color: #5D5954;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.empty-state.empty-visible { display: flex; }
+
+.empty-icon {
+  font-size: 2rem;
+  color: #BB3F2F;
+  line-height: 1;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .work-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .page-header { padding: 3.5rem 0 2.5rem; }
+  .page-header::before { display: none; }
+  .work-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+  .filter-count { display: none; }
+  .filter-bar { gap: 0.4rem; }
+}
+
+@media (max-width: 480px) {
+  .filter-btn { font-size: 0.62rem; padding: 0.4rem 0.85rem; }
+}
+</style>

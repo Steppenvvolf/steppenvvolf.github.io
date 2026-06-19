@@ -1,0 +1,638 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const timeline = [
+  {
+    year: "2018",
+    title: "Junior Level Designer",
+    place: "Independent / Indie Projects",
+    desc: "First shipped levels in game jams and indie collaborations. Built spatial reasoning and rapid iteration habits that still define the work today.",
+  },
+  {
+    year: "2019",
+    title: "Level Designer",
+    place: "Ubisoft — Riders Republic",
+    desc: "Joined the open-world mountain sports title as an LD, responsible for trail design, landmark placement, and large-scale terrain readability across the Riders Ridge.",
+  },
+  {
+    year: "2021",
+    title: "Level & Mission Designer",
+    place: "Ubisoft — AC Nexus VR",
+    desc: "Designed for VR constraints: comfort, presence, and interaction clarity. Led mission flow for several story sequences in Unity on Meta Quest hardware.",
+  },
+  {
+    year: "2022",
+    title: "Game Designer",
+    place: "PlayStudios — myVEGAS Slots",
+    desc: "Moved into F2P game design: economy tuning, slot machine feature concepting, retention loop design, and live-ops event planning for a multi-million player base.",
+  },
+  {
+    year: "2023",
+    title: "Game Designer",
+    place: "MILC / Welt der Wunder — Tetris Live",
+    desc: "Designed gameplay systems for a live Tetris broadcast format, blending real-time game mechanics with television production requirements.",
+  },
+  {
+    year: "2024",
+    title: "Lead Level Designer",
+    place: "RedSixteen Interactive — Tales Edge",
+    desc: "Leading the level design discipline on an Unreal Engine 5 action title. Responsible for the team's craft standards, mentorship, and the spatial design of key game areas.",
+  },
+];
+
+const beyond = [
+  {
+    icon: "🏍",
+    title: "Motorcycles & Road Trips",
+    desc: "Long-distance riding — the discipline of reading terrain and planning routes directly feeds back into how I think about player navigation.",
+  },
+  {
+    icon: "🎛",
+    title: "Electronic Music Production",
+    desc: "Building tracks in Ableton. Rhythm, tension, and release in music parallel the pacing language of a well-designed level.",
+  },
+  {
+    icon: "🎸",
+    title: "Rock Art & Visual Culture",
+    desc: "Album art, concert posters, comic books. The visual grammar of rock — bold, raw, high-contrast — shapes the aesthetic sensibility I bring to environmental storytelling.",
+  },
+];
+
+const studios = ["UBISOFT", "REDSIXTEEN", "PLAYSTUDIOS", "MILC"];
+---
+
+<Layout
+  title="About Stefan Malinovic — Senior Level & Game Designer"
+  description="Eight years across AAA, VR, and free-to-play. Senior / Lead Level & Game Designer at RedSixteen Interactive. Based in Serbia."
+>
+
+<!-- ═══════════════════ INTRO ════════════════════════════════════════════ -->
+<section class="intro-section" data-section>
+  <div class="section-inner intro-inner">
+
+    <div class="intro-text">
+      <div class="intro-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="eyebrow-label">THE DESIGNER</span>
+      </div>
+      <h1 class="intro-title font-gothic">About Stefan<span class="accent-dot">.</span></h1>
+
+      <p class="intro-para font-body">
+        I'm a Senior / Lead Level &amp; Game Designer with eight years of experience across AAA, VR, and free-to-play games.
+      </p>
+      <p class="intro-para font-body">
+        My journey started in 2018 with a passion for spatial design and interactive storytelling. Today I lead level design at RedSixteen Interactive, working on Tales Edge in Unreal Engine 5.
+      </p>
+
+      <div class="intro-ctas">
+        <a href="/work" class="btn-primary">VIEW THE WORK →</a>
+        <a href="/process" class="btn-secondary">MY PROCESS</a>
+      </div>
+    </div>
+
+    <div class="intro-card-wrap" data-card-reveal style="--card-delay:150ms">
+      <div class="intro-stat-card">
+        <div class="stat-item">
+          <span class="stat-num font-display">8</span>
+          <span class="stat-label font-ui">Years</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item">
+          <span class="stat-num font-display">4</span>
+          <span class="stat-label font-ui">Studios</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item">
+          <span class="stat-num font-display">3</span>
+          <span class="stat-label font-ui">Disciplines</span>
+        </div>
+        <div class="stat-badge">
+          <span class="font-ui">CURRENTLY AT REDSIXTEEN</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════ TIMELINE ════════════════════════════════════════ -->
+<section class="timeline-section" data-section>
+  <div class="section-inner">
+    <div class="section-head">
+      <h2 class="section-title">The Journey</h2>
+      <span class="issue-label">2018 → PRESENT</span>
+    </div>
+
+    <ol class="timeline" role="list">
+      {timeline.map((item, i) => (
+        <li class="timeline-item" data-card-reveal style={`--card-delay:${i * 90}ms`}>
+          <div class="tl-year font-display" aria-label={`Year ${item.year}`}>{item.year}</div>
+          <div class="tl-node" aria-hidden="true">
+            <div class="tl-dot"></div>
+            <div class="tl-stem"></div>
+          </div>
+          <div class="tl-body">
+            <h3 class="tl-title font-ui">{item.title}</h3>
+            <p class="tl-place font-ui">{item.place}</p>
+            <p class="tl-desc font-body">{item.desc}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<!-- ═══════════════════ BEYOND WORK ═════════════════════════════════════ -->
+<section class="beyond-section" data-section>
+  <div class="section-inner">
+    <div class="section-head">
+      <h2 class="section-title">Beyond Work</h2>
+      <span class="issue-label">THE HUMAN</span>
+    </div>
+
+    <div class="beyond-grid">
+      {beyond.map((item, i) => (
+        <div class="beyond-card" data-card-reveal style={`--card-delay:${i * 110}ms`}>
+          <span class="beyond-icon" aria-hidden="true">{item.icon}</span>
+          <h3 class="beyond-title font-ui">{item.title}</h3>
+          <p class="beyond-desc font-body">{item.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ STUDIOS ══════════════════════════════════════════ -->
+<section class="studios-section" data-section>
+  <div class="section-inner">
+    <p class="studios-eyebrow font-ui">Worked With</p>
+    <div class="studios-row" role="list">
+      {studios.map((s, i) => (
+        <>
+          <span class="studio-name font-ui" role="listitem">{s}</span>
+          {i < studios.length - 1 && (
+            <span class="studio-sep" aria-hidden="true">·</span>
+          )}
+        </>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ CTA ══════════════════════════════════════════════ -->
+<section class="cta-section" data-section>
+  <div class="section-inner cta-inner">
+    <div data-card-reveal style="--card-delay:0ms">
+      <h2 class="cta-headline font-gothic">
+        Let's make something worth<br />playing<span class="accent-dot">.</span>
+      </h2>
+      <p class="cta-body font-body">
+        Open to Lead / Senior LD and Game Designer opportunities. Remote-friendly. Portfolio work available on request.
+      </p>
+      <div class="cta-actions">
+        <a href="/contact" class="btn-primary">GET IN TOUCH →</a>
+        <a href="/cv/stefan-malinovic-portfolio.pdf" target="_blank" rel="noopener" class="btn-secondary">DOWNLOAD CV</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</Layout>
+
+<script>
+  // ── Scroll reveal ───────────────────────────────────────────────────────
+  const sectionObs = new IntersectionObserver(
+    (entries) => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in-view'); sectionObs.unobserve(e.target); }
+    }),
+    { threshold: 0.08 }
+  );
+  document.querySelectorAll('[data-section]').forEach(el => sectionObs.observe(el));
+
+  const cardObs = new IntersectionObserver(
+    (entries) => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('card-visible'); cardObs.unobserve(e.target); }
+    }),
+    { threshold: 0.06 }
+  );
+  document.querySelectorAll('[data-card-reveal]').forEach(el => cardObs.observe(el));
+</script>
+
+<style>
+/* ── Shared section chrome ───────────────────────────────────────────────── */
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #1B1918;
+  margin-bottom: 2.5rem;
+}
+.issue-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #5D5954;
+}
+
+/* Scroll reveal — section level */
+[data-section] .section-head,
+[data-section] .intro-eyebrow,
+[data-section] .intro-title,
+[data-section] .intro-para,
+[data-section] .intro-ctas,
+[data-section] .studios-eyebrow,
+[data-section] .studios-row,
+[data-section] .cta-headline,
+[data-section] .cta-body,
+[data-section] .cta-actions {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+[data-section].in-view .intro-eyebrow  { opacity: 1; transform: translateY(0); }
+[data-section].in-view .intro-title    { opacity: 1; transform: translateY(0); transition-delay: 0.08s; }
+[data-section].in-view .intro-para     { opacity: 1; transform: translateY(0); transition-delay: 0.16s; }
+[data-section].in-view .intro-ctas     { opacity: 1; transform: translateY(0); transition-delay: 0.24s; }
+[data-section].in-view .section-head   { opacity: 1; transform: translateY(0); }
+[data-section].in-view .studios-eyebrow{ opacity: 1; transform: translateY(0); }
+[data-section].in-view .studios-row    { opacity: 1; transform: translateY(0); transition-delay: 0.1s; }
+[data-section].in-view .cta-headline  { opacity: 1; transform: translateY(0); }
+[data-section].in-view .cta-body      { opacity: 1; transform: translateY(0); transition-delay: 0.1s; }
+[data-section].in-view .cta-actions   { opacity: 1; transform: translateY(0); transition-delay: 0.2s; }
+
+/* Card stagger */
+[data-card-reveal] {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.55s ease var(--card-delay, 0ms), transform 0.55s ease var(--card-delay, 0ms);
+}
+[data-card-reveal].card-visible { opacity: 1; transform: translateY(0); }
+
+/* ── Intro ───────────────────────────────────────────────────────────────── */
+.intro-section {
+  padding: 5rem 0 4rem;
+  border-bottom: 1px solid #1B1918;
+  position: relative;
+  overflow: hidden;
+}
+
+.intro-section::before {
+  content: 'STEFAN';
+  position: absolute;
+  right: -1rem;
+  bottom: -1rem;
+  font-family: 'Anton', Impact, sans-serif;
+  font-size: clamp(5rem, 15vw, 13rem);
+  color: #1B1918;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  letter-spacing: -0.04em;
+}
+
+.intro-inner {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.intro-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+.eyebrow-line {
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: #BB3F2F;
+  flex-shrink: 0;
+}
+.eyebrow-label {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #BB3F2F;
+}
+
+.intro-title {
+  font-size: clamp(2.2rem, 5.5vw, 4.5rem);
+  font-weight: 400;
+  color: #F5E8D0;
+  letter-spacing: 0.03em;
+  line-height: 0.95;
+  margin-bottom: 1.75rem;
+}
+.accent-dot { color: #BB3F2F; }
+
+.intro-para {
+  font-size: 0.93rem;
+  color: #B4AA9A;
+  line-height: 1.75;
+  margin-bottom: 1rem;
+  max-width: 55ch;
+}
+
+.intro-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* ── Stat card ───────────────────────────────────────────────────────────── */
+.intro-stat-card {
+  border: 2px solid #F5E8D0;
+  box-shadow: 6px 6px 0 #BB3F2F;
+  background: #1B1918;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.25rem 0;
+  text-align: center;
+}
+
+.stat-num {
+  font-size: clamp(2.8rem, 5vw, 4rem);
+  color: #E6B649;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.stat-label {
+  font-size: 0.62rem;
+  color: #5D5954;
+  letter-spacing: 0.2em;
+  margin-top: 0.35rem;
+}
+
+.stat-divider {
+  height: 1px;
+  background: #1B1918;
+  border-top: 1px solid #3D3935;
+  margin: 0;
+}
+
+.stat-badge {
+  margin-top: 1.5rem;
+  background: #BB3F2F;
+  padding: 0.45rem 0.75rem;
+  text-align: center;
+}
+
+.stat-badge span {
+  font-size: 0.6rem;
+  color: #F5E8D0;
+  letter-spacing: 0.15em;
+}
+
+/* ── Timeline ────────────────────────────────────────────────────────────── */
+.timeline-section { padding: 5rem 0; }
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 5.5rem 2rem 1fr;
+  gap: 0 1.5rem;
+  align-items: start;
+  padding-bottom: 2.5rem;
+  position: relative;
+}
+
+.tl-year {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: #E6B649;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  padding-top: 0.1em;
+  text-align: right;
+  padding-right: 0.25rem;
+}
+
+.tl-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tl-dot {
+  width: 12px;
+  height: 12px;
+  border: 2px solid #BB3F2F;
+  background: #BB3F2F;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 0.45em;
+  position: relative;
+  z-index: 1;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.timeline-item:hover .tl-dot {
+  transform: scale(1.4);
+  background: #E6B649;
+  border-color: #E6B649;
+}
+
+.tl-stem {
+  flex: 1;
+  width: 2px;
+  background: #3D3935;
+  margin-top: 4px;
+  min-height: 60px;
+}
+
+.timeline-item:last-child .tl-stem { display: none; }
+
+.tl-title {
+  font-size: 0.88rem;
+  color: #F5E8D0;
+  margin-bottom: 0.3rem;
+}
+
+.tl-place {
+  font-size: 0.68rem;
+  color: #BB3F2F;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.65rem;
+}
+
+.tl-desc {
+  font-size: 0.85rem;
+  color: #B4AA9A;
+  line-height: 1.7;
+}
+
+/* ── Beyond ──────────────────────────────────────────────────────────────── */
+.beyond-section { padding: 5rem 0; border-top: 1px solid #1B1918; }
+
+.beyond-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.beyond-card {
+  padding: 2rem 1.5rem;
+  border: 2px solid #1B1918;
+  background: rgba(27, 25, 24, 0.4);
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.beyond-card:hover {
+  border-color: #E6B649;
+  box-shadow: 5px 5px 0 #E6B649;
+  transform: translate(-2px, -2px);
+}
+
+.beyond-icon {
+  display: block;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+
+.beyond-title {
+  font-size: 0.82rem;
+  color: #F5E8D0;
+  margin-bottom: 0.75rem;
+}
+
+.beyond-desc {
+  font-size: 0.84rem;
+  color: #B4AA9A;
+  line-height: 1.7;
+}
+
+/* ── Studios ─────────────────────────────────────────────────────────────── */
+.studios-section {
+  padding: 4rem 0;
+  border-top: 1px solid #1B1918;
+  text-align: center;
+}
+
+.studios-eyebrow {
+  font-size: 0.62rem;
+  color: #5D5954;
+  letter-spacing: 0.28em;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.studios-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem 2.5rem;
+}
+
+.studio-name {
+  font-size: clamp(0.85rem, 2vw, 1.15rem);
+  color: #3D3935;
+  letter-spacing: 0.18em;
+  transition: color 0.25s;
+}
+
+.studio-name:hover { color: #B4AA9A; }
+
+.studio-sep {
+  color: #1B1918;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.1rem;
+}
+
+/* ── CTA ─────────────────────────────────────────────────────────────────── */
+.cta-section {
+  padding: 6rem 0;
+  border-top: 2px solid #BB3F2F;
+  background: rgba(14, 13, 13, 0.85);
+}
+
+.cta-inner { max-width: 680px; }
+
+.cta-headline {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 400;
+  color: #F5E8D0;
+  letter-spacing: 0.03em;
+  line-height: 1.1;
+  margin-bottom: 1.25rem;
+}
+
+.cta-body {
+  font-size: 0.93rem;
+  color: #B4AA9A;
+  line-height: 1.7;
+  max-width: 52ch;
+  margin-bottom: 2rem;
+}
+
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .intro-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .intro-stat-card { flex-direction: row; flex-wrap: wrap; }
+  .stat-divider { display: none; }
+  .beyond-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .intro-section { padding: 3.5rem 0 3rem; }
+  .intro-section::before { display: none; }
+  .intro-stat-card { flex-direction: row; justify-content: space-around; }
+
+  .timeline-item {
+    grid-template-columns: 3.5rem 1.5rem 1fr;
+    gap: 0 1rem;
+  }
+  .tl-year { font-size: clamp(1.2rem, 4vw, 1.6rem); }
+
+  .beyond-grid { grid-template-columns: 1fr; }
+  .studios-row { gap: 0.5rem 1.5rem; }
+  .studio-sep { display: none; }
+}
+
+@media (max-width: 480px) {
+  .timeline-item {
+    grid-template-columns: 1fr;
+  }
+  .tl-node { display: none; }
+  .tl-year {
+    text-align: left;
+    font-size: 1.4rem;
+    margin-bottom: 0.25rem;
+  }
+  .cta-actions { flex-direction: column; }
+}
+</style>
