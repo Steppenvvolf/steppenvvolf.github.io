@@ -17,6 +17,15 @@ const projects = defineCollection({
       platform: z.string().default(''),
       cover: z.string().default(''),
       coverAlt: z.string().default(''),
+      // Optional 800 px variant of the cover for cards.
+      coverSmall: z.string().optional(),
+      // One plain sentence shown under the summary on the case page.
+      note: z.string().optional(),
+      // Scope / outcome table (label and value rows).
+      facts: z
+        .array(z.object({ label: z.string(), value: z.string() }))
+        .min(1)
+        .optional(),
       owned: z.string().default(''),
       brief: z.string().default(''),
       problem: z.string().default(''),
@@ -32,6 +41,7 @@ const projects = defineCollection({
       gallery: z
         .array(
           z.object({
+            title: z.string().optional(),
             src: z.string().refine((value) => value.trim().length > 0, {
               message: 'Gallery source must not be empty',
             }),

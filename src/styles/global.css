@@ -260,6 +260,9 @@ main:focus {
 .page-title span {
   color: var(--gold);
 }
+.page-title .is-block {
+  display: block;
+}
 .accent-dot {
   color: var(--accent-text);
 }

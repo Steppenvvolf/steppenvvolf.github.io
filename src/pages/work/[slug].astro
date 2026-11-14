@@ -56,6 +56,12 @@ const all: Section[] = isProduct
         text: [],
       },
       {
+        id: 'scope',
+        label: 'Scope',
+        kind: data.facts?.length ? 'facts' : 'none',
+        text: [],
+      },
+      {
         id: 'iteration',
         label: data.iterationTitle ?? 'What changed after testing',
         kind: 'text',
@@ -91,9 +97,9 @@ const all: Section[] = isProduct
         text: text(data.reflection),
       },
     ];
-const sections = (isBoards ? [] : all).filter(
+const sections = all.filter(
   (section) =>
-    ['flow', 'decisions', 'items'].includes(section.kind) ||
+    ['flow', 'decisions', 'items', 'facts'].includes(section.kind) ||
     section.text.length > 0,
 );
 const navItems = [
@@ -107,7 +113,7 @@ const facts = [
   { label: 'Dates', value: data.year },
   { label: 'My role', value: data.role },
   { label: 'Studio / team', value: data.studio },
-  { label: 'Tools / engine', value: data.engine },
+  { label: isProduct ? 'Tools' : 'Tools / engine', value: data.engine },
   { label: 'Platform', value: data.platform },
 ];
 ---
@@ -125,7 +131,9 @@ const facts = [
         >
       </div><p class="eyebrow">{data.studio} / {data.year}</p><h1>
         {data.title}<span>.</span>
-      </h1><p class="case-summary">{data.summary}</p>
+      </h1><p class="case-summary">{data.summary}</p>{
+        data.note ? <p class="case-note">{data.note}</p> : null
+      }
       {
         data.links?.length ? (
           <div class="case-links">
@@ -142,6 +150,22 @@ const facts = [
           </div>
         ) : null
       }
+    </div>
+  </section>
+  <section class="case-facts" aria-label="Project summary">
+    <div class="section-inner">
+      <dl>
+        {
+          facts.map((item) => (
+            <div>
+              <>
+                <dt class="label">{item.label}</dt>
+                <dd>{item.value}</dd>
+              </>
+            </div>
+          ))
+        }
+      </dl>
     </div>
   </section>
   {
@@ -161,32 +185,7 @@ const facts = [
       </div>
     ) : null
   }
-  <section class="case-facts" aria-label="Project summary">
-    <div class="section-inner">
-      <dl>
-        {
-          facts.map((item) => (
-            <div>
-              <>
-                <dt class="label">{item.label}</dt>
-                <dd>{item.value}</dd>
-              </>
-            </div>
-          ))
-        }
-      </dl>
-    </div>
-  </section>
-  {
-    isBoards ? (
-      <section class="section case-boards-intro">
-        <div class="section-inner">
-          <p class="boards-brief">{data.brief}</p>
-        </div>
-      </section>
-    ) : null
-  }
-  <section class="section case-narrative" hidden={isBoards}>
+  <section class="section case-narrative">
     <div class="section-inner case-grid">
       <nav aria-label="Case study sections">
         <span class="label">On this page</span>
@@ -218,6 +217,15 @@ const facts = [
                     </li>
                   ))}
                 </ul>
+              ) : section.kind === 'facts' ? (
+                <dl class="scope-table">
+                  {data.facts?.map((row) => (
+                    <div>
+                      <dt>{row.label}</dt>
+                      <dd>{row.value}</dd>
+                    </div>
+                  ))}
+                </dl>
               ) : section.kind === 'items' ? (
                 <ul class="item-list">
                   {data.approachItems?.map((item) => (
@@ -250,7 +258,7 @@ const facts = [
 </Layout>
 <style>
   .case-intro {
-    padding-block: var(--s-6) var(--s-7);
+    padding-block: var(--s-6) var(--s-6);
   }
   .case-topline {
     display: flex;
@@ -283,22 +291,43 @@ const facts = [
     margin-top: var(--s-5);
   }
   .case-cover {
-    padding-bottom: var(--s-7);
+    padding-block: var(--s-6);
   }
   .case-cover img {
     display: block;
     width: 100%;
     height: auto;
+    max-height: 60vh;
+    object-fit: cover;
     border: var(--rule);
     background: var(--well);
   }
-  .case-boards-intro {
-    padding-block: var(--s-7) 0;
+  .case-note {
+    max-width: 60ch;
+    margin-top: var(--s-4);
+    color: var(--body);
+    font-size: var(--fs-16);
   }
-  .boards-brief {
-    max-width: 68ch;
-    font-size: var(--fs-20);
-    line-height: 1.6;
+  .scope-table {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    margin: 0;
+    max-width: 36rem;
+  }
+  .scope-table > div {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    gap: var(--s-4);
+    padding-block: var(--s-3);
+    border-top: 1px solid var(--quiet);
+  }
+  .scope-table > div:last-child {
+    border-bottom: 1px solid var(--quiet);
+  }
+  .scope-table dt {
+    margin: 0;
+    color: var(--body);
   }
   .case-facts {
     border-top: var(--rule);

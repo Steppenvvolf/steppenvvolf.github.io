@@ -4,13 +4,13 @@
   "tag": "WEBSITE",
   "studio": "Freelance",
   "role": "UI/UX and front-end design",
-  "engine": "Front end: Next.js 14, React 18, TypeScript, hand-written CSS",
+  "engine": "Next.js 14, React 18, TypeScript, hand-written CSS",
   "year": "2026",
   "platform": "Web",
   "layout": "boards",
-  "cover": "/assets/projects/trisha/trisha-01-cover.webp",
-  "coverAlt": "Trisha cover board: a barbershop website with a desktop and a mobile screen of the home page.",
-  "brief": "The goal was to replace a paper appointment book with a phone-first booking flow for a one-chair shop, with the price and duration visible before anything is chosen.",
+  "cover": "/assets/projects/trisha/trisha-card.webp",
+  "coverAlt": "Trisha barbershop website home page on a desktop browser and a phone: a dark page with a barber pole, tools and a gold booking button.",
+  "brief": "A single-location barbershop needed to replace its pen-and-paper appointment book with a phone-first scheduler.",
   "discipline": ["Product Design"],
   "category": "product",
   "featured": false,
@@ -19,39 +19,94 @@
   "summary": "Website for a traditional barbershop, with four-step online booking and a small shop.",
   "gallery": [
     {
-      "src": "/assets/projects/trisha/trisha-01-cover.webp",
-      "alt": "Trisha cover board: a barbershop website with a desktop and a mobile screen of the home page.",
-      "caption": "Cover."
-    },
-    {
       "src": "/assets/projects/trisha/trisha-02-problem.webp",
-      "alt": "Trisha problem board: From the paper appointment book to the phone.",
-      "caption": "The brief and who the site is for."
+      "title": "Problem",
+      "alt": "Trisha board 2, From the paper appointment book to the phone: the brief, the customers and the home page that leads with one gold action.",
+      "caption": "The home page leads with one gold action, 'Zakaži termin', then moves to a short about section on a paper ground."
     },
     {
       "src": "/assets/projects/trisha/trisha-03-key-flow.webp",
-      "alt": "Trisha key flow board: Service, date, time, details.",
-      "caption": "The four-step booking flow."
+      "title": "Key flow",
+      "alt": "Trisha board 3, Service, date, time, details: the four booking screens with a progress line above.",
+      "caption": "The shop has one chair, so there is no barber picker. The flow is four steps with a progress line above.\nService: full-width rows show name, duration and price before anything is chosen.\nDate: a strip of days with the closed day greyed out, and a 'Pun kalendar' button for later dates.\nTime: half-hour slots in a four-column grid, the chosen service pinned above.\nDetails: name and phone first, email marked optional, a line says why the phone is asked."
     },
     {
       "src": "/assets/projects/trisha/trisha-04-responsive.webp",
-      "alt": "Trisha responsive board: One page, three widths.",
-      "caption": "Desktop, tablet and phone layouts."
+      "title": "Responsive",
+      "alt": "Trisha board 4, One page, three widths: the home page and the price list at desktop 1280, tablet 768 and phone 375.",
+      "caption": "Desktop, 1280: title, two actions and three figures centred over the hero art.\nTablet, 768: same centred stack on a taller frame.\nPhone, 375: the two buttons stack.\nDesktop: the price list runs in two columns.\nPhone: one column, price right-aligned.\nPhone: the premium service keeps its gold-edged block."
     },
     {
       "src": "/assets/projects/trisha/trisha-05-design-system.webp",
-      "alt": "Trisha design system board: Warm dark, gold and paper.",
-      "caption": "Colours and type."
+      "title": "Design system",
+      "alt": "Trisha board 5, Warm dark, gold and paper: colour swatches with hex values, four typefaces, buttons, script toggle and progress line.",
+      "caption": "Colours: mustard, brown, cream and paper, with green for success and red for danger.\nCormorant Garamond Italic 700: headlines, service names, prices.\nOswald: buttons, navigation, toggle.\nJetBrains Mono: step labels, durations, times.\nInter: body text.\nSolid gold primary, thin-outline ghost.\nProgress line: gold now, green done."
     },
     {
       "src": "/assets/projects/trisha/trisha-06-details.webp",
-      "alt": "Trisha details board: The booking parts, up close.",
-      "caption": "Booking and shop parts, up close."
+      "title": "Details",
+      "alt": "Trisha board 6, The booking parts, up close: selected service, date strip, time slots, booking header, shop grid and product page.",
+      "caption": "Selected service: gold outline and a tick, the price stays in the same place.\nDate strip: weekday, number, month; the closed day is hatched and faded.\nTime slots: even tiles, mono figures, the chosen one outlined in gold.\nBooking header: back link left, page title centre, the script toggle right.\nShop: category filter chips above a four-column product grid.\nProduct page: large image, price in gold, quantity and one wide add button."
     },
     {
       "src": "/assets/projects/trisha/trisha-07-scope.webp",
-      "alt": "Trisha scope board: What the site covers, from public pages to booking, shop and front-end stack.",
-      "caption": "What the site covers."
+      "title": "Scope",
+      "alt": "Trisha board 7, What the site covers: public pages, booking, shop, script switch, installable web app and tools.",
+      "caption": "Public pages: home, services, gallery, shop, legal pages.\nBooking: four steps, service to details.\nShop: products with quantity and cart, pickup in the shop.\nScript: Serbian in Cyrillic and Latin, switchable.\nInstallable: web app with an offline page.\nTools: Next.js 14, React 18, TypeScript, hand-written CSS."
+    }
+  ],
+  "problem": "The shop also sells a few care products alongside the services.",
+  "users": "Customers range from 18 to 60+. They book from a phone, and they need to know that the time slot is real and what it costs before they commit.",
+  "owned": "UI/UX and front-end design.",
+  "note": "The screens show the design as delivered. Prices, ratings and opening hours inside the screens are the client's content.",
+  "flow": [
+    "Service: full-width rows show name, duration and price before anything is chosen.",
+    "Date: a strip of days with the closed day greyed out, and a 'Pun kalendar' button for later dates.",
+    "Time: half-hour slots in a four-column grid, the chosen service pinned above.",
+    "Details: name and phone first, email marked optional, a line says why the phone is asked."
+  ],
+  "decisions": [
+    {
+      "title": "No barber picker",
+      "why": "The shop has one chair, so there is no barber picker. The flow is four steps with a progress line above."
+    },
+    {
+      "title": "Price and duration before choosing",
+      "why": "Service rows show name, duration and price before anything is chosen."
+    },
+    {
+      "title": "Closed days stay visible",
+      "why": "The date strip greys out the closed day and keeps a 'Pun kalendar' button for later dates."
+    },
+    {
+      "title": "Say why the phone is asked",
+      "why": "Name and phone come first, email is marked optional, and a line says why the phone is asked."
+    }
+  ],
+  "facts": [
+    {
+      "label": "Public pages",
+      "value": "Home, services, gallery, shop, legal pages"
+    },
+    {
+      "label": "Booking",
+      "value": "Four steps, service to details"
+    },
+    {
+      "label": "Shop",
+      "value": "Products with quantity and cart, pickup in the shop"
+    },
+    {
+      "label": "Script",
+      "value": "Serbian in Cyrillic and Latin, switchable"
+    },
+    {
+      "label": "Installable",
+      "value": "Web app with an offline page"
+    },
+    {
+      "label": "Tools",
+      "value": "Next.js 14, React 18, TypeScript, hand-written CSS"
     }
   ]
 }

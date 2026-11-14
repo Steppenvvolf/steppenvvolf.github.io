@@ -68,3 +68,13 @@ New approved source: `_sources/portfolio-2025/` (his own 2025 level-design portf
 - Tale's Edge cover: kept the same image (it has legitimate baked-in gym labels) and now anchors the crop to the right edge so "Regular Wall 20x300 cm" is never cut.
 - Old Word CV (`.docx`) removed from `public/cv` on Stefan's instruction.
 - Added `@types/node` (dev only, pinned 24.x) because `npm run check` failed on `src/data/imageSize.ts` without it (CI would have failed).
+
+## Round 6
+
+- Project title is now "Smokin' Hot" everywhere on the site (slug stays `smokhot`). The seven boards themselves still carry the baked-in label "SmokHot" and the Serbian/Hungarian/German language names ("Srpski", "Magyar", "Deutsch") in board 07; fixing that needs the boards re-exported.
+- About timeline, freelance product design entry: now reads "Client work, 2026: Smokin' Hot and Trisha. Personal projects: Waylo and Qponko." The entry's own years (2024 to 2026) were not changed. Please confirm whether the entry should start in 2026 for client work, or keep 2024 to 2026.
+- About page lead said "8+ years in game development"; changed to "Nearly eight years" to match the Oct 2026 CV wording.
+- Trisha note under the summary (client's content in the screens) is the sentence supplied by the coordinator; wording not from the README.
+- Decision titles on the two pages ("Heat level comes first", "No barber picker", and so on) are my labels; every "why" line is the README caption, unchanged apart from trimming.
+- The Tale's Edge "What I did" paragraph was split into five sentences with the same facts; please re-read it.
+- Unreferenced files moved to `_unused-assets/` (nothing deleted): see `docs/ASSET-PROVENANCE.md`.

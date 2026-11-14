@@ -21,12 +21,12 @@ const timeline = [
   {
     when: '2024 – 2026',
     title: 'Freelance product designer (UI/UX and front-end)',
-    desc: 'Mobile and web apps, alongside studio work.',
+    desc: "Mobile and web apps, alongside studio work. Client work, 2026: Smokin' Hot and Trisha. Personal projects: Waylo and Qponko.",
     links: [
-      { label: 'Waylo', href: '/work/waylo/' },
-      { label: 'Qponko', href: '/work/qponko/' },
-      { label: 'SmokHot', href: '/work/smokhot/' },
-      { label: 'Trisha', href: '/work/trisha/' },
+      { label: "Smokin' Hot (client)", href: '/work/smokhot/' },
+      { label: 'Trisha (client)', href: '/work/trisha/' },
+      { label: 'Waylo (personal)', href: '/work/waylo/' },
+      { label: 'Qponko (personal)', href: '/work/qponko/' },
     ],
   },
   {
@@ -86,7 +86,7 @@ const education = [
       <div class="about-intro__copy">
         <p class="eyebrow">ABOUT STEPPENWOLF</p>
         <h1 class="page-title">
-          THE DESIGNER<span class="accent-dot">.</span>
+          About Stefan<span class="accent-dot">.</span>
         </h1>
         <p class="about-intro__name label">
           Stefan Malinovic <span>— Steppenwolf</span>
@@ -96,9 +96,9 @@ const education = [
         </p>
         <div class="prose">
           <p>
-            8+ years in game development. I design levels, missions and game
-            systems. My work spans Ubisoft, PlayStudios, MILC, RedSixteen and
-            now Drill Deep Digital.
+            Nearly eight years in game development. I design levels, missions
+            and game systems. My work spans Ubisoft, PlayStudios, MILC,
+            RedSixteen and now Drill Deep Digital.
           </p>
           <p>
             My law degree trained me to read systems and write clear specs. I
@@ -114,10 +114,12 @@ const education = [
       </div>
       <figure class="about-intro__portrait">
         <img
-          src="/assets/hero/hero-biker.webp"
+          src="/assets/hero/hero-biker-1100.webp"
+          srcset="/assets/hero/hero-biker-600.webp 600w, /assets/hero/hero-biker-1100.webp 1100w"
+          sizes="(max-width: 900px) 90vw, 520px"
           alt="Illustrated portrait of Steppenwolf on his motorcycle"
-          width="1752"
-          height="2400"
+          width="1100"
+          height="1507"
           loading="lazy"
         />
         <figcaption class="label">Belgrade, Serbia</figcaption>

@@ -61,3 +61,14 @@ Not used: LD portfolio images that are lower-resolution duplicates of the OCT on
 | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `smokhot/smokhot-01..07-*.webp` (1600 px wide) | Presentation boards made from public captures of the live site (see `UX DESIGNER NORDEUS/private-portfolio/client-sites/README.md`); copied unchanged from `smokhot/*.webp`. Brand name and logo shown with Stefan's approval. |
 | `trisha/trisha-01..07-*.webp` (1600 px wide)   | Presentation boards made from Stefan's own 2026-04-29 Playwright captures, with gallery, reviews, location and admin screens excluded for personal data; copied unchanged from `trisha/*.webp`.                                |
+
+## Unpublished assets (round 6)
+
+Files under `public/` that nothing in `src`, `scripts` or the built pages referenced were moved with `git mv` to `_unused-assets/` (same sub-paths), so they are no longer published. Nothing was deleted. This includes the large source PNGs (for example `assets/logo/sm-logo-full.png`, 38.7 MB), earlier JPG/WebP copies and the original full-size `assets/hero/hero-biker.webp` and `assets/comic/icons/rock-hand.webp`, which the resized variants (`hero-biker-600/1100.webp`, `rock-hand-64/128.webp`) replace. To use one again, move it back under `public/` and reference it.
+
+| File (under `public/assets/`)                                            | Source                                                                                            |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------- |
+| `hero/hero-biker-1100.webp`, `hero-biker-600.webp`                       | Resized from the original hero (1752x2400), alpha kept.                                           |
+| `comic/icons/rock-hand-64.webp`, `rock-hand-128.webp`                    | Resized from the original icon (1050x1100).                                                       |
+| `projects/steep/steep-01-village-800.webp`                               | 800 px card variant of `steep-01-village.webp`.                                                   |
+| `projects/smokhot/smokhot-card.webp`, `projects/trisha/trisha-card.webp` | Card images cropped from board 01 of each set (device mockups only) onto the board ground colour. |

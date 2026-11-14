@@ -233,6 +233,30 @@ for (const file of files) {
     (typeof data.descriptor !== 'string' || !data.descriptor.trim())
   )
     report(file, '"descriptor" must be a non-empty string when provided');
+  if (
+    data.coverSmall !== undefined &&
+    (typeof data.coverSmall !== 'string' || !data.coverSmall.startsWith('/'))
+  )
+    report(file, '"coverSmall" must be a public-root path');
+  if (
+    data.note !== undefined &&
+    (typeof data.note !== 'string' || !data.note.trim())
+  )
+    report(file, '"note" must be a non-empty string when provided');
+  if (
+    data.facts !== undefined &&
+    (!Array.isArray(data.facts) ||
+      data.facts.length === 0 ||
+      data.facts.some(
+        (row) =>
+          !row ||
+          typeof row.label !== 'string' ||
+          !row.label.trim() ||
+          typeof row.value !== 'string' ||
+          !row.value.trim(),
+      ))
+  )
+    report(file, '"facts" must be rows with non-empty label and value');
   if (data.layout !== undefined && !['case', 'boards'].includes(data.layout))
     report(file, '"layout" must be case or boards');
   if (

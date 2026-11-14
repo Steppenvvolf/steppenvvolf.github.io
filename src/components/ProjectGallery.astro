@@ -3,6 +3,7 @@ interface Image {
   src: string;
   alt: string;
   caption: string;
+  title?: string;
 }
 interface Props {
   images: Image[];
@@ -56,23 +57,43 @@ const { images, title, stacked = false } = Astro.props;
                     class="gallery-link"
                     style={`aspect-ratio:${size.width}/${size.height};max-width:${size.width}px`}
                     data-index={index}
-                    data-caption={image.caption}
+                    data-caption={image.title ?? image.caption}
                     data-alt={image.alt}
-                    aria-label={`Enlarge ${image.alt}`}
+                    aria-label={`Enlarge ${image.title ?? image.alt}`}
                   >
                     <img
                       src={image.src}
                       alt={image.alt}
                       width={size.width}
                       height={size.height}
-                      loading={stacked && index === 0 ? 'eager' : 'lazy'}
+                      loading="lazy"
                       decoding="async"
                     />
                     <span aria-hidden="true">+</span>
                   </a>
                   <figcaption>
                     <span>{String(index + 1).padStart(2, '0')}</span>
-                    {image.caption}
+                    {stacked ? (
+                      <div class="board-points">
+                        {image.title ? <strong>{image.title}</strong> : null}
+                        <ul>
+                          {image.caption.split('\n').map((line) => (
+                            <li>{line}</li>
+                          ))}
+                        </ul>
+                        <a
+                          class="text-link"
+                          href={image.src}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Open full size <span aria-hidden="true">↗</span>
+                          <span class="sr-only"> (new tab)</span>
+                        </a>
+                      </div>
+                    ) : (
+                      image.caption
+                    )}
                   </figcaption>
                 </figure>
               );
@@ -130,6 +151,7 @@ const { images, title, stacked = false } = Astro.props;
     current = (index + links.length) % links.length;
     const link = links[current];
     if (image && caption && link) {
+      dialog?.scrollTo(0, 0);
       image.src = link.href;
       image.alt = link.dataset.alt ?? '';
       caption.textContent =
@@ -302,8 +324,70 @@ const { images, title, stacked = false } = Astro.props;
   .dialog-close span {
     font-size: var(--fs-28);
   }
+  .board-points {
+    display: grid;
+    gap: var(--s-2);
+  }
+  .board-points strong {
+    font: 600 var(--fs-14) / 1.4 var(--font-ui);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--cream);
+  }
+  .board-points ul {
+    display: grid;
+    gap: var(--s-1);
+    padding-left: var(--s-5);
+    list-style: disc;
+  }
+  .board-points .text-link {
+    justify-self: start;
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--tap);
+  }
+  .is-stacked-dialog {
+    width: 100vw;
+    max-width: 100vw;
+    height: 100dvh;
+    max-height: 100dvh;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    overflow: auto;
+  }
+  .is-stacked-dialog .dialog-close {
+    position: fixed;
+    top: var(--s-3);
+    right: var(--s-3);
+    z-index: 2;
+    padding-inline: var(--s-4);
+    border: var(--bw) solid var(--cream);
+    background: var(--panel);
+  }
   .is-stacked-dialog .dialog-image {
+    display: block;
+    width: clamp(100vw, 400vw, 1600px);
+    max-width: none;
     max-height: none;
+    height: auto;
+    margin: 0;
+    padding-bottom: calc(var(--tap) + var(--s-6));
+  }
+  .is-stacked-dialog .dialog-bottom {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding: var(--s-3) var(--s-4);
+    background: var(--panel);
+    border-top: var(--bw) solid var(--cream);
+  }
+  @media (min-width: 1100px) {
+    .is-stacked-dialog .dialog-image {
+      width: 100vw;
+    }
   }
   .dialog-image {
     width: 100%;

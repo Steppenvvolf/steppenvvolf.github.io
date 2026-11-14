@@ -85,9 +85,11 @@ const disciplines = [
         <div class="hero-rider">
           <img
             class="hero-biker"
-            src="/assets/hero/hero-biker.webp"
-            width="1752"
-            height="2400"
+            src="/assets/hero/hero-biker-1100.webp"
+            srcset="/assets/hero/hero-biker-600.webp 600w, /assets/hero/hero-biker-1100.webp 1100w"
+            sizes="(max-width: 700px) 352px, 444px"
+            width="1100"
+            height="1507"
             alt="Illustrated Steppenwolf riding a motorcycle and throwing the rock-and-roll horns"
             fetchpriority="high"
             loading="eager"
@@ -250,7 +252,9 @@ const disciplines = [
       </div>
       <img
         data-rock-hand
-        src="/assets/comic/icons/rock-hand.webp"
+        src="/assets/comic/icons/rock-hand-128.webp"
+        srcset="/assets/comic/icons/rock-hand-64.webp 64w, /assets/comic/icons/rock-hand-128.webp 128w"
+        sizes="61px"
         width="120"
         height="160"
         alt=""

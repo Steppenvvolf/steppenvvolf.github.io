@@ -52,7 +52,7 @@ for (const page of pages) {
       errors.push(`${name}: image without alt attribute`);
   }
 }
-// Client-site board pages: required routes, seven lazy-after-first boards,
+// Client-site board pages: required routes, six lazy boards,
 // no outbound link, and nothing that says the Trisha site is live.
 for (const slug of ['smokhot', 'trisha']) {
   const file = path.join(root, 'work', slug, 'index.html');
@@ -66,11 +66,11 @@ for (const slug of ['smokhot', 'trisha']) {
       /<img\b(?![^>]*dialog-image)[^>]*assets\/projects\/[^>]*>/g,
     ),
   ];
-  if (boards.length !== 7) errors.push(`work/${slug}: expected 7 boards`);
+  if (boards.length !== 6) errors.push(`work/${slug}: expected 6 boards`);
   boards.forEach((m, i) => {
     if (!/\bwidth="\d+"/.test(m[0]) || !/\bheight="\d+"/.test(m[0]))
       errors.push(`work/${slug}: board ${i + 1} lacks width/height`);
-    if (i > 0 && !/loading="lazy"/.test(m[0]))
+    if (!/loading="lazy"/.test(m[0]))
       errors.push(`work/${slug}: board ${i + 1} is not lazy`);
   });
   if (/class="case-links"/.test(html))

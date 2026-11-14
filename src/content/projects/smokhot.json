@@ -1,16 +1,16 @@
 {
-  "title": "SmokHot",
+  "title": "Smokin' Hot",
   "descriptor": "Hot-sauce e-shop",
   "tag": "WEBSITE",
   "studio": "Freelance",
   "role": "UI/UX and front-end design",
-  "engine": "Front end: Next.js, React, TypeScript, Tailwind CSS",
+  "engine": "Next.js, React, TypeScript, Tailwind CSS",
   "year": "2026",
   "platform": "Web",
   "layout": "boards",
-  "cover": "/assets/projects/smokhot/smokhot-01-cover.webp",
-  "coverAlt": "SmokHot cover board: a hot-sauce e-shop with a desktop and a mobile screen of the home page.",
-  "brief": "The client produces and sells hot pepper sauces in Serbia and needed a website with a shop, with payment on delivery. The brief asked for something attractive, interactive and unmistakably rock and roll.",
+  "cover": "/assets/projects/smokhot/smokhot-card.webp",
+  "coverAlt": "Smokin' Hot e-shop home page on a desktop browser and a phone: dark page with a red headline and the brand badge.",
+  "brief": "The client produces and sells hot pepper sauces in Serbia and needed a website with a shop, with payment on delivery.",
   "discipline": ["Product Design"],
   "category": "product",
   "featured": false,
@@ -19,39 +19,84 @@
   "summary": "E-shop for a Serbian hot-sauce brand: 10 products, 6 languages, payment on delivery.",
   "gallery": [
     {
-      "src": "/assets/projects/smokhot/smokhot-01-cover.webp",
-      "alt": "SmokHot cover board: a hot-sauce e-shop with a desktop and a mobile screen of the home page.",
-      "caption": "Cover."
-    },
-    {
       "src": "/assets/projects/smokhot/smokhot-02-problem.webp",
-      "alt": "SmokHot problem board: A shop that looks as loud as the sauce.",
-      "caption": "The brief and who the shop is for."
+      "title": "Problem",
+      "alt": "Smokin' Hot board 2, A shop that looks as loud as the sauce: the brief, who the shop is for, and the home page opening on the brand, the offer and one action.",
+      "caption": "The home page opens on the brand, the offer and one clear action, then walks down the heat scale."
     },
     {
       "src": "/assets/projects/smokhot/smokhot-03-key-flow.webp",
-      "alt": "SmokHot key flow board: Browse, product, cart.",
-      "caption": "Browse, product and cart screens."
+      "title": "Key flow",
+      "alt": "Smokin' Hot board 3, Browse, product, cart: product card, product page with heat meter, and cart summary on phone screens.",
+      "caption": "Browse: each card carries its heat level as a coloured badge, a price in orange and one red action.\nProduct: the heat meter comes first, then name, price and quantity.\nCart: delivery cost, free-delivery hint and total sit above a single red 'Poruci' action."
     },
     {
       "src": "/assets/projects/smokhot/smokhot-04-responsive.webp",
-      "alt": "SmokHot responsive board: One layout, two proportions.",
-      "caption": "Desktop and mobile layouts side by side."
+      "title": "Responsive",
+      "alt": "Smokin' Hot board 4, One layout, two proportions: the home page and a product page at desktop 1440 and mobile 390.",
+      "caption": "Desktop, 1440: headline and brand badge sit side by side.\nMobile, 390: the same content stacks into one column and the two buttons stack.\nDesktop product page: image left, level meter, price and add button right.\nMobile: image first, then the same stack in one column."
     },
     {
       "src": "/assets/projects/smokhot/smokhot-05-design-system.webp",
-      "alt": "SmokHot design system board: Dark base, hot accents.",
-      "caption": "Colours, type and buttons."
+      "title": "Design system",
+      "alt": "Smokin' Hot board 5, Dark base, hot accents: colour swatches with roles, type samples, buttons, status pill and heat scale.",
+      "caption": "Colour roles: base, surface, red (primary action), ember (prices, active nav), acid yellow (outline action, badges), mild heat level 1, cream text.\nHeadlines: Inter Black, uppercase, tight tracking, in cream and red.\nBody and labels: Inter regular, with Serbian diacritics.\nPrimary: solid red with a hard offset shadow. Secondary: yellow outline.\nStatus pill: small, letter-spaced, one glowing dot.\nHeat scale: four numbered dots, lime to red, reused across the site.\nCard actions: a quiet dark button beside the red one."
     },
     {
       "src": "/assets/projects/smokhot/smokhot-06-details.webp",
-      "alt": "SmokHot details board: Small parts, made carefully.",
-      "caption": "Heat scale, product card, language switch and order summary."
+      "title": "Details",
+      "alt": "Smokin' Hot board 6, Small parts, made carefully: heat scale, product card, mobile language menu, language switch and order summary.",
+      "caption": "Heat scale: four cards, one colour bar per level, and the hottest sauce framed in red.\nProduct card: level chip, price and two actions of clear rank.\nOn mobile the language list sits in the full-screen menu, below the cart link.\nLanguage switch: a globe and two letters open a list of six, the current one ticked.\nOrder summary: total in orange, one red action, delivery terms in a quiet box."
     },
     {
       "src": "/assets/projects/smokhot/smokhot-07-outcome.webp",
-      "alt": "SmokHot outcome board: Live at smokinhot.rs, with products, languages, payment and front-end stack.",
-      "caption": "Outcome in four facts."
+      "title": "Outcome",
+      "alt": "Smokin' Hot board 7, outcome: 10 products, 6 languages, payment on delivery, and the front-end tools.",
+      "caption": "Products: 10.\nLanguages: Serbian, English, Russian, Romanian, Hungarian, German.\nPayment: cash on delivery.\nTools: Next.js, React, TypeScript, Tailwind CSS."
+    }
+  ],
+  "problem": "The brief asked for something attractive, interactive and unmistakably 'rock and roll': a dark base with red, ember orange and acid yellow accents.",
+  "users": "Customers across Serbia, shopping in Serbian, with English, Russian, Romanian, Hungarian and German available.",
+  "owned": "UI/UX and front-end design.",
+  "flow": [
+    "Browse: each card carries its heat level as a coloured badge, a price in orange and one red action.",
+    "Product: the heat meter comes first, then name, price and quantity.",
+    "Cart: delivery cost, free-delivery hint and total sit above a single red 'Poruci' action."
+  ],
+  "decisions": [
+    {
+      "title": "Heat level comes first",
+      "why": "On the product page the heat meter comes first, then name, price and quantity."
+    },
+    {
+      "title": "Two actions of clear rank",
+      "why": "Primary is solid red with a hard offset shadow. Secondary is a yellow outline. On cards, a quiet dark button sits beside the red one."
+    },
+    {
+      "title": "One heat scale, reused",
+      "why": "Four numbered dots, lime to red, used across the site."
+    },
+    {
+      "title": "The cart ends on one action",
+      "why": "Delivery cost, free-delivery hint and total sit above a single red 'Poruci' action."
+    }
+  ],
+  "facts": [
+    {
+      "label": "Products",
+      "value": "10"
+    },
+    {
+      "label": "Languages",
+      "value": "Serbian, English, Russian, Romanian, Hungarian, German"
+    },
+    {
+      "label": "Payment",
+      "value": "Cash on delivery"
+    },
+    {
+      "label": "Tools",
+      "value": "Next.js, React, TypeScript, Tailwind CSS"
     }
   ]
 }

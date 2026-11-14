@@ -26,6 +26,14 @@ const titleId = `card-${id}`;
       data.cover ? (
         <img
           src={data.cover}
+          srcset={
+            data.coverSmall
+              ? `${data.coverSmall} 800w, ${data.cover} 1600w`
+              : undefined
+          }
+          sizes={
+            data.coverSmall ? '(min-width: 1000px) 30vw, 100vw' : undefined
+          }
           alt={data.coverAlt}
           width="1600"
           height="900"
@@ -164,8 +172,8 @@ const titleId = `card-${id}`;
     align-items: baseline;
     justify-content: space-between;
     gap: var(--s-4);
-    font: 600 var(--fs-12) / 1.5 var(--font-ui);
-    letter-spacing: 0.08em;
+    font: 600 var(--fs-14) / 1.5 var(--font-ui);
+    letter-spacing: 0.06em;
     text-transform: uppercase;
   }
   .project-caption h3 {
