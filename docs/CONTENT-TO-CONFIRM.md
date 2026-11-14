@@ -78,3 +78,11 @@ New approved source: `_sources/portfolio-2025/` (his own 2025 level-design portf
 - Decision titles on the two pages ("Heat level comes first", "No barber picker", and so on) are my labels; every "why" line is the README caption, unchanged apart from trimming.
 - The Tale's Edge "What I did" paragraph was split into five sentences with the same facts; please re-read it.
 - Unreferenced files moved to `_unused-assets/` (nothing deleted): see `docs/ASSET-PROVENANCE.md`.
+
+## Round 7
+
+- Riders Republic cover is the image Stefan put in Downloads ("Riders Republic Image.jpg"). Please confirm where it comes from and that it may be shown. The old Double Arch cover is now the first gallery image.
+- Qponko: seven real device screenshots added. The home-grid screenshot shows a tile labelled "Maxi (Tata)" ("Tata" means dad); drop that image if you prefer. Screens 09 to 22 carry a baked-in em dash in the app's own text ("the original look"), which cannot be changed in the images.
+- Drill Deep Digital was removed from the home strip, hero, home cards and meta descriptions. Remaining mentions: Propast project page and its Work-index card, the About timeline entry, the About body paragraph ("now Drill Deep Digital") and the Tale's Edge "next up" link to Propast.
+- Em and en dashes removed site-wide; date ranges now use a plain hyphen ("2020-2021", "2026-Present").
+- "SmokHot" on the boards changed to "Smokin' Hot" in the HTML sources in `client-sites/smokhot/html` and the boards re-rendered (cover title now wraps to two lines).

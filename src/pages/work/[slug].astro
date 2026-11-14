@@ -179,7 +179,7 @@ const facts = [
             height={imageSize(data.cover).height}
             fetchpriority="high"
             loading="eager"
-            style={`object-position:${data.coverPosition}`}
+            style={`object-position:${data.coverPosition};object-fit:${data.coverFit}${data.coverBg ? `;background:${data.coverBg}` : ''}`}
           />
         </div>
       </div>

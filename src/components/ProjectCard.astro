@@ -21,6 +21,7 @@ const titleId = `card-${id}`;
       'project-image',
       { 'is-contain': data.coverFit === 'contain' },
     ]}
+    style={data.coverBg ? `background:${data.coverBg}` : undefined}
   >
     {
       data.cover ? (

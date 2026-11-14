@@ -18,13 +18,7 @@ export const site = {
     { label: 'GitHub', href: 'https://github.com/Steppenvvolf' },
   ],
   // Newest first, from the Oct 2026 CV.
-  studios: [
-    'Drill Deep Digital',
-    'RedSixteen',
-    'MILC / Welt der Wunder',
-    'PlayStudios',
-    'Ubisoft',
-  ],
+  studios: ['RedSixteen', 'MILC / Welt der Wunder', 'PlayStudios', 'Ubisoft'],
 };
 export const categories = [
   { id: 'all', label: 'All' },

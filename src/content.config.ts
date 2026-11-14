@@ -19,6 +19,8 @@ const projects = defineCollection({
       coverAlt: z.string().default(''),
       // Optional 800 px variant of the cover for cards.
       coverSmall: z.string().optional(),
+      // Background colour behind a letterboxed (contain) cover.
+      coverBg: z.string().optional(),
       // One plain sentence shown under the summary on the case page.
       note: z.string().optional(),
       // Scope / outcome table (label and value rows).
@@ -42,6 +44,8 @@ const projects = defineCollection({
         .array(
           z.object({
             title: z.string().optional(),
+            // Phone screenshot: shown several per row at its own ratio.
+            phone: z.boolean().optional(),
             src: z.string().refine((value) => value.trim().length > 0, {
               message: 'Gallery source must not be empty',
             }),

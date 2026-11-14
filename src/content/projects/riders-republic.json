@@ -4,9 +4,9 @@
   "studio": "Ubisoft",
   "role": "Level and Mission Designer",
   "engine": "Anvil",
-  "year": "2020–2021",
+  "year": "2020-2021",
   "platform": "PC / Console",
-  "cover": "/assets/projects/riders-republic/riders-republic-cover-arch.webp",
+  "cover": "/assets/projects/riders-republic/riders-republic-key-art.webp",
   "owned": "All 45 in-world Landmarks, from location scouting and layout to wildlife scripting, cinematic setup and gameplay integration. 11 stunt challenges, including Cloud Flight, Half Dome Vertigo and Wild Yosemite, made together with other level designers. I also contributed to the metrics and flow of the 6v6 Showdown arena.",
   "brief": "Fill an open world with landmarks and stunt routes that feel real, varied and alive, with a sprinkle of fun.",
   "problem": "Each landmark had to be a designed moment, and each stunt a readable, replayable route. The stunt feature was tested by several people during production before it reached testers.",
@@ -20,6 +20,11 @@
   "summary": "Owned all 45 in-world landmarks, designed 11 stunt challenges and contributed to the Showdown arena.",
   "published": true,
   "gallery": [
+    {
+      "src": "/assets/projects/riders-republic/riders-republic-cover-arch.webp",
+      "alt": "Double Arch, a red sandstone arch under a blue sky: one of the 45 landmarks I owned.",
+      "caption": "Double Arch, one of the 45 landmarks I owned."
+    },
     {
       "src": "/assets/projects/riders-republic/riders-republic-01.webp",
       "alt": "Riders Republic landmark screen for The Subway, showing a narrow canyon and the landmark description.",
@@ -51,7 +56,7 @@
       "caption": "Wild Yosemite: one of the 11 stunt challenges."
     }
   ],
-  "coverAlt": "Double Arch, a red sandstone arch under a blue sky: one of the 45 landmarks I owned.",
+  "coverAlt": "Riders Republic art: three mountain bikers on a red canyon ridge, with wingsuit fliers and a bike trick in the air above.",
   "approachItems": [
     "Landmarks: I was fully responsible for placement in the world, in collaboration with the creative director. Everything was grounded in reality and world logic, so the world read as versatile, beautiful and full of life.",
     "The Subway: lit from dark to light, with bats and birdsong at the canyon mouth.",
@@ -74,5 +79,7 @@
       "label": "Showdown arena (video)",
       "url": "https://youtu.be/3MPsMw3f1Bk"
     }
-  ]
+  ],
+  "coverSmall": "/assets/projects/riders-republic/riders-republic-key-art-800.webp",
+  "coverPosition": "50% 60%"
 }

@@ -6,8 +6,8 @@
   "engine": "React Native (Expo)",
   "year": "2026",
   "platform": "Android",
-  "cover": "/assets/projects/qponko/qponko-cover.webp",
-  "coverAlt": "Three phone screens on teal: scanning a loyalty card barcode, a barcode shown full screen at maximum brightness, and a privacy audit screen showing zero network calls, trackers and accounts.",
+  "cover": "/assets/projects/qponko/qponko-cover-app.webp",
+  "coverAlt": "Qponko's first onboarding screen on a phone: the coupon-grandpa mascot above the text \"Fewer apps, fewer cards\" and a Next button.",
   "users": "Shoppers in Serbia, the primary market, who carry many loyalty and discount cards and want them together on their phone without an account. The brief asks for large tap targets and readable type for older users too.",
   "flow": [
     "Add a card: scan the barcode with the camera, pick a photo and crop it, or type the number.",
@@ -39,7 +39,7 @@
   "problem": "A loyalty wallet is used in a hurry, at a till. The code has to be on screen fast and readable by a scanner, and nothing, not even an account, should stand in the way.",
   "approach": "Flows, screens and a design system with typography, spacing and radius tokens and three theme variants, checked on a device.",
   "result": "Released on Google Play as v1.1.0 in 2026; currently being republished under a personal developer account.",
-  "reflection": "Next: bring every font size and corner radius back onto the type and radius tokens, and add real device captures next to the store art.",
+  "reflection": "Next: bring every font size and corner radius back onto the type and radius tokens.",
   "discipline": ["Product Design"],
   "category": "product",
   "featured": false,
@@ -47,6 +47,48 @@
   "published": true,
   "summary": "Offline-first loyalty-card wallet for Serbian shoppers: no account, no tracking, built for the till.",
   "gallery": [
+    {
+      "src": "/assets/projects/qponko/qponko-app-08-new-folder.webp",
+      "alt": "The New folder sheet in Qponko: a name field, icon choices and colour swatches, with Create folder and Cancel buttons.",
+      "caption": "New folder sheet: name, icon and colour.",
+      "phone": true
+    },
+    {
+      "src": "/assets/projects/qponko/qponko-app-09-settings-how-cards-look.webp",
+      "alt": "Qponko settings, How cards look, in the dark theme: theme, style, tile size and card view options.",
+      "caption": "Settings, How cards look: theme, style, tile size and card view.",
+      "phone": true
+    },
+    {
+      "src": "/assets/projects/qponko/qponko-app-16-edit-card.webp",
+      "alt": "Qponko edit-card screen on the Basic tab: card name, colour swatches, optional logo and tags, and a Save button.",
+      "caption": "Edit card, Basic tab: name, colour, logo and tags.",
+      "phone": true
+    },
+    {
+      "src": "/assets/projects/qponko/qponko-app-20-settings-teal.webp",
+      "alt": "Qponko settings in the dark theme with the Default teal style selected.",
+      "caption": "Settings in the dark theme, Default (teal) style.",
+      "phone": true
+    },
+    {
+      "src": "/assets/projects/qponko/qponko-app-21-settings-book.webp",
+      "alt": "Qponko settings in the dark theme with the Book style selected, in warm brown tones.",
+      "caption": "Settings in the dark theme, Book style.",
+      "phone": true
+    },
+    {
+      "src": "/assets/projects/qponko/qponko-app-22-settings-monochrome.webp",
+      "alt": "Qponko settings in the dark theme with the Monochrome style selected, in black and white.",
+      "caption": "Settings in the dark theme, Monochrome style.",
+      "phone": true
+    },
+    {
+      "src": "/assets/projects/qponko/qponko-app-30-home-grid.webp",
+      "alt": "Qponko home screen: a search field, sort chips and a grid of coloured loyalty-card tiles at the comfortable size.",
+      "caption": "Home grid at the comfortable tile size, with search and sort.",
+      "phone": true
+    },
     {
       "src": "/assets/projects/qponko/qponko-01-wallet-add.webp",
       "alt": "Two Qponko store-listing screens: a wallet grid of coloured card tiles with search and sort, and a camera scan of a barcode.",
@@ -57,5 +99,8 @@
       "alt": "Two Qponko store-listing screens: a barcode at full screen with a brightness-boosted label, and a privacy audit listing permissions and zero network calls.",
       "caption": "Store listing art, not device captures. The card display built for the till, and the privacy audit screen that shows what the app does and never asks for."
     }
-  ]
+  ],
+  "coverSmall": "/assets/projects/qponko/qponko-cover-app-800.webp",
+  "coverFit": "contain",
+  "coverBg": "#306c71"
 }

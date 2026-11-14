@@ -110,7 +110,7 @@ function refreshControls() {
       'aria-label',
       soundOn
         ? 'Play engine sound'
-        : 'Motorcycle illustration — motion and sound off',
+        : 'Motorcycle illustration, motion and sound off',
     );
   }
 }

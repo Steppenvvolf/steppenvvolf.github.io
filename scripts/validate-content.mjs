@@ -238,6 +238,8 @@ for (const file of files) {
     (typeof data.coverSmall !== 'string' || !data.coverSmall.startsWith('/'))
   )
     report(file, '"coverSmall" must be a public-root path');
+  if (data.coverBg !== undefined && typeof data.coverBg !== 'string')
+    report(file, '"coverBg" must be a string');
   if (
     data.note !== undefined &&
     (typeof data.note !== 'string' || !data.note.trim())

@@ -8,14 +8,14 @@
       "caption": "Propast gameplay and environment examples: the demo world I reworked from research and 2D maps through graybox and polish passes."
     }
   ],
-  "featured": true,
+  "featured": false,
   "published": true,
   "title": "Propast",
   "tag": "CURRENT",
   "studio": "Drill Deep Digital",
   "role": "Lead Level Designer and Game Designer",
   "engine": "Unreal Engine 5",
-  "year": "2026–Present",
+  "year": "2026-Present",
   "platform": "PC",
   "owned": "World metrics, mission flow and level structure for a 12-person FPS team, plus the GDD and LDD, the encounter framework and the AI design direction. I lead three designers across level, game and environment design and stay hands-on in implementation.",
   "brief": "Shape the level structure and design direction of a 12-person FPS team, aiming at the publisher's one-hour demo brief.",

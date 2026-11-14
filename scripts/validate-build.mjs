@@ -19,6 +19,8 @@ const pages = walk(root).filter((file) => file.endsWith('.html'));
 for (const page of pages) {
   const html = fs.readFileSync(page, 'utf8');
   const name = path.relative(root, page);
+  if (/[\u2013\u2014]|&mdash;|&ndash;|&#8212;|&#8211;|&#x201[34];/i.test(html))
+    errors.push(`${name}: contains an em or en dash`);
   if ((html.match(/<h1(?:\s|>)/g) ?? []).length !== 1)
     errors.push(`${name}: expected one h1`);
   if (!/<title>[^<]+<\/title>/.test(html))

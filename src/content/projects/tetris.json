@@ -4,7 +4,7 @@
   "studio": "PlayStudios",
   "role": "Technical Artist",
   "engine": "Unity",
-  "year": "2022–2023",
+  "year": "2022-2023",
   "platform": "Mobile",
   "cover": "/assets/projects/tetris/tetris-cover.webp",
   "owned": "Integrated production content and gameplay-facing logic in C#, Lua and XML, prepared integrated builds for QA, and improved content workflows and editor tooling on a licensed free-to-play mobile title.",
