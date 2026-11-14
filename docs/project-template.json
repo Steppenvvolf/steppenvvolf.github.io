@@ -1,0 +1,45 @@
+{
+  "title": "Unpublished example project",
+  "tag": "EXAMPLE",
+  "studio": "Example studio",
+  "role": "Example role",
+  "engine": "Example engine",
+  "year": "YYYY",
+  "platform": "Example platform",
+  "cover": "",
+  "coverAlt": "",
+  "gallery": [],
+  "owned": "Replace with a verified description of your contribution.",
+  "brief": "Replace with the verified project brief.",
+  "problem": "Replace with the design problem you were asked to solve.",
+  "approach": "Replace with the work you personally did and the decisions you made.",
+  "result": "Replace with a verified outcome; omit or qualify anything you cannot substantiate.",
+  "reflection": "Replace with a concise, accurate reflection.",
+  "discipline": ["Level Design"],
+  "category": "games",
+  "featured": false,
+  "order": 999,
+  "summary": "Unpublished example; replace with an accurate one-sentence summary.",
+  "published": false,
+  "links": [],
+  "contentStatus": "legacy",
+  "approachItems": ["Optional: a list shown as What I did"],
+  "coverStat": {
+    "value": "12",
+    "label": "shown on the card when there is no cover image"
+  },
+  "coverFit": "cover",
+  "users": "Optional (product pages). Who it is for.",
+  "flow": ["Optional step 1", "Step 2", "Step 3"],
+  "decisions": [
+    {
+      "title": "Optional decision",
+      "why": "Reason and trade-off."
+    },
+    {
+      "title": "Second",
+      "why": "Reason."
+    }
+  ],
+  "iteration": "Optional. What changed after testing."
+}

@@ -1,0 +1,49 @@
+{
+  "title": "Personal studies",
+  "tag": "STUDY",
+  "studio": "Independent",
+  "role": "Level design and narrative",
+  "engine": "Hammer, and paper",
+  "year": "2018–Present",
+  "platform": "PC",
+  "cover": "",
+  "coverAlt": "",
+  "coverStat": {
+    "value": "2",
+    "label": "personal maps: a CS map and a paper Hitman mission"
+  },
+  "owned": "Two personal level studies with level design and narrative: a Counter-Strike map built in Hammer, and a Hitman-style mission designed on paper only.",
+  "brief": "Practise level design and narrative outside studio work, in two very different formats.",
+  "problem": "A competitive map has to balance routes between two teams and two bomb sites. A stealth mission has to offer a target, a briefing and several ways in and out.",
+  "approach": "A Counter-Strike map in Hammer and a Hitman mission on paper.",
+  "approachItems": [
+    "Counter-Strike: Global Offensive map in Hammer, with a CT and T layout and a plan of bomb sites A and B.",
+    "Hitman-style mission on paper only, \"California Dreamin'\": a prison site plan, a mission brief with a target profile and a route map showing different opportunities flow."
+  ],
+  "result": "",
+  "reflection": "",
+  "links": [
+    {
+      "label": "Additional portfolio projects (Google Drive)",
+      "url": "https://drive.google.com/drive/folders/1lNvb9NS5iMdAikQ2Yj5x3SDhJEXWpJXs?usp=sharing"
+    }
+  ],
+  "discipline": ["Level Design"],
+  "category": "experiments",
+  "featured": false,
+  "order": 9,
+  "published": true,
+  "summary": "A Counter-Strike map built in Hammer and a Hitman-style mission designed on paper, both with level design and narrative.",
+  "gallery": [
+    {
+      "src": "/assets/projects/tetris/tetris-01.webp",
+      "alt": "Counter-Strike map study: a dark top-down render of a walled compound, a match scoreboard, and a plan marking the CT spawn, bomb sites A and B and the T spawn.",
+      "caption": "Counter-Strike map in Hammer: the compound from above and its CT, T and bomb-site plan. Level design and narrative."
+    },
+    {
+      "src": "/assets/projects/jams/jams-01.webp",
+      "alt": "California Dreamin' mission-design sheet with a private-prison site plan, mission brief, target profile, and route map.",
+      "caption": "Hitman-style mission on paper: site plan, brief, target profile and a route map of the different ways through. Level design and narrative."
+    }
+  ]
+}

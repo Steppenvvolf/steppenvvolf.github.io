@@ -1,0 +1,45 @@
+{
+  "title": "MILC Metaverse",
+  "tag": "UE5",
+  "studio": "Welt der Wunder / MILC",
+  "role": "Lead Designer, Game and Level Design",
+  "engine": "Unreal Engine 4 & 5",
+  "year": "2023–2024",
+  "platform": "Web (real-time)",
+  "cover": "",
+  "owned": "Designed approximately 52 interactive environments and reusable systems for a commercial real-time platform, and gave day-to-day direction across gameplay programming, graphic design, backend and 3D.",
+  "brief": "Redo the whole world that another company had made for the platform, as a commercial space where every environment has business logic at its core, built to bring visitors in and lead them to the brand.",
+  "problem": "The space, landscape and buildings had to be re-designed under strict rules of world logic and metrics, with a product design document and an art bible, while serving commercial briefs.",
+  "approach": "Re-designed the space, landscape, lighting, 3D buildings and the level design inside them.",
+  "result": "A live commercial platform with branded environments, approximately 52 of them designed by me.",
+  "reflection": "Designing for conversion is the same muscle as designing for a core loop — you're still guiding a player toward a goal they choose to pursue.",
+  "discipline": ["Game Design", "3D/Environment", "Level Design"],
+  "category": "games",
+  "featured": false,
+  "order": 6,
+  "summary": "Designed about 52 interactive environments and reusable systems for a commercial real-time platform.",
+  "published": true,
+  "gallery": [
+    {
+      "src": "/assets/projects/milc/milc-client-spaces.webp",
+      "alt": "Two client-specific modular commercial environments: a bright teal showroom with display screens and a white boutique hall with a branded wall.",
+      "caption": "Client-specific modular commercial environments, built with the catwalk and boutique functionality I created for branded environments."
+    },
+    {
+      "src": "/assets/projects/milc/milc-wider-world.webp",
+      "alt": "Aerial views of the MILC world: a sandy island with a central tower, and a coastal area with high-rise buildings.",
+      "caption": "Commercial spaces integrated into the wider world, which I re-designed together with the buildings and the level design inside them."
+    }
+  ],
+  "coverAlt": "",
+  "coverStat": {
+    "value": "52",
+    "label": "interactive environments (approx.)"
+  },
+  "approachItems": [
+    "Re-designed and uplifted the whole space, landscape and lighting.",
+    "Complete 3D modelling of the buildings, and the level design inside them.",
+    "World logic and metrics, a product design document and an art bible, which I also created.",
+    "Modular catwalk and boutique workflows used for branded environments, including Karl Lagerfeld, Marc Cain and Leandro Lopes."
+  ]
+}

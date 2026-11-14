@@ -1,0 +1,79 @@
+{
+  "title": "Waylo",
+  "tag": "MINI APP",
+  "studio": "Personal project",
+  "role": "UI/UX and front-end design",
+  "engine": "Front end: React, Tailwind",
+  "year": "2026",
+  "platform": "Telegram Mini App",
+  "cover": "/assets/projects/waylo/waylo-cover.webp",
+  "coverAlt": "Three Waylo screens in dark mode: a driver ride list with prices beside reference costs, the cost-per-seat step with a reference badge, and a rider bookings list with status chips.",
+  "users": "People travelling between cities in the Balkans who want to share a ride and split the cost: drivers who publish a trip they are already making, and riders who book a seat. The first release was scoped to Serbia, with the interface in Serbian, Bosnian, Croatian and English.",
+  "flow": [
+    "Search a route and date on Home: From, To, Date.",
+    "Compare matching rides: each card shows price, seats, departure and a fair-price badge.",
+    "Open a ride: the price sits next to the reference cost, with the driver's profile; the exact pickup place appears after approval.",
+    "Request a seat; the driver approves or declines.",
+    "Follow the booking in My bookings until you arrive."
+  ],
+  "decisions": [
+    {
+      "title": "One job for the primary colour",
+      "why": "Green means the primary action and success, nothing else. When green also marked selection, progress and toggles in the publish flow, nothing stood out as the thing to press. Selection and progress use a neutral chip instead, because navy disappears on dark Telegram themes."
+    },
+    {
+      "title": "The price sits next to the reference cost",
+      "why": "Every ride card shows the driver's price beside the published reference cost, and the publish form calls the reference a recommendation: you decide. Riders can see whether a price is fair, and drivers keep control."
+    },
+    {
+      "title": "Follow the user's Telegram theme",
+      "why": "Brand navy, green and cream are accents only. Backgrounds and text use Telegram's theme variables, so light and dark never fight the user's client."
+    },
+    {
+      "title": "Reputation without game noise",
+      "why": "Badges are framed as third-person social proof (\"trusted by this route\"), with no XP, points, streaks or confetti. The test I used: a driver should feel proud, not embarrassed, if a passenger sees a badge."
+    }
+  ],
+  "iteration": "On-device screenshots showed what reading the screens could not: the main button rendered Telegram-blue instead of the brand green, so I set it to the brand green. Testing on the device also showed the on-screen keyboard hiding all but the first city matches, so it looked as if most cities were missing. The city picker now opens as a full-screen search with the input pinned to the top.",
+  "links": [
+    {
+      "label": "Open Waylo (needs Telegram)",
+      "url": "https://waylo.pages.dev"
+    }
+  ],
+  "owned": "UI/UX and front-end design: user flows, screens and the design system for the Mini App.",
+  "brief": "A personal challenge: redesign the experience of an existing kind of app, intercity carpooling in the style of BlaBlaCar, for Telegram's infrastructure and capabilities.",
+  "problem": "What changes when the product lives inside Telegram? There is nothing to install. Identity and theme come from Telegram, so there is no sign-up and the app follows the user's light or dark mode. The main button and the back button are native Telegram controls. A ride can be shared as a link into a chat. And with no commission and no moderator, the interface itself has to carry trust: visible reference prices, clear booking states and a profile that shows reliability.",
+  "approach": "User flows, screens and a design system with colour, type and spacing rules, checked on a device.",
+  "result": "A working Mini App prototype covering search, publishing a ride, booking and profiles.",
+  "reflection": "",
+  "discipline": ["Product Design"],
+  "category": "product",
+  "featured": false,
+  "order": 10,
+  "published": true,
+  "summary": "Personal design challenge: rethinking intercity carpooling as a Telegram Mini App, built around what Telegram already gives the user.",
+  "gallery": [
+    {
+      "src": "/assets/projects/waylo/waylo-01-route.webp",
+      "alt": "Two Waylo screens showing step 1 of 6 of the publish flow: a predefined or custom route toggle, a Belgrade to Novi Sad route and optional via-stops.",
+      "caption": "Publish, step 1 of 6. I designed it as a short step flow with dots for progress and a predefined or custom route; the selected option is a neutral chip, not green. The interface is in Serbian."
+    },
+    {
+      "src": "/assets/projects/waylo/waylo-02-cost.webp",
+      "alt": "Two Waylo screens: seats with manual or automatic approval, then cost per seat with a 1.50x reference badge and a recommendation note.",
+      "caption": "Steps 3 and 4. Approval is manual or automatic, and the price field carries a reference badge and the line \"only a recommendation, you decide\". Green is kept for the one primary button."
+    },
+    {
+      "src": "/assets/projects/waylo/waylo-03-review.webp",
+      "alt": "Two Waylo screens: ride preferences as checkboxes and a review card listing route, departure, seats, price and approval.",
+      "caption": "Steps 5 and 6. Preferences are plain checkboxes, and a review card repeats route, departure, seats, price and approval before publishing."
+    },
+    {
+      "src": "/assets/projects/waylo/waylo-04-lists.webp",
+      "alt": "Two Waylo screens: a driver ride list with prices and reference costs, and a rider bookings list with status chips.",
+      "caption": "Lists. Each driver ride shows the price beside the reference cost and flags prices above it; bookings carry status chips for pending, rated, driver cancelled and completed."
+    }
+  ],
+  "iterationTitle": "What changed on the device"
+}

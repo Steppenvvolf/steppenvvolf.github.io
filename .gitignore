@@ -28,3 +28,7 @@ public/assets/decorative/
 public/assets/bg/
 public/assets/logo/
 public/assets/reference-concept.png
+
+# Private work orders and reviews (mention client work; never commit)
+docs/UX-REPOSITION-BRIEF.md
+docs/review/2026-11-13/OPUS-REVIEW.md

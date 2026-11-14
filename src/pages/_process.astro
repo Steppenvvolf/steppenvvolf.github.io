@@ -1,0 +1,265 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const beliefs = [
+  {
+    label: 'Space is the tutorial.',
+    desc: 'Use layout to guide the player without UI prompts.',
+  },
+  {
+    label: 'Greybox is where the game is won.',
+    desc: 'Test flow and pacing in blockout before final art.',
+  },
+  {
+    label: 'Readability beats spectacle.',
+    desc: 'Make spaces and interfaces easy to read at a glance.',
+  },
+  {
+    label: 'Test, then trust.',
+    desc: 'Use playtests and prototypes to make design decisions.',
+  },
+];
+
+const steps = [
+  {
+    num: '01',
+    title: 'Define',
+    desc: 'Set the audience, goal, constraints, and success criteria.',
+  },
+  {
+    num: '02',
+    title: 'Design',
+    desc: 'Map the flow, rules, and key moments.',
+  },
+  {
+    num: '03',
+    title: 'Prototype & test',
+    desc: 'Build a playable blockout or blockout. Test it and adjust.',
+  },
+  {
+    num: '04',
+    title: 'Deliver',
+    desc: 'Prepare the work for handoff or release.',
+  },
+];
+
+// Tools listed on the Oct 2026 CV, plus the languages used on shipped work.
+const tools = [
+  'Unreal Engine 4',
+  'Unreal Engine 5',
+  'Unity',
+  'Anvil Engine',
+  'Hammer',
+  'Blueprints',
+  'Behavior Trees',
+  'C#',
+  'Lua',
+  'XML',
+  'Blender',
+  'Substance Painter',
+  'Git',
+  'Perforce',
+  'Jira',
+  'Confluence',
+  'Miro',
+];
+---
+
+<Layout
+  title="Process: how I design and test · Steppenwolf"
+  description="How Stefan Malinovic approaches level and game design: define the goal, shape the flow, prototype, test and deliver."
+>
+  <section class="page-intro page-intro--yellow">
+    <div class="section-inner">
+      <p class="eyebrow">GAMES</p>
+      <h1 class="page-title">
+        HOW I WORK<span class="accent-dot">.</span>
+      </h1>
+      <p class="lead">From brief to tested build.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="beliefs-title">
+    <div class="section-inner">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">THE METHOD</p><h2
+            id="beliefs-title"
+            class="section-title"
+          >
+            Design principles
+          </h2>
+        </div>
+      </div>
+      <div class="card-grid">
+        {
+          beliefs.map((belief, index) => (
+            <article class="card">
+              <span class="big-n" aria-hidden="true">
+                0{index + 1}
+              </span>
+              <h3>{belief.label}</h3>
+              <p>{belief.desc}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark-section" aria-labelledby="steps-title">
+    <div class="section-inner">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">BRIEF TO DELIVERY</p><h2
+            id="steps-title"
+            class="section-title"
+          >
+            The workflow
+          </h2>
+        </div>
+        <span class="label">01 → 04</span>
+      </div>
+      <ol class="steps-list">
+        {
+          steps.map((step) => (
+            <li class="step-item" data-reveal>
+              <span class="big-n" aria-hidden="true">
+                {step.num}
+              </span>
+              <div>
+                <>
+                  <h3>{step.title}</h3>
+                  <p>{step.desc}</p>
+                </>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="work-examples-title">
+    <div class="section-inner">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">EXAMPLES</p><h2
+            id="work-examples-title"
+            class="section-title"
+          >
+            Games &amp; worlds
+          </h2>
+        </div>
+      </div>
+      <div class="card-grid">
+        <article class="card card--accent">
+          <p class="label">GAME DEVELOPMENT</p>
+          <h3>Level &amp; mission design</h3>
+          <p>Combat, stealth and traversal spaces on Tale's Edge.</p>
+          <a class="text-link" href="/work/tales-edge/"
+            >Tale's Edge case study <span aria-hidden="true">→</span></a
+          >
+        </article>
+        <article class="card card--yellow">
+          <p class="label">MISSION DESIGN</p>
+          <h3>Missions &amp; encounters</h3>
+          <p>
+            Mission flow, objectives, parkour, patrols and puzzles on Assassin's
+            Creed Nexus VR.
+          </p>
+          <a class="text-link" href="/work/ac-nexus-vr/"
+            >AC Nexus VR case study <span aria-hidden="true">→</span></a
+          >
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--yellow" aria-labelledby="toolbox-title">
+    <div class="section-inner">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">TOOLS I KNOW</p><h2
+            id="toolbox-title"
+            class="section-title"
+          >
+            The toolbox
+          </h2>
+        </div>
+      </div>
+      <ul class="tool-list">{tools.map((tool) => <li>{tool}</li>)}</ul>
+    </div>
+  </section>
+
+  <section class="closing-cta">
+    <div class="section-inner">
+      <div>
+        <p class="eyebrow">CONTACT</p><h2>
+          Start a project<span class="accent-dot">.</span>
+        </h2>
+      </div>
+      <a href="/contact/" class="btn-secondary">Contact Steppenwolf →</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .big-n {
+    display: block;
+    margin-bottom: var(--s-3);
+    font: 400 var(--fs-40) / 1 var(--font-display);
+    color: var(--accent-text);
+  }
+  .dark-section .big-n {
+    color: var(--gold);
+    margin-bottom: 0;
+  }
+  .card p:not(.label) {
+    margin-top: var(--s-2);
+  }
+  .card .text-link {
+    margin-top: var(--s-3);
+  }
+  .card--accent .label {
+    color: var(--cream);
+  }
+  .steps-list .step-item {
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    gap: var(--s-4);
+    padding-block: var(--s-4);
+    border-bottom: 1px solid var(--on-ink-muted);
+  }
+  .step-item h3 {
+    font: 700 var(--fs-20) / 1.25 var(--font-ui);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  .step-item p {
+    max-width: var(--measure);
+    margin-top: var(--s-1);
+    color: var(--on-ink-muted);
+  }
+  .tool-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-3);
+  }
+  .tool-list li {
+    padding: var(--s-2) var(--s-3);
+    border: var(--rule);
+    background: var(--panel-2);
+    box-shadow: var(--shadow-sm);
+    font: 600 var(--fs-14) / 1.3 var(--font-ui);
+  }
+  .section + .section,
+  .section + .dark-section {
+    border-top: var(--rule);
+  }
+  @media (max-width: 520px) {
+    .steps-list .step-item {
+      grid-template-columns: 3rem 1fr;
+    }
+  }
+</style>

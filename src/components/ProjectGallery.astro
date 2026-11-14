@@ -1,0 +1,354 @@
+---
+interface Image {
+  src: string;
+  alt: string;
+  caption: string;
+}
+interface Props {
+  images: Image[];
+  title: string;
+  /** One image per row at full content width (presentation boards). */
+  stacked?: boolean;
+}
+import { imageSize } from '../data/imageSize';
+const { images, title, stacked = false } = Astro.props;
+---
+
+{
+  images.length > 0 && (
+    <section
+      id="gallery"
+      class:list={['section project-gallery', { 'is-stacked': stacked }]}
+    >
+      <div class="section-inner">
+        <>
+          <div class="section-head">
+            <>
+              <div>
+                <>
+                  <p class="eyebrow">
+                    {stacked ? 'PRESENTATION BOARDS' : 'A CLOSER LOOK'}
+                  </p>
+                  <h2 class="section-title">
+                    {stacked ? 'The boards.' : 'Inside the project.'}
+                  </h2>
+                </>
+              </div>
+              <p class="gallery-hint">
+                {stacked
+                  ? 'Select a board to open it full size'
+                  : 'Select an image to see the full frame'}
+              </p>
+            </>
+          </div>
+          <div class="gallery-grid">
+            {images.map((image, index) => {
+              const size = imageSize(image.src);
+              const ratio = size.width / size.height;
+              const banner = ratio > 3;
+              const tall = ratio < 1.6;
+              return (
+                <figure class:list={{ 'is-banner': banner, 'is-tall': tall }}>
+                  <a
+                    href={image.src}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="gallery-link"
+                    style={`aspect-ratio:${size.width}/${size.height};max-width:${size.width}px`}
+                    data-index={index}
+                    data-caption={image.caption}
+                    data-alt={image.alt}
+                    aria-label={`Enlarge ${image.alt}`}
+                  >
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      width={size.width}
+                      height={size.height}
+                      loading={stacked && index === 0 ? 'eager' : 'lazy'}
+                      decoding="async"
+                    />
+                    <span aria-hidden="true">+</span>
+                  </a>
+                  <figcaption>
+                    <span>{String(index + 1).padStart(2, '0')}</span>
+                    {image.caption}
+                  </figcaption>
+                </figure>
+              );
+            })}
+          </div>
+        </>
+      </div>
+    </section>
+  )
+}
+{
+  images.length > 0 && (
+    <dialog
+      class:list={['image-dialog', { 'is-stacked-dialog': stacked }]}
+      aria-label={`${title} image viewer`}
+    >
+      <button
+        class="dialog-close"
+        type="button"
+        aria-label="Close image viewer"
+      >
+        CLOSE <span aria-hidden="true">×</span>
+      </button>
+      <img
+        class="dialog-image"
+        src={images[0]?.src}
+        alt={images[0]?.alt ?? ''}
+        width="1600"
+        height="900"
+        loading="lazy"
+      />
+      <div class="dialog-bottom">
+        <>
+          <button class="dialog-prev" aria-label="Previous project image">
+            ←
+          </button>
+          <p class="dialog-caption" aria-live="polite" />
+          <button class="dialog-next" aria-label="Next project image">
+            →
+          </button>
+        </>
+      </div>
+    </dialog>
+  )
+}
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>('.image-dialog');
+  const links = [
+    ...document.querySelectorAll<HTMLAnchorElement>('.gallery-link'),
+  ];
+  const image = dialog?.querySelector<HTMLImageElement>('.dialog-image');
+  const caption = dialog?.querySelector<HTMLElement>('.dialog-caption');
+  let current = 0;
+  const showImage = (index: number) => {
+    current = (index + links.length) % links.length;
+    const link = links[current];
+    if (image && caption && link) {
+      image.src = link.href;
+      image.alt = link.dataset.alt ?? '';
+      caption.textContent =
+        current +
+        1 +
+        ' / ' +
+        links.length +
+        ' — ' +
+        (link.dataset.caption ?? '');
+    }
+  };
+  if (
+    dialog &&
+    image &&
+    caption &&
+    links.length &&
+    typeof dialog.showModal === 'function'
+  ) {
+    links.forEach((link, index) =>
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+        showImage(index);
+        dialog.showModal();
+      }),
+    );
+    dialog
+      .querySelector('.dialog-close')
+      ?.addEventListener('click', () => dialog.close());
+    dialog
+      .querySelector('.dialog-prev')
+      ?.addEventListener('click', () => showImage(current - 1));
+    dialog
+      .querySelector('.dialog-next')
+      ?.addEventListener('click', () => showImage(current + 1));
+    dialog.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        showImage(current - 1);
+      }
+      if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        showImage(current + 1);
+      }
+    });
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) {
+        const rect = dialog.getBoundingClientRect();
+        if (
+          event.clientX < rect.left ||
+          event.clientX > rect.right ||
+          event.clientY < rect.top ||
+          event.clientY > rect.bottom
+        )
+          dialog.close();
+      }
+    });
+    if (links.length === 1)
+      dialog
+        .querySelectorAll<HTMLButtonElement>('.dialog-prev,.dialog-next')
+        .forEach((button) => {
+          button.disabled = true;
+        });
+  }
+</script>
+<style>
+  .project-gallery {
+    border-top: var(--rule);
+    background: var(--paper-light);
+  }
+  .is-stacked .gallery-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--s-7);
+  }
+  .is-stacked figure:first-child {
+    grid-column: auto;
+  }
+  .is-stacked .gallery-link img {
+    object-fit: cover;
+  }
+  .gallery-hint {
+    color: var(--body);
+    font-size: var(--fs-14);
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--s-6);
+    align-items: start;
+  }
+  figure {
+    margin: 0;
+    min-width: 0;
+  }
+  figure:first-child:not(.is-tall),
+  figure.is-banner {
+    grid-column: 1 / -1;
+  }
+  .gallery-link {
+    display: block;
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: var(--well);
+    border: var(--rule);
+    transition:
+      box-shadow var(--ease),
+      transform var(--ease);
+  }
+  .gallery-link:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translate(-2px, -2px);
+  }
+  .gallery-link img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .gallery-link > span {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: grid;
+    place-items: center;
+    width: var(--tap);
+    height: var(--tap);
+    background: var(--gold);
+    color: var(--on-gold);
+    border-left: var(--bw) solid var(--on-gold);
+    border-bottom: var(--bw) solid var(--on-gold);
+    font-size: var(--fs-20);
+  }
+  figcaption {
+    display: flex;
+    gap: var(--s-3);
+    margin-top: var(--s-3);
+    max-width: var(--measure);
+    color: var(--body);
+    font-size: var(--fs-14);
+    line-height: 1.6;
+  }
+  figcaption > span {
+    font: 600 var(--fs-14) / 1.6 var(--font-ui);
+    color: var(--accent-text);
+  }
+  .image-dialog {
+    background: var(--panel);
+    color: var(--cream);
+    padding: var(--s-8) var(--s-4) var(--s-4);
+    width: min(1200px, 95vw);
+    max-height: 94dvh;
+    border: var(--bw) solid var(--cream);
+    --focus-color: var(--gold);
+  }
+  .image-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.9);
+  }
+  .dialog-close {
+    position: absolute;
+    top: var(--s-2);
+    right: var(--s-4);
+    display: flex;
+    align-items: center;
+    gap: var(--s-3);
+    min-height: var(--tap);
+    border: 0;
+    background: transparent;
+    color: var(--cream);
+    font: 600 var(--fs-14) / 1.3 var(--font-ui);
+    letter-spacing: 0.08em;
+  }
+  .dialog-close span {
+    font-size: var(--fs-28);
+  }
+  .is-stacked-dialog .dialog-image {
+    max-height: none;
+  }
+  .dialog-image {
+    width: 100%;
+    height: auto;
+    max-height: 70dvh;
+    object-fit: contain;
+  }
+  .dialog-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s-4);
+    margin-top: var(--s-4);
+  }
+  .dialog-bottom button {
+    width: var(--tap);
+    height: var(--tap);
+    flex-shrink: 0;
+    border: 1px solid var(--cream);
+    background: var(--panel);
+    color: var(--cream);
+    font-size: var(--fs-20);
+  }
+  .dialog-bottom button:hover:not(:disabled) {
+    background: var(--cream);
+    color: var(--on-gold);
+  }
+  .dialog-bottom button:disabled {
+    opacity: 0.4;
+  }
+  .dialog-caption {
+    text-align: center;
+    font-size: var(--fs-14);
+  }
+  @media (max-width: 600px) {
+    .gallery-grid {
+      grid-template-columns: 1fr;
+    }
+    figure:first-child:not(.is-banner):not(.is-tall) {
+      grid-column: auto;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gallery-link:hover {
+      transform: none;
+    }
+  }
+</style>

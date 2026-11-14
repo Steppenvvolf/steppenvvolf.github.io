@@ -1,0 +1,57 @@
+{
+  "title": "Trisha",
+  "descriptor": "Barbershop website",
+  "tag": "WEBSITE",
+  "studio": "Freelance",
+  "role": "UI/UX and front-end design",
+  "engine": "Front end: Next.js 14, React 18, TypeScript, hand-written CSS",
+  "year": "2026",
+  "platform": "Web",
+  "layout": "boards",
+  "cover": "/assets/projects/trisha/trisha-01-cover.webp",
+  "coverAlt": "Trisha cover board: a barbershop website with a desktop and a mobile screen of the home page.",
+  "brief": "The goal was to replace a paper appointment book with a phone-first booking flow for a one-chair shop, with the price and duration visible before anything is chosen.",
+  "discipline": ["Product Design"],
+  "category": "product",
+  "featured": false,
+  "order": 13,
+  "published": true,
+  "summary": "Website for a traditional barbershop, with four-step online booking and a small shop.",
+  "gallery": [
+    {
+      "src": "/assets/projects/trisha/trisha-01-cover.webp",
+      "alt": "Trisha cover board: a barbershop website with a desktop and a mobile screen of the home page.",
+      "caption": "Cover."
+    },
+    {
+      "src": "/assets/projects/trisha/trisha-02-problem.webp",
+      "alt": "Trisha problem board: From the paper appointment book to the phone.",
+      "caption": "The brief and who the site is for."
+    },
+    {
+      "src": "/assets/projects/trisha/trisha-03-key-flow.webp",
+      "alt": "Trisha key flow board: Service, date, time, details.",
+      "caption": "The four-step booking flow."
+    },
+    {
+      "src": "/assets/projects/trisha/trisha-04-responsive.webp",
+      "alt": "Trisha responsive board: One page, three widths.",
+      "caption": "Desktop, tablet and phone layouts."
+    },
+    {
+      "src": "/assets/projects/trisha/trisha-05-design-system.webp",
+      "alt": "Trisha design system board: Warm dark, gold and paper.",
+      "caption": "Colours and type."
+    },
+    {
+      "src": "/assets/projects/trisha/trisha-06-details.webp",
+      "alt": "Trisha details board: The booking parts, up close.",
+      "caption": "Booking and shop parts, up close."
+    },
+    {
+      "src": "/assets/projects/trisha/trisha-07-scope.webp",
+      "alt": "Trisha scope board: What the site covers, from public pages to booking, shop and front-end stack.",
+      "caption": "What the site covers."
+    }
+  ]
+}

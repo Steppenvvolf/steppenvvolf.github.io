@@ -1,0 +1,48 @@
+/* Motion layer: reading progress and the ink stroke under headings.
+   Hover and press states live with their components. */
+.reading-progress {
+  position: fixed;
+  inset: 0 0 auto;
+  height: 4px;
+  z-index: 200;
+  pointer-events: none;
+}
+.reading-progress span {
+  display: block;
+  height: 100%;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+[data-ink] {
+  position: relative;
+  width: fit-content;
+}
+[data-ink]::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.18em;
+  width: min(3em, 75%);
+  height: 0.06em;
+  background: var(--gold);
+  clip-path: polygon(0 24%, 98% 0, 100% 66%, 3% 100%);
+  transform: rotate(-2deg) scaleX(0);
+  transform-origin: left;
+  transition: transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.dark-section [data-ink]::after,
+.closing-cta [data-ink]::after {
+  background: var(--gold);
+}
+[data-ink].ink-drawn::after {
+  transform: rotate(-2deg) scaleX(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reading-progress {
+    display: none;
+  }
+  [data-ink]::after {
+    transition: none;
+  }
+}

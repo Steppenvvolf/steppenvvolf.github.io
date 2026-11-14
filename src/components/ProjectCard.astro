@@ -1,127 +1,214 @@
 ---
+import type { CollectionEntry } from 'astro:content';
 interface Props {
-  title: string;
-  tag: 'CURRENT' | 'AAA' | 'VR' | 'F2P' | 'JAM' | 'INDIE';
-  studio: string;
-  role: string;
-  engine: string;
-  year: string;
-  cover: string;
-  href: string;
-  featured?: boolean;
+  project: CollectionEntry<'projects'>;
+  /** Cards above the fold load eagerly; everything else is lazy. */
+  eager?: boolean;
 }
-
-const { title, tag, studio, role, engine, year, cover, href, featured = false } = Astro.props;
-
-const tagClass = `tag tag--${tag.toLowerCase()}`;
+const { project, eager = false } = Astro.props;
+const { data, id } = project;
+const titleId = `card-${id}`;
 ---
 
-<a href={href} class={`project-card${featured ? ' project-card--featured' : ''}`}>
-  <span class={tagClass}>{tag}</span>
-  <img src={cover} alt={title} class="card-cover" />
-  <div class="card-strip">
-    <h3 class="card-title">{title}</h3>
-    <p class="card-meta">{studio.toUpperCase()} · {role.toUpperCase()} · {engine.toUpperCase()} · {year}</p>
+<a
+  href={`/work/${id}/`}
+  class="project-card"
+  aria-labelledby={titleId}
+  data-category={data.category}
+>
+  <div
+    class:list={[
+      'project-image',
+      { 'is-contain': data.coverFit === 'contain' },
+    ]}
+  >
+    {
+      data.cover ? (
+        <img
+          src={data.cover}
+          alt={data.coverAlt}
+          width="1600"
+          height="900"
+          loading={eager ? 'eager' : 'lazy'}
+          decoding="async"
+          style={`object-position:${data.coverPosition}`}
+        />
+      ) : (
+        <div class="project-placeholder" aria-hidden="true">
+          {data.coverStat ? (
+            <>
+              <strong>{data.coverStat.value}</strong>
+              <span>{data.coverStat.label}</span>
+            </>
+          ) : (
+            <strong class="is-title">{data.title}</strong>
+          )}
+        </div>
+      )
+    }
+    <span class="tag project-tag">{data.tag}</span>
+  </div>
+  <div class="project-caption">
+    <p class="project-meta">
+      <span>{data.studio}</span><span>{data.year}</span>
+    </p>
+    <h3 id={titleId}>{data.title}</h3>
+    <p class="project-summary">{data.summary}</p>
+    <p class="project-role">
+      <span>{data.role}</span><span class="project-open" aria-hidden="true"
+        >→</span
+      >
+    </p>
   </div>
 </a>
-
 <style>
   .project-card {
-    position: relative;
-    display: block;
-    border: 2px solid #F5E8D0;
-    box-shadow: 5px 5px 0 #BB3F2F;
-    transition: transform 0.15s, box-shadow 0.15s;
-    aspect-ratio: 3 / 4;
-    overflow: hidden;
-    background: #1B1918;
-    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    border: var(--rule);
+    background: var(--panel-2);
+    color: var(--cream);
+    box-shadow: var(--shadow);
+    transition:
+      box-shadow var(--ease),
+      transform var(--ease);
   }
-
   .project-card:hover {
+    box-shadow: var(--shadow-hover);
     transform: translate(-2px, -2px);
-    box-shadow: 7px 7px 0 #BB3F2F;
   }
-
-  .tag {
-    position: absolute;
-    top: 0.75rem;
-    left: 0.75rem;
-    z-index: 2;
-    font-family: 'Oswald', sans-serif;
-    font-weight: 700;
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 0.2rem 0.5rem;
-    line-height: 1.4;
+  .project-card:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--gold);
   }
-
-  /* CURRENT — red fill, cream text */
-  .tag--current {
-    background: #BB3F2F;
-    color: #F5E8D0;
-    border: 2px solid #BB3F2F;
+  .project-image {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    border-bottom: var(--rule);
+    background: var(--well);
   }
-
-  /* AAA — gold fill, ink text */
-  .tag--aaa {
-    background: #E6B649;
-    color: #0E0D0D;
-    border: 2px solid #E6B649;
-  }
-
-  /* VR — transparent, cream border + text */
-  .tag--vr {
-    background: transparent;
-    color: #F5E8D0;
-    border: 2px solid #F5E8D0;
-  }
-
-  /* F2P, JAM, INDIE — dark fill, cream border + text */
-  .tag--f2p,
-  .tag--jam,
-  .tag--indie {
-    background: #1B1918;
-    color: #F5E8D0;
-    border: 2px solid #F5E8D0;
-  }
-
-  .card-cover {
+  .project-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
+    transition: transform 0.4s;
   }
-
-  .card-strip {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to top, #0E0D0D 0%, transparent 100%);
-    padding: 1rem;
+  .project-image.is-contain img {
+    object-fit: contain;
+  }
+  .project-card:hover .project-image img {
+    transform: scale(1.02);
+  }
+  .project-placeholder {
+    position: relative;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 0.35rem;
+    justify-content: center;
+    align-items: center;
+    gap: var(--s-2);
+    padding: var(--s-4);
+    text-align: center;
+    background-color: var(--panel);
+    background-image:
+      radial-gradient(rgba(242, 202, 70, 0.22) 1.5px, transparent 1.5px),
+      repeating-conic-gradient(
+        from -6deg at 50% 50%,
+        rgba(240, 231, 213, 0.07) 0 6deg,
+        transparent 6deg 16deg
+      );
+    background-size:
+      9px 9px,
+      100% 100%;
   }
-
-  .card-title {
-    font-family: 'Anton', sans-serif;
-    font-size: clamp(1.1rem, 2vw, 1.4rem);
-    color: #F5E8D0;
-    margin: 0;
-    line-height: 1.1;
-  }
-
-  .card-meta {
-    font-family: 'Oswald', sans-serif;
-    font-weight: 500;
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
+  .project-placeholder span {
+    color: var(--cream);
+    font: 600 var(--fs-14) / 1.4 var(--font-ui);
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #B4AA9A;
-    margin: 0;
-    line-height: 1.4;
+  }
+  .project-placeholder strong {
+    max-width: 100%;
+    color: var(--gold);
+    font: 400 var(--fs-96) / 0.9 var(--font-display);
+    text-transform: uppercase;
+    text-shadow: 4px 4px 0 var(--accent-fill);
+  }
+  .project-placeholder strong.is-title {
+    color: var(--cream);
+    font-size: var(--fs-28);
+    line-height: 1.1;
+    text-shadow: none;
+  }
+  @media (min-width: 901px) {
+    :global(.featured-panel) .project-placeholder strong:not(.is-title) {
+      font-size: var(--fs-144);
+    }
+  }
+  .project-tag {
+    position: absolute;
+    top: var(--s-4);
+    left: var(--s-4);
+  }
+  .project-caption {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: var(--s-5);
+  }
+  .project-meta,
+  .project-role {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--s-4);
+    font: 600 var(--fs-12) / 1.5 var(--font-ui);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .project-caption h3 {
+    margin-block: var(--s-3);
+    font: 400 var(--fs-28) / 1.1 var(--font-display);
+    text-transform: uppercase;
+  }
+  .project-summary {
+    margin-bottom: var(--s-5);
+    color: var(--body);
+    font-size: var(--fs-16);
+    line-height: 1.5;
+  }
+  .project-role {
+    margin-top: auto;
+    padding-top: var(--s-3);
+    border-top: 1px solid var(--quiet);
+  }
+  .project-open {
+    font-size: var(--fs-20);
+    line-height: 1;
+    transition: transform var(--ease);
+  }
+  .project-card:hover .project-open,
+  .project-card:focus-visible .project-open {
+    transform: translate(2px, -2px);
+  }
+  @media (max-width: 600px) {
+    .project-caption {
+      padding: var(--s-4);
+    }
+    .project-meta {
+      flex-wrap: wrap;
+      gap: 0 var(--s-4);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .project-card:hover,
+    .project-card:active,
+    .project-card:hover .project-image img,
+    .project-card:hover .project-open,
+    .project-card:focus-visible .project-open {
+      transform: none;
+    }
   }
 </style>

@@ -1,0 +1,61 @@
+{
+  "title": "Qponko",
+  "tag": "MOBILE APP",
+  "studio": "Personal project",
+  "role": "UI/UX and front-end design",
+  "engine": "Front end: React Native (Expo)",
+  "year": "2026",
+  "platform": "Android",
+  "cover": "/assets/projects/qponko/qponko-cover.webp",
+  "coverAlt": "Three phone screens on teal: scanning a loyalty card barcode, a barcode shown full screen at maximum brightness, and a privacy audit screen showing zero network calls, trackers and accounts.",
+  "users": "Shoppers in Serbia, the primary market, who carry many loyalty and discount cards and want them together on their phone without an account. The brief asks for large tap targets and readable type for older users too.",
+  "flow": [
+    "Add a card: scan the barcode with the camera, pick a photo and crop it, or type the number.",
+    "Name it and choose a colour, logo and tags.",
+    "Find it on the wallet grid, with search, sorting, pins and folders.",
+    "At the till, open the card: the code fills the screen at maximum brightness and the screen stays awake."
+  ],
+  "decisions": [
+    {
+      "title": "Built for the till",
+      "why": "The card opens full screen at maximum brightness and the screen stays awake, because it is shown to a cashier who has to scan it."
+    },
+    {
+      "title": "The mascot stays out of the task",
+      "why": "The coupon-grandpa mascot appears only in onboarding, empty states and success moments, never inside core flows."
+    },
+    {
+      "title": "Accessible by default",
+      "why": "Minimum touch target 44px and a 56px action button. The danger colour was darkened from #C56060 (3.73:1) to #B04545 to pass WCAG AA, and text inputs carry explicit accessibility labels."
+    },
+    {
+      "title": "Two small settings instead of many",
+      "why": "Tile density (compact, comfortable, bold) and tile style (standard, simplify, photo) give two customisation axes instead of a pile of toggles. Defaults keep existing installs looking the same."
+    }
+  ],
+  "iteration": "The card detail screen was simplified on 6 May 2026: an 80px folder block became a one-line footer link, the \"this code is unique\" message that showed on 98% of cards is hidden when there is nothing to report, and an expired card shows one red signal instead of three. Testing on a device on 5 May found the Next and Save button hidden behind the Android navigation bar, which made adding a card impossible on some phones. It was fixed the same day.",
+  "owned": "UI/UX and front-end design: flows, screens and the design system, with accessibility checks and on-device testing.",
+  "brief": "Design an offline-first wallet for loyalty and discount cards: scan or photograph a barcode once, then show it at the till, with no account.",
+  "problem": "A loyalty wallet is used in a hurry, at a till. The code has to be on screen fast and readable by a scanner, and nothing, not even an account, should stand in the way.",
+  "approach": "Flows, screens and a design system with typography, spacing and radius tokens and three theme variants, checked on a device.",
+  "result": "Released on Google Play as v1.1.0 in 2026; currently being republished under a personal developer account.",
+  "reflection": "Next: bring every font size and corner radius back onto the type and radius tokens, and add real device captures next to the store art.",
+  "discipline": ["Product Design"],
+  "category": "product",
+  "featured": false,
+  "order": 11,
+  "published": true,
+  "summary": "Offline-first loyalty-card wallet for Serbian shoppers: no account, no tracking, built for the till.",
+  "gallery": [
+    {
+      "src": "/assets/projects/qponko/qponko-01-wallet-add.webp",
+      "alt": "Two Qponko store-listing screens: a wallet grid of coloured card tiles with search and sort, and a camera scan of a barcode.",
+      "caption": "Store listing art, not device captures. The wallet grid I designed for finding a card fast, and the scan step that feeds the add flow."
+    },
+    {
+      "src": "/assets/projects/qponko/qponko-02-till-privacy.webp",
+      "alt": "Two Qponko store-listing screens: a barcode at full screen with a brightness-boosted label, and a privacy audit listing permissions and zero network calls.",
+      "caption": "Store listing art, not device captures. The card display built for the till, and the privacy audit screen that shows what the app does and never asks for."
+    }
+  ]
+}

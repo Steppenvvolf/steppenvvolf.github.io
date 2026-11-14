@@ -1,0 +1,66 @@
+{
+  "title": "Assassin's Creed Nexus VR",
+  "tag": "VR",
+  "studio": "Ubisoft",
+  "role": "Level & Mission Designer",
+  "engine": "Unity",
+  "year": "2021–2022",
+  "platform": "Meta Quest",
+  "cover": "/assets/projects/ac-nexus-vr/ac-nexus-vr-clocktower.webp",
+  "owned": "Owner of multiple missions, with support from other level designers: Mission 2, Return to Monteriggioni; Mission 3, Monteriggioni Tunnels; Mission 4, To Save the City; and Mission 13, Return of the Cult of Hermes. Two of them end to end.",
+  "brief": "Design Assassin's Creed missions for VR, where the player has hands and a head instead of a controller and scale, sightlines and readability all behave differently.",
+  "problem": "The layout of the city could not be changed, so the missions had to be built inside it with dense, legible spaces that support more than one route: stealth as the intended path, combat as the fallback.",
+  "approach": "Mission design, flow and level-design ingredients across four missions.",
+  "result": "Shipped VR missions, two of them owned end to end.",
+  "reflection": "VR punishes anything you can't read at a glance — designing for a body, not a camera, sharpened how I think about sightlines everywhere since.",
+  "discipline": ["Level Design", "Game Design"],
+  "category": "games",
+  "featured": true,
+  "order": 2,
+  "summary": "Designed mission levels and encounter spaces across four missions, including two end-to-end.",
+  "published": true,
+  "gallery": [
+    {
+      "src": "/assets/projects/ac-nexus-vr/ac-nexus-vr-dock.webp",
+      "alt": "Dark Venice dock market seen from above, with moored boats, wooden jetties and a lit objective marker.",
+      "caption": "Cult of Hermes dock market, mission 13. I pitched a three-finger dock structure: three readable macro approaches with smaller connections, hiding spaces and traversal options. Mission design and implementation within a collaborative Ubisoft production."
+    },
+    {
+      "src": "/assets/projects/ac-nexus-vr/ac-nexus-vr-clocktower.webp",
+      "alt": "Venice clocktower puzzle space: a large ornate clock mechanism in a timber-and-brick room with a workbench and small objects in the foreground.",
+      "caption": "Venice clocktower puzzle space. I designed a compact puzzle space around reachable mechanisms, back-and-forth movement and the historical identity of the tower."
+    },
+    {
+      "src": "/assets/projects/ac-nexus-vr/ac-nexus-vr-04.webp",
+      "alt": "Dark stone tunnel gameplay view with glowing markers and a hanging wooden panel; the source frame is titled Monteriggioni Tunnels.",
+      "caption": "Combat and mission sequence, Monteriggioni Tunnels. I implemented a wave-based combat sequence that culminated in a larger knight encounter, with mission logic connected to animation, VFX and audio hooks."
+    }
+  ],
+  "coverAlt": "Venice clocktower puzzle space: a large ornate clock mechanism in a timber-and-brick room with a workbench and small objects in the foreground.",
+  "approachItems": [
+    "Level-design ingredients and blockout.",
+    "Gameplay props for combat and parkour.",
+    "Mission design and flow setup.",
+    "AI setup.",
+    "Technical level-design props: breakable planks, scripted events, VFX and sound.",
+    "Waves, a boss encounter and mission logic under VR constraints."
+  ],
+  "links": [
+    {
+      "label": "Mission 2 in the walkthrough",
+      "url": "https://youtu.be/ZNivNsFxgYY?t=1190"
+    },
+    {
+      "label": "Mission 3 in the walkthrough",
+      "url": "https://youtu.be/ZNivNsFxgYY?t=2734"
+    },
+    {
+      "label": "Mission 4 in the walkthrough",
+      "url": "https://youtu.be/ZNivNsFxgYY?t=3556"
+    },
+    {
+      "label": "Mission 13 in the walkthrough",
+      "url": "https://youtu.be/ZNivNsFxgYY?t=19063"
+    }
+  ]
+}

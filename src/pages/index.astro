@@ -1,668 +1,276 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
-
-const featured = [
+import { getCollection } from 'astro:content';
+import { site } from '../data/site';
+import '../styles/home.css';
+const published = await getCollection('projects', ({ data }) => data.published);
+const productProjects = published
+  .filter((project) => project.data.category === 'product')
+  .sort((a, b) => a.data.order - b.data.order);
+const projects = (await getCollection('projects', ({ data }) => data.published))
+  .filter((project) => project.data.featured)
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 4);
+const disciplines = [
   {
-    title: "Tales Edge",
-    tag: "CURRENT" as const,
-    studio: "RedSixteen Interactive",
-    role: "Lead Level Designer",
-    engine: "UE5",
-    year: "2024–Present",
-    cover: "/assets/projects/tales-edge/tales-edge-02.webp",
-    href: "/work/tales-edge",
-    featured: true,
+    n: '01',
+    title: 'Level\ndesign.',
+    description:
+      'Metrics, 2D layouts, blockout, player guidance, sightlines and pacing, from research to a playable space.',
+    link: '/work/?category=games',
+    action: 'See game projects',
   },
   {
-    title: "Riders Republic",
-    tag: "AAA" as const,
-    studio: "Ubisoft",
-    role: "Level Designer",
-    engine: "Anvil",
-    year: "2019–2021",
-    cover: "/assets/projects/riders-republic/riders-republic-10.webp",
-    href: "/work/riders-republic",
-    featured: true,
+    n: '02',
+    title: 'Mission &\nencounters.',
+    description:
+      'Mission flow, objectives, combat and stealth encounters, AI setup and scripted events.',
+    link: '/work/riders-republic/',
+    action: 'See a shipped example',
   },
   {
-    title: "AC Nexus VR",
-    tag: "VR" as const,
-    studio: "Ubisoft",
-    role: "Level & Mission Designer",
-    engine: "Unity",
-    year: "2021–2022",
-    cover: "/assets/projects/ac-nexus-vr/ac-nexus-vr-01.webp",
-    href: "/work/ac-nexus-vr",
-    featured: true,
+    n: '03',
+    title: 'Prototypes &\nside quests.',
+    description:
+      'Game jams, a Counter-Strike map in Hammer and a systemic Hitman mission on paper.',
+    link: '/work/?category=experiments',
+    action: 'See experiments',
   },
 ];
 ---
 
-<Layout
-  title="Stefan Malinovic — Senior Level & Game Designer"
-  description="Portfolio of Stefan Malinovic — eight years designing levels and systems across AAA, VR and open-world at Ubisoft, RedSixteen, PlayStudios and MILC."
->
-
-<!-- ═══════════════════ HERO ═══════════════════════════════════════════ -->
-<section class="hero">
-  <div class="section-inner hero-inner">
-
-    <div class="hero-text">
-      <div class="hero-chip" data-reveal="0">
-        <span>SHIPPING WORLDS SINCE 2018</span>
+<Layout>
+  <section class="home-hero" aria-labelledby="hero-title">
+    <div class="section-inner hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow">LEVEL &amp; GAME DESIGNER · BELGRADE</p>
+        <h1 id="hero-title">
+          THE<br /><span class="designer-word"
+            >DESIGNER<span class="hero-period">.</span></span
+          >
+        </h1>
+        <p class="hero-name">Stefan Malinovic <span>aka Steppenwolf</span></p>
+        <p class="hero-statement">
+          I design <em>levels.</em><br /> I design games.
+        </p>
+        <p class="hero-description">
+          8+ years in game development at Ubisoft, PlayStudios, RedSixteen and
+          Drill Deep Digital, designing levels and missions players can read,
+          learn and move through.
+        </p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="/work/"
+            >Explore the work <span aria-hidden="true">→</span></a
+          ><a
+            class="hero-cv"
+            href={site.cv}
+            target="_blank"
+            rel="noopener noreferrer"
+            >Level Design CV <span aria-hidden="true">↓</span></a
+          >
+        </div>
       </div>
-
-      <h1 class="hero-name" data-reveal="1">
-        STEFAN<br/>MALINOVIC<span class="accent-dot">.</span>
-      </h1>
-
-      <div class="hero-divider" data-reveal="2">
-        <span class="divider-line"></span>
-        <p class="hero-subtitle">LEVEL &amp; GAME DESIGNER · AAA · VR · INDIE</p>
-      </div>
-
-      <p class="hero-positioning" data-reveal="3">
-        I build worlds and the systems that make them worth exploring.
-      </p>
-      <p class="hero-support" data-reveal="3">
-        Eight years across AAA, VR, and free-to-play at Ubisoft, RedSixteen,
-        PlayStudios and MILC.
-      </p>
-
-      <div class="hero-ctas" data-reveal="4">
-        <a href="/work" class="btn-primary">VIEW THE WORK →</a>
-        <a href="/cv/stefan-malinovic-level-design-cv.pdf" target="_blank" rel="noopener" class="btn-secondary">DOWNLOAD CV</a>
+      <div class="hero-art">
+        <div class="hero-halftone" aria-hidden="true"></div>
+        <div class="hero-speed-lines" aria-hidden="true">
+          <i></i><i></i><i></i>
+        </div>
+        <p class="hero-art-label" aria-hidden="true">
+          STEPPENWOLF / ON THE MOVE
+        </p>
+        <div class="comic-bubble" aria-hidden="true">
+          LET'S MAKE<br />SOMETHING<br /><strong>WORTH A DAMN.</strong>
+        </div>
+        <div class="hero-rider">
+          <img
+            class="hero-biker"
+            src="/assets/hero/hero-biker.webp"
+            width="1752"
+            height="2400"
+            alt="Illustrated Steppenwolf riding a motorcycle and throwing the rock-and-roll horns"
+            fetchpriority="high"
+            loading="eager"
+          />
+        </div>
+        <div class="hero-dust" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="hero-exhaust" aria-hidden="true"></div>
+        <p class="hero-vroom" aria-hidden="true">VROOOM!</p>
+        <button
+          class="hero-sticker"
+          type="button"
+          data-replay-ride
+          disabled
+          aria-label="Replay motorcycle entrance"
+          >RIDE<br />AGAIN! <span aria-hidden="true">↻</span></button
+        >
+        <button
+          class="sound-toggle"
+          type="button"
+          data-sound-toggle
+          data-on="true"
+        >
+          <span aria-hidden="true">♪</span>
+          <span data-sound-label>Sound on</span>
+        </button>
+        <p class="hero-art-foot">MOTORCYCLES. MUSIC. FAMILY.</p>
       </div>
     </div>
-
-    <div class="hero-visual" data-reveal-right>
-      <div class="hero-bubble-wrap">
-        <img src="/assets/comic/bubbles/bubble-oval.webp" alt="" aria-hidden="true" class="bubble-img" />
-        <span class="bubble-copy font-comic">LET'S BUILD WORLDS</span>
-        <img src="/assets/comic/icons/rock-hand.webp" alt="" aria-hidden="true" class="bubble-rock-hand" loading="lazy" />
+    <div class="hero-bottom section-inner">
+      <span>BELGRADE, SERBIA / WORLDWIDE</span><a href="#selected-work"
+        >SELECTED WORK <span aria-hidden="true">↓</span></a
+      >
+    </div>
+  </section>
+  <div class="discipline-strip" aria-label="Areas of practice">
+    <span>LEVEL DESIGN</span><span aria-hidden="true">✦</span><span
+      >MISSION DESIGN</span
+    ><span aria-hidden="true">✦</span><span>GAME DESIGN</span><span
+      aria-hidden="true">✦</span
+    ><span>ROCK &amp; ROLL</span>
+  </div>
+  <section class="studio-band" aria-labelledby="studios-label">
+    <div class="section-inner">
+      <p id="studios-label">STUDIOS I'VE WORKED WITH</p>
+      <ul>
+        {site.studios.map((studio) => <li>{studio}</li>)}
+      </ul>
+    </div>
+  </section>
+  <section
+    id="selected-work"
+    class="section selected-work"
+    aria-labelledby="selected-work-title"
+  >
+    <div class="section-inner">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">THE PORTFOLIO</p><h2
+            id="selected-work-title"
+            class="section-title"
+            data-ink
+          >
+            Selected<br /><span>work.</span>
+          </h2>
+        </div>
+        <a class="text-link" href="/work/"
+          >See all the work <span aria-hidden="true">→</span></a
+        >
+      </div>
+      <div class="featured-grid">
+        {
+          projects.map((project, index) => (
+            <div class="featured-panel" data-reveal data-reveal-order={index}>
+              <ProjectCard project={project} />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="section section--panel" aria-labelledby="what-i-do-title">
+    <div class="section-inner">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">WHAT I DO</p><h2
+            id="what-i-do-title"
+            class="section-title"
+            data-ink
+          >
+            Levels, missions, <em>systems.</em>
+          </h2>
+        </div>
+      </div>
+      <div class="discipline-grid">
+        {
+          disciplines.map((item) => (
+            <article
+              class="discipline"
+              data-reveal
+              data-reveal-order={Number(item.n) - 1}
+            >
+              <>
+                <span class="discipline-n" aria-hidden="true">
+                  {item.n}
+                </span>
+                <h3>
+                  {item.title.split('\n').map((line) => (
+                    <span>{line}</span>
+                  ))}
+                </h3>
+                <p class="discipline-description">{item.description}</p>
+                <a class="text-link" href={item.link}>
+                  {item.action} <span aria-hidden="true">→</span>
+                </a>
+              </>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="product-strip" aria-labelledby="product-strip-title">
+    <div class="section-inner product-inner">
+      <div class="product-copy">
+        <h2 id="product-strip-title">Also: product design and UX</h2>
+        <p>
+          Interface and UX design for mobile and web apps: flows, screens,
+          design systems and on-device testing.
+        </p>
+      </div>
+      <ul class="product-links">
+        {
+          productProjects.map((project) => (
+            <li>
+              <a class="product-link" href={`/work/${project.id}/`}>
+                <span class="label">
+                  {project.data.descriptor ?? project.data.platform}
+                </span>
+                <strong>{project.data.title}</strong>
+                <span class="product-go" aria-hidden="true">
+                  →
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+  <section class="the-man-section" aria-label="About the person">
+    <div class="section-inner man-inner">
+      <h2>Wild heart. Steady hands.</h2>
+      <div class="man-copy">
+        <p>
+          Husband and a Dad. Rock and Roll, video games, sports and whiskey.
+        </p>
+        <a class="text-link" href="/about/"
+          >About Stefan <span aria-hidden="true">→</span></a
+        >
       </div>
       <img
-        id="hero-biker"
-        src="/assets/hero/hero-biker.webp"
-        alt="Stefan Malinovic — illustrated biker portrait"
-        class="hero-biker"
-        loading="eager"
-        fetchpriority="high"
+        data-rock-hand
+        src="/assets/comic/icons/rock-hand.webp"
+        width="120"
+        height="160"
+        alt=""
+        loading="lazy"
       />
-      <img src="/assets/comic/swooshes/swoosh-1.webp" alt="" aria-hidden="true" class="hero-swoosh" loading="lazy" />
     </div>
-
-  </div>
-</section>
-
-<!-- ═══════════════════ FEATURED WORK ════════════════════════════════════ -->
-<section class="section featured-work" data-section>
-  <div class="section-inner">
-    <div class="section-head">
-      <h2 class="section-title">Featured Work</h2>
-      <span class="issue-label">ISSUE 04 / 12</span>
+  </section>
+  <section class="closing-cta">
+    <div class="section-inner">
+      <div>
+        <p class="eyebrow">OPEN TO DESIGN ROLES</p><h2 data-ink>
+          Let's work together.
+        </h2>
+      </div><a class="btn-secondary" href="/contact/"
+        >Let's talk <span aria-hidden="true">→</span></a
+      >
     </div>
-    <div class="card-grid">
-      {featured.map((p, i) => (
-        <div class="card-wrap" style={`--card-delay:${i * 120}ms`} data-card-reveal>
-          <ProjectCard {...p} />
-        </div>
-      ))}
-    </div>
-    <div class="view-all">
-      <a href="/work" class="view-all-link">VIEW ALL WORK →</a>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════ WHAT I DO ════════════════════════════════════════ -->
-<section class="section what-i-do" data-section>
-  <div class="section-inner">
-    <h2 class="section-title" style="margin-bottom:2.5rem;">What I Do</h2>
-    <div class="disciplines-grid">
-
-      <div class="discipline" data-card-reveal style="--card-delay:0ms">
-        <div class="discipline-number">01</div>
-        <h3 class="discipline-name">LEVEL DESIGN</h3>
-        <p class="discipline-desc">
-          Spatial composition from 2D map to ship-ready space — flow, pacing, sightlines and readability.
-        </p>
-        <div class="chips">
-          <span class="chip">Blockout</span>
-          <span class="chip">Player Flow</span>
-          <span class="chip">Sightlines</span>
-          <span class="chip">Metrics</span>
-        </div>
-      </div>
-
-      <div class="discipline" data-card-reveal style="--card-delay:120ms">
-        <div class="discipline-number">02</div>
-        <h3 class="discipline-name">GAME DESIGN</h3>
-        <p class="discipline-desc">
-          Core loop, encounters and systems — designing the rules the spaces are built around.
-        </p>
-        <div class="chips">
-          <span class="chip">Core Loop</span>
-          <span class="chip">Encounters</span>
-          <span class="chip">Systems</span>
-          <span class="chip">Balance</span>
-        </div>
-      </div>
-
-      <div class="discipline" data-card-reveal style="--card-delay:240ms">
-        <div class="discipline-number">03</div>
-        <h3 class="discipline-name">3D / ENVIRONMENT</h3>
-        <p class="discipline-desc">
-          Worldbuilding and set dressing — from PCG terrain to real-time-optimized, art-ready spaces.
-        </p>
-        <div class="chips">
-          <span class="chip">Worldbuilding</span>
-          <span class="chip">Set Dressing</span>
-          <span class="chip">PCG</span>
-          <span class="chip">Optimization</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════ DESIGN PHILOSOPHY ════════════════════════════════ -->
-<section class="section philosophy-section" data-section>
-  <div class="section-inner">
-    <div class="philosophy-callout" data-card-reveal style="--card-delay:0ms">
-      <span class="callout-label">DESIGN PHILOSOPHY</span>
-      <blockquote class="philosophy-quote">
-        A space should teach the player without a single line of instruction.
-      </blockquote>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════ WORKED WITH ══════════════════════════════════════ -->
-<section class="section worked-with" data-section>
-  <div class="section-inner">
-    <p class="worked-label">WORKED WITH</p>
-    <div class="studio-row">
-      <span class="studio-name">UBISOFT</span>
-      <span class="studio-sep" aria-hidden="true">·</span>
-      <span class="studio-name">REDSIXTEEN INTERACTIVE</span>
-      <span class="studio-sep" aria-hidden="true">·</span>
-      <span class="studio-name">PLAYSTUDIOS</span>
-      <span class="studio-sep" aria-hidden="true">·</span>
-      <span class="studio-name">MILC / WELT DER WUNDER</span>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════ CTA BAND ══════════════════════════════════════════ -->
-<section class="section cta-band" data-section>
-  <div class="section-inner cta-inner">
-    <div class="cta-text" data-card-reveal style="--card-delay:0ms">
-      <p class="cta-headline">
-        Looking for someone who designs worlds <em>and</em> the systems inside them?
-      </p>
-      <p class="cta-sub">Let's talk.</p>
-      <a href="/contact" class="btn-primary">GET IN TOUCH</a>
-    </div>
-    <div class="cta-rock" aria-hidden="true" data-card-reveal style="--card-delay:150ms">
-      <img src="/assets/comic/icons/rock-hand.webp" alt="" class="rock-hand-img" loading="lazy" />
-      <div class="rock-bubble">
-        <span class="font-comic">LET'S TALK</span>
-      </div>
-    </div>
-  </div>
-</section>
-
+  </section>
 </Layout>
 
 <script>
-// Scroll-reveal via IntersectionObserver
-const sectionObs = new IntersectionObserver(
-  (entries) => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); sectionObs.unobserve(e.target); } }),
-  { threshold: 0.1 }
-);
-document.querySelectorAll('[data-section]').forEach(el => sectionObs.observe(el));
-
-const cardObs = new IntersectionObserver(
-  (entries) => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('card-visible'); cardObs.unobserve(e.target); } }),
-  { threshold: 0.08 }
-);
-document.querySelectorAll('[data-card-reveal]').forEach(el => cardObs.observe(el));
-
-// Parallax on hero biker (desktop only)
-if (window.matchMedia('(min-width:769px)').matches) {
-  const biker = document.getElementById('hero-biker') as HTMLElement | null;
-  if (biker) {
-    let ticking = false;
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          biker.style.transform = `translateY(${window.scrollY * 0.07}px)`;
-          ticking = false;
-        });
-        ticking = true;
-      }
-    }, { passive: true });
-  }
-}
+  import '../scripts/hero-motion';
 </script>
-
-<style>
-/* ── Hero ────────────────────────────────────────────────────────── */
-.hero {
-  min-height: calc(100svh - 64px);
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  position: relative;
-}
-
-.hero-inner {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 3rem;
-  align-items: center;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
-
-/* Hero entrance animations */
-[data-reveal] {
-  opacity: 0;
-  transform: translateY(28px);
-  animation: heroUp 0.7s cubic-bezier(0.22,1,0.36,1) forwards;
-}
-[data-reveal="0"] { animation-delay: 0.05s; }
-[data-reveal="1"] { animation-delay: 0.22s; }
-[data-reveal="2"] { animation-delay: 0.42s; }
-[data-reveal="3"] { animation-delay: 0.58s; }
-[data-reveal="4"] { animation-delay: 0.78s; }
-
-[data-reveal-right] {
-  opacity: 0;
-  transform: translateX(60px);
-  animation: heroRight 1s cubic-bezier(0.22,1,0.36,1) 0.15s forwards;
-}
-
-@keyframes heroUp    { to { opacity:1; transform:translateY(0); } }
-@keyframes heroRight { to { opacity:1; transform:translateX(0); } }
-
-/* ── Chip ── */
-.hero-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  background: #F5E8D0;
-  color: #0E0D0D;
-  font-family: 'Oswald', sans-serif;
-  font-weight: 700;
-  font-size: 0.68rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  padding: 0.4rem 0.9rem;
-  border: 2px solid #0E0D0D;
-  box-shadow: 3px 3px 0 #0E0D0D;
-  margin-bottom: 1.5rem;
-  position: relative;
-}
-.hero-chip::after {
-  content:'';
-  position:absolute; bottom:-12px; left:20px;
-  width:0; height:0;
-  border-left:8px solid transparent; border-right:8px solid transparent;
-  border-top:12px solid #0E0D0D;
-}
-.cdot { color:#BB3F2F; }
-
-/* ── Name ── */
-.hero-name {
-  font-family: 'Anton', Impact, sans-serif;
-  font-size: clamp(3.2rem, 7.5vw, 7rem);
-  letter-spacing: -0.03em;
-  line-height: 0.88;
-  color: #F5E8D0;
-  margin-bottom: 1.5rem;
-}
-.accent-dot { color: #BB3F2F; }
-
-/* ── Divider ── */
-.hero-divider {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.25rem;
-}
-.divider-line {
-  display: block;
-  width: 40px;
-  height: 2px;
-  background: #BB3F2F;
-  flex-shrink: 0;
-}
-.hero-subtitle {
-  font-family: 'Oswald', sans-serif;
-  font-weight: 500;
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #B4AA9A;
-  margin: 0;
-  line-height: 1.4;
-}
-
-/* ── Body ── */
-.hero-positioning {
-  font-family: 'Inter', sans-serif;
-  font-size: 1.05rem;
-  font-weight: 500;
-  color: #F5E8D0;
-  margin-bottom: 0.5rem;
-  line-height: 1.5;
-}
-.hero-support {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.88rem;
-  color: #B4AA9A;
-  line-height: 1.65;
-  margin-bottom: 2rem;
-}
-
-/* ── CTAs ── */
-.hero-ctas {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-/* ── Visual ── */
-.hero-visual {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-}
-.hero-biker {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 540px;
-  max-height: 78vh;
-  object-fit: contain;
-  object-position: center bottom;
-  filter: drop-shadow(6px 6px 0 rgba(187,63,47,0.25));
-}
-.hero-swoosh {
-  position: absolute;
-  left: -8%;
-  bottom: 4%;
-  width: 38%;
-  z-index: 1;
-  opacity: 0.65;
-  pointer-events: none;
-}
-.hero-bubble-wrap {
-  position: absolute;
-  top: 6%;
-  right: 2%;
-  z-index: 3;
-  width: clamp(100px, 12vw, 150px);
-}
-.hero-bubble-wrap .bubble-img { width: 100%; }
-.bubble-copy {
-  position: absolute;
-  top: 46%;
-  left: 50%;
-  transform: translate(-50%, -56%);
-  font-size: 0.7rem;
-  color: #0E0D0D;
-  text-align: center;
-  pointer-events: none;
-  white-space: nowrap;
-}
-.bubble-rock-hand {
-  position: absolute;
-  bottom: -52%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: clamp(44px, 5vw, 64px);
-  filter: drop-shadow(2px 2px 0 rgba(14,13,13,0.5));
-  pointer-events: none;
-}
-
-/* ── Sections general ── */
-.section {
-  padding: 5rem 0;
-  border-top: 1px solid #1B1918;
-}
-
-/* Section scroll-reveal */
-[data-section] .section-title,
-[data-section] .section-head,
-[data-section] .worked-label,
-[data-section] .studio-row,
-[data-section] .view-all {
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-[data-section].in-view .section-title,
-[data-section].in-view .section-head,
-[data-section].in-view .worked-label,
-[data-section].in-view .studio-row { opacity:1; transform:translateY(0); }
-[data-section].in-view .view-all { opacity:1; transform:translateY(0); transition-delay:0.3s; }
-
-/* Card stagger */
-[data-card-reveal] {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.55s ease var(--card-delay,0ms), transform 0.55s ease var(--card-delay,0ms);
-}
-[data-card-reveal].card-visible { opacity:1; transform:translateY(0); }
-
-/* ── Section head ── */
-.section-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  padding-bottom: 1.5rem;
-  border-bottom: 2px solid #1B1918;
-  margin-bottom: 2.5rem;
-}
-.issue-label {
-  font-family: 'Oswald', sans-serif;
-  font-size: 0.6rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #5D5954;
-}
-
-/* ── Card grid ── */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-
-/* ── View all ── */
-.view-all { text-align: right; margin-top: 1.5rem; }
-.view-all-link {
-  font-family: 'Oswald', sans-serif;
-  font-weight: 700;
-  font-size: 0.78rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #BB3F2F;
-  transition: letter-spacing 0.25s;
-}
-.view-all-link:hover { letter-spacing: 0.28em; }
-
-/* ── Disciplines ── */
-.disciplines-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  border-top: 2px solid #1B1918;
-  padding-top: 2rem;
-}
-.discipline {
-  padding: 1.5rem;
-  border: 1px solid #3D3935;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-.discipline:hover {
-  border-color: #BB3F2F;
-  box-shadow: 4px 4px 0 #BB3F2F;
-}
-.discipline-number {
-  font-family: 'Anton', sans-serif;
-  font-size: 3rem;
-  color: #3D3935;
-  line-height: 1;
-  margin-bottom: 0.5rem;
-  user-select: none;
-  transition: color 0.2s;
-}
-.discipline:hover .discipline-number { color: rgba(187,63,47,0.15); }
-.discipline-name {
-  font-family: 'Oswald', sans-serif;
-  font-weight: 700;
-  font-size: 0.9rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #F5E8D0;
-  margin-bottom: 0.75rem;
-}
-.discipline-desc {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.83rem;
-  color: #B4AA9A;
-  line-height: 1.65;
-  margin-bottom: 1.25rem;
-}
-.chips { display: flex; flex-wrap: wrap; gap: 0.35rem; }
-.chip {
-  font-family: 'Oswald', sans-serif;
-  font-weight: 600;
-  font-size: 0.6rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #F5E8D0;
-  padding: 0.2rem 0.55rem;
-  border: 1px solid #5D5954;
-}
-
-/* ── Philosophy ── */
-.philosophy-section { padding: 4rem 0; }
-.philosophy-quote {
-  font-family: 'Inter', sans-serif;
-  font-style: italic;
-  font-size: clamp(1.05rem, 2.4vw, 1.4rem);
-  line-height: 1.65;
-  color: #F5E8D0;
-  margin: 0;
-}
-
-/* ── Worked With ── */
-.worked-with { padding: 4rem 0; text-align: center; }
-.worked-label {
-  font-family: 'Oswald', sans-serif;
-  font-weight: 400;
-  font-size: 0.62rem;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: #5D5954;
-  margin-bottom: 1.5rem;
-}
-.studio-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem 2.5rem;
-}
-.studio-name {
-  font-family: 'Oswald', sans-serif;
-  font-weight: 700;
-  font-size: clamp(0.85rem, 2vw, 1.15rem);
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: #B4AA9A;
-  transition: color 0.25s;
-}
-.studio-name:hover { color: #F5E8D0; }
-.studio-sep { color: #1B1918; }
-
-/* ── CTA Band ── */
-.cta-band {
-  background: rgba(14,13,13,0.9);
-  border-top: 2px solid #BB3F2F;
-  padding: 5rem 0;
-}
-.cta-inner {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 3rem;
-  align-items: center;
-}
-.cta-headline {
-  font-family: 'Inter', sans-serif;
-  font-size: clamp(1rem, 2.2vw, 1.4rem);
-  font-weight: 500;
-  color: #F5E8D0;
-  line-height: 1.5;
-  margin-bottom: 0.5rem;
-}
-.cta-headline em { color: #BB3F2F; }
-.cta-sub {
-  font-family: 'Pirata One', serif;
-  font-size: clamp(1.5rem, 3vw, 2.2rem);
-  color: #F5E8D0;
-  margin-bottom: 2rem;
-  font-weight: 400;
-}
-.cta-rock { position: relative; text-align: center; }
-.rock-hand-img { width: clamp(70px, 10vw, 130px); opacity: 0.9; margin: 0 auto; }
-.rock-bubble {
-  position: absolute;
-  top: -16px; right: -8px;
-  background: #F5E8D0;
-  color: #0E0D0D;
-  padding: 0.25rem 0.7rem;
-  border: 2px solid #0E0D0D;
-  box-shadow: 3px 3px 0 #0E0D0D;
-  white-space: nowrap;
-  font-size: 0.75rem;
-}
-
-/* ── Responsive ── */
-@media (max-width: 1024px) {
-  .hero-inner { gap: 2rem; }
-  .card-grid { grid-template-columns: repeat(2,1fr); }
-  .disciplines-grid { grid-template-columns: repeat(2,1fr); }
-}
-
-@media (max-width: 768px) {
-  .hero { min-height: auto; }
-  .hero-inner {
-    grid-template-columns: 1fr;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
-  .hero-visual { order: -1; max-height: 55vw; margin-bottom: 1.5rem; }
-  .hero-biker  { max-height: 55vw; width: auto; max-width: 100%; }
-  .hero-bubble-wrap { width: 90px; top: 2%; right: 4%; }
-  .card-grid { grid-template-columns: 1fr; }
-  .disciplines-grid { grid-template-columns: 1fr; }
-  .cta-inner { grid-template-columns: 1fr; text-align: center; }
-  .cta-rock { display: none; }
-  .studio-row { gap: 0.5rem 1.5rem; }
-  .studio-sep { display: none; }
-}
-
-@media (max-width: 480px) {
-  .hero-ctas { flex-direction: column; }
-  .hero-name { font-size: clamp(2.5rem, 15vw, 4rem); }
-}
-</style>

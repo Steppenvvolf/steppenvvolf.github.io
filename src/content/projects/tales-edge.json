@@ -1,0 +1,62 @@
+{
+  "title": "Tale's Edge",
+  "tag": "UE5",
+  "studio": "RedSixteen Interactive",
+  "role": "Senior Level Designer",
+  "engine": "Unreal Engine 5",
+  "year": "2024–2026",
+  "platform": "PC",
+  "cover": "/assets/projects/tales-edge/tales-edge-cover.webp",
+  "owned": "Previously Lead Level Designer and Studio Director. Built the level-design pipeline from the ground up — blockout standards, validation gyms and metric reference systems — and led level design for the game's combat, stealth and parkour spaces. 100+ gym maps, 4 public playable builds, and the trailer level.",
+  "brief": "Tale's Edge needed a level-design discipline from zero: standards, tools and a pipeline that let any space be tested and tuned in isolation, plus playable levels that prove a stealth/parkour/detective-quest loop reads clearly.",
+  "problem": "A different approach to stealth, parkour and detective-style quest flow — deep emphasis on spatial readability and player guidance — built on a movement system and AI that were both being overhauled mid-development.",
+  "approach": "I co-shaped the core loop with the Game Design Director by designing the spaces it plays out in, then tuned traversal and AI encounters through constant iteration across public playtests. Key locations include Hoofensmith Island (port edge of the Enchanted Forest — tested worldscale, tree-parkour, quests, stealth, and told the island's whole history through worldbuilding), Whisperwood Outpost (rough 2D map → concept art → detailed 2D map → 3D greybox, testing the UE world-creation pipeline with latest terrain plugins), and the Small Bridge Encounter gym (first test of the AI stealth overhaul: vision, sound, hearing, Rest/Feed 'Need Spots').",
+  "result": "A working LD pipeline, four public builds, a trailer level, and a stealth ruleset that scales to new maps.",
+  "reflection": "Designing alongside systems that are still changing forces you to build for change — modular gyms and clear standards are what keep a moving target shippable.",
+  "discipline": ["Level Design", "Game Design", "3D/Environment"],
+  "category": "games",
+  "featured": true,
+  "order": 3,
+  "summary": "Built the level-design pipeline from the ground up and led level design for combat, stealth and parkour spaces.",
+  "published": true,
+  "gallery": [
+    {
+      "src": "/assets/projects/tales-edge/tales-edge-01.webp",
+      "alt": "Two illustrated island maps: one labels docks, farms, town, bridge, blacksmith, and caves; the other marks paths, trees, and buildings.",
+      "caption": "World-layout and route planning: 2D island maps from the level and world-creation pipeline I built."
+    },
+    {
+      "src": "/assets/projects/tales-edge/tales-edge-02.webp",
+      "alt": "Colorful island blockout beside a later, muted environment view of the same coastal settlement.",
+      "caption": "Blockout and world-context validation: the island blockout beside a later environment view of the same settlement."
+    },
+    {
+      "src": "/assets/projects/tales-edge/tales-edge-03.webp",
+      "alt": "Coastal town layout above two waterfront environment views, one detailed and one greybox-like.",
+      "caption": "Outpost: 2D layout and the resulting world tests (one of many maps, publicly available)."
+    },
+    {
+      "src": "/assets/projects/tales-edge/tales-edge-04.webp",
+      "alt": "Greybox bridge crossing a blue gap between raised platforms, with the word GOAL beside the landing.",
+      "caption": "Small Bridge encounter blockout: approach space, goal and environmental structure."
+    },
+    {
+      "src": "/assets/projects/tales-edge/tales-edge-05.webp",
+      "alt": "Level-design sheet comparing flow diagrams and map iterations, with a color key for forest, platforming, camps, river, road, and paths.",
+      "caption": "Poacher Station: route and topographic variants for the First Playable, kept testable against the supported jump, crouch and slide actions."
+    }
+  ],
+  "coverAlt": "Orange greybox test space in Unreal Engine with labelled wall and cover heights and an archer character at the left edge.",
+  "coverPosition": "100% 50%",
+  "links": [
+    {
+      "label": "Tale's Edge on Steam",
+      "url": "https://store.steampowered.com/app/3752650/Tales_Edge/"
+    },
+    {
+      "label": "Environment showcase (video)",
+      "url": "https://youtu.be/OAp16o_1bcA"
+    }
+  ],
+  "coverFit": "contain"
+}

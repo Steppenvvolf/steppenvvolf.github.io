@@ -1,312 +1,277 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { site } from '../data/site';
+
+const email = site.email;
+const gameInquiry = `mailto:${email}?subject=${encodeURIComponent('Game design opportunity')}&body=${encodeURIComponent('Hi Stefan,\n\nI’m reaching out about a game design opportunity.\n\n')}`;
 ---
 
 <Layout
-  title="Contact — Stefan Malinovic"
-  description="Get in touch with Stefan Malinovic — Senior Level & Game Designer. Open for AAA, VR, indie, and remote opportunities."
+  title="Contact Stefan Malinovic (Steppenwolf)"
+  description="Contact Stefan Malinovic about level design, mission design and game design roles. Based in Belgrade, Serbia; remote, or on-site or hybrid in Serbia."
 >
-
-<!-- ══════════════════ CONTACT HERO ═══════════════════════════════════ -->
-<section class="contact-hero">
-  <div class="section-inner">
-    <div class="hero-text-block" data-reveal style="--reveal-delay:0ms">
-      <h1 class="contact-headline font-display">LET'S BUILD<br/>SOMETHING.</h1>
-      <p class="contact-sub font-body">
-        Open for new opportunities — AAA, VR, indie, and everything between.
-      </p>
+  <section class="page-intro page-intro--yellow">
+    <div class="section-inner">
+      <p class="eyebrow">HIRING</p>
+      <h1 class="page-title">LET’S TALK<span class="accent-dot">.</span></h1>
+      <p class="lead">For game teams hiring level and game designers.</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ══════════════════ CONTACT BODY ═══════════════════════════════════ -->
-<section class="contact-body">
-  <div class="section-inner contact-columns">
-
-    <!-- LEFT: Link blocks -->
-    <div class="links-column">
-
-      <a href="mailto:stefans.malinovic@gmail.com" class="contact-link-block" data-reveal style="--reveal-delay:60ms">
-        <span class="link-label font-ui">EMAIL</span>
-        <span class="link-value font-ui">stefans.malinovic@gmail.com</span>
-        <span class="link-arrow" aria-hidden="true">→</span>
-      </a>
-
-      <a href="https://www.linkedin.com/in/steppenvvolf/" class="contact-link-block" data-reveal style="--reveal-delay:140ms" rel="noopener noreferrer" target="_blank">
-        <span class="link-label font-ui">LINKEDIN</span>
-        <span class="link-value font-ui">linkedin.com/in/steppenvvolf</span>
-        <span class="link-arrow" aria-hidden="true">→</span>
-      </a>
-
-      <a href="https://www.artstation.com/steppenvvolf" class="contact-link-block" data-reveal style="--reveal-delay:220ms" rel="noopener noreferrer" target="_blank">
-        <span class="link-label font-ui">ARTSTATION</span>
-        <span class="link-value font-ui">artstation.com/steppenvvolf</span>
-        <span class="link-arrow" aria-hidden="true">→</span>
-      </a>
-
-      <a href="https://github.com/Steppenvvolf" class="contact-link-block" data-reveal style="--reveal-delay:300ms" rel="noopener noreferrer" target="_blank">
-        <span class="link-label font-ui">GITHUB</span>
-        <span class="link-value font-ui">github.com/Steppenvvolf</span>
-        <span class="link-arrow" aria-hidden="true">→</span>
-      </a>
-
+  <section class="section" aria-label="Ways to work together">
+    <div class="section-inner">
+      <div class="contact-grid contact-grid--one">
+        <article class="card card--accent contact-card">
+          <p class="label">GAME TEAMS</p>
+          <h2>DESIGN ROLE<span class="accent-dot">.</span></h2>
+          <p>
+            Level design, mission design and game design roles. Include the
+            role, team and project.
+          </p>
+          <a class="btn-primary" href={gameInquiry}>Email about a role →</a>
+        </article>
+      </div>
     </div>
+  </section>
 
-    <!-- RIGHT: Downloads + bubble -->
-    <div class="downloads-column" data-reveal style="--reveal-delay:120ms">
-
-      <div class="downloads-header">
-        <h2 class="downloads-title section-title">GRAB THE DOCS</h2>
+  <section
+    class="contact-details section--ruled"
+    aria-labelledby="contact-details-title"
+  >
+    <div class="section-inner contact-details__grid">
+      <div>
+        <p class="eyebrow">EMAIL</p>
+        <h2 id="contact-details-title" class="section-title">Direct contact</h2>
+        <a class="email-link" href={`mailto:${email}`}>{email}</a>
+        <button
+          class="copy-email btn-secondary"
+          type="button"
+          data-copy-email={email}
+          aria-describedby="copy-status">Copy email</button
+        >
+        <p class="copy-status" id="copy-status" role="status"></p>
+        <p class="location">
+          Belgrade, Serbia · Remote · On-site or hybrid in Serbia
+        </p>
       </div>
 
-      <div class="download-buttons">
+      <div class="link-stack">
+        {
+          site.socials.map((link) => (
+            <a href={link.href} target="_blank" rel="noopener noreferrer">
+              {link.label} <span aria-hidden="true">↗</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--ruled" aria-labelledby="downloads-title">
+    <div class="section-inner">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">DOWNLOADS</p><h2
+            id="downloads-title"
+            class="section-title"
+          >
+            CV & portfolio
+          </h2>
+        </div>
+      </div>
+      <div class="download-grid">
         <a
-          href="/cv/stefan-malinovic-portfolio.pdf"
+          class="download-card card card--interactive"
+          href={site.cv}
           target="_blank"
-          rel="noopener"
-          class="btn-primary"
-        >PORTFOLIO PDF →</a>
-
+          rel="noopener noreferrer"
+        >
+          <span class="label">PDF · {site.cvSize}</span>
+          <strong>Level Design CV (PDF)</strong>
+          <span class="download-arrow" aria-hidden="true">↓</span>
+        </a>
         <a
-          href="/cv/stefan-malinovic-level-design-cv.pdf"
+          class="download-card card card--interactive"
+          href={site.portfolio}
           target="_blank"
-          rel="noopener"
-          class="btn-secondary"
-        >LEVEL DESIGN CV →</a>
+          rel="noopener noreferrer"
+        >
+          <span class="label">PDF · {site.portfolioSize}</span>
+          <strong>Level Design Portfolio (PDF)</strong>
+          <span class="download-arrow" aria-hidden="true">↓</span>
+        </a>
       </div>
-
-      <p class="files-note font-body">(Files updated when Stefan pushes to GitHub)</p>
-
-      <div class="hire-bubble philosophy-callout" role="note">
-        <span class="callout-label">OPEN TO WORK</span>
-        <p class="hire-text font-comic">HIRE ME!</p>
-        <p class="hire-sub font-body">Belgrade-based · remote worldwide · relocation negotiable</p>
-      </div>
-
     </div>
-
-  </div>
-</section>
-
-<!-- ══════════════════ LOCATION FOOTER ═══════════════════════════════ -->
-<div class="location-band">
-  <p class="location-text font-ui">BASED IN BELGRADE, SERBIA · REMOTE WORLDWIDE</p>
-</div>
-
+  </section>
 </Layout>
 
-<style>
-/* ── Reveal animation (IntersectionObserver-driven) ─────────────── */
-[data-reveal] {
-  opacity: 0;
-  transform: translateY(24px);
-  transition:
-    opacity  0.6s ease var(--reveal-delay, 0ms),
-    transform 0.6s ease var(--reveal-delay, 0ms);
-}
-[data-reveal].card-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-@media (prefers-reduced-motion: reduce) {
-  [data-reveal] { opacity: 1; transform: none; transition: none; }
-}
-
-/* ── Hero ─────────────────────────────────────────────────────────── */
-.contact-hero {
-  padding: 5rem 0 3rem;
-}
-
-.hero-text-block {
-  max-width: 820px;
-}
-
-.contact-headline {
-  font-size: clamp(3rem, 9vw, 7.5rem);
-  letter-spacing: -0.03em;
-  line-height: 0.88;
-  color: var(--cream);
-  margin-bottom: 1.5rem;
-  /* The one deliberate typographic push: cream text with no stroke, relying purely on size */
-}
-
-.contact-sub {
-  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
-  color: var(--body);
-  max-width: 52ch;
-  line-height: 1.65;
-}
-
-/* ── Body layout ──────────────────────────────────────────────────── */
-.contact-body {
-  padding: 1rem 0 4rem;
-}
-
-.contact-columns {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 4rem;
-  align-items: start;
-}
-
-/* ── Link blocks ─────────────────────────────────────────────────── */
-.links-column {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.contact-link-block {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  padding: 1.25rem 1.5rem;
-  border: 2px solid var(--cream);
-  box-shadow: 4px 4px 0 var(--accent);
-  position: relative;
-  background: transparent;
-  text-decoration: none;
-  transition: background 0.15s, color 0.15s, box-shadow 0.1s, transform 0.1s;
-  cursor: pointer;
-}
-
-.contact-link-block:hover {
-  background: var(--accent);
-  box-shadow: 2px 2px 0 var(--accent);
-  transform: translate(2px, 2px);
-}
-
-.contact-link-block:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-}
-
-.link-label {
-  font-size: 0.65rem;
-  letter-spacing: 0.18em;
-  color: var(--body);
-  transition: color 0.15s;
-}
-
-.link-value {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--cream);
-  letter-spacing: 0.04em;
-  transition: color 0.15s;
-  word-break: break-all;
-}
-
-.link-arrow {
-  position: absolute;
-  right: 1.25rem;
-  top: 50%;
-  transform: translateY(-50%);
-  font-family: 'Oswald', sans-serif;
-  font-weight: 700;
-  font-size: 1.25rem;
-  color: var(--accent);
-  transition: color 0.15s, transform 0.15s;
-  pointer-events: none;
-}
-
-.contact-link-block:hover .link-label,
-.contact-link-block:hover .link-value {
-  color: var(--cream);
-}
-
-.contact-link-block:hover .link-arrow {
-  color: var(--cream);
-  transform: translateY(-50%) translateX(4px);
-}
-
-/* ── Downloads column ────────────────────────────────────────────── */
-.downloads-column {
-  display: flex;
-  flex-direction: column;
-  gap: 1.75rem;
-}
-
-.downloads-header {
-  padding-bottom: 1rem;
-  border-bottom: 2px solid var(--panel);
-}
-
-.downloads-title {
-  font-family: 'Pirata One', serif;
-  font-size: clamp(1.4rem, 3vw, 2rem);
-  color: var(--cream);
-}
-
-.download-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
-}
-
-.files-note {
-  font-size: 0.78rem;
-  color: var(--body);
-  opacity: 0.7;
-  line-height: 1.5;
-}
-
-/* ── Hire bubble ─────────────────────────────────────────────────── */
-.hire-bubble {
-  margin-top: 0.5rem;
-}
-
-.hire-text {
-  font-size: clamp(1.6rem, 4vw, 2.5rem);
-  color: var(--ink);
-  line-height: 1;
-  margin-bottom: 0.5rem;
-}
-
-.hire-sub {
-  font-size: 0.82rem;
-  color: var(--ink);
-  opacity: 0.75;
-  line-height: 1.5;
-}
-
-/* ── Location band ───────────────────────────────────────────────── */
-.location-band {
-  border-top: 1px solid var(--panel);
-  padding: 2rem 0;
-  text-align: center;
-}
-
-.location-text {
-  font-size: 0.7rem;
-  letter-spacing: 0.22em;
-  color: var(--body);
-  opacity: 0.6;
-}
-
-/* ── Responsive ──────────────────────────────────────────────────── */
-@media (max-width: 900px) {
-  .contact-columns {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .contact-headline { line-height: 0.9; }
-  .download-buttons { gap: 0.75rem; }
-}
-</style>
-
 <script>
-const obs = new IntersectionObserver(
-  (entries) => entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('card-visible');
-      obs.unobserve(e.target);
+  const copyButton =
+    document.querySelector<HTMLButtonElement>('[data-copy-email]');
+  const copyStatus = document.getElementById('copy-status');
+
+  copyButton?.addEventListener('click', async () => {
+    const value = copyButton.dataset.copyEmail;
+    if (!value || !copyStatus) return;
+
+    try {
+      await navigator.clipboard.writeText(value);
+      copyStatus.textContent = 'Email copied.';
+    } catch {
+      copyStatus.textContent =
+        'Copy unavailable. Select the email address above.';
     }
-  }),
-  { threshold: 0.1 }
-);
-document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
+  });
 </script>
+
+<style>
+  .contact-grid--one {
+    grid-template-columns: minmax(0, 44rem);
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--s-5);
+  }
+  .contact-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 20rem;
+    padding: var(--s-6);
+    box-shadow: var(--shadow-lg);
+  }
+  .contact-card h2 {
+    margin-block: var(--s-4);
+    font: 400 var(--fs-40) / 1 var(--font-display);
+  }
+  .contact-card .accent-dot {
+    color: inherit;
+  }
+  .contact-card p:not(.label) {
+    max-width: 48ch;
+    margin-bottom: var(--s-5);
+  }
+  .contact-card .btn-primary,
+  .contact-card .btn-ink {
+    margin-top: auto;
+  }
+  .contact-card .btn-primary {
+    background: var(--panel);
+    color: var(--accent-text);
+  }
+  .contact-details {
+    padding-block: var(--s-7);
+    background: var(--panel-2);
+    border-bottom: var(--rule);
+  }
+  .contact-details__grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: var(--s-7);
+    align-items: center;
+  }
+  .contact-details .section-title {
+    margin-block: var(--s-2) var(--s-4);
+  }
+  .email-link {
+    display: inline-block;
+    min-height: var(--tap);
+    padding-block: var(--s-2);
+    font: 700 var(--fs-20) / 1.3 var(--font-body);
+    text-decoration: underline;
+    text-decoration-thickness: var(--bw);
+    text-underline-offset: 4px;
+    overflow-wrap: anywhere;
+  }
+  .email-link:hover {
+    color: var(--accent-text);
+  }
+  .copy-email {
+    margin-left: var(--s-3);
+    box-shadow: var(--shadow-sm);
+  }
+  .copy-status {
+    min-height: 1.6em;
+    margin-top: var(--s-2);
+    font-size: var(--fs-14);
+  }
+  .location {
+    margin-top: var(--s-3);
+    color: var(--body);
+  }
+  .link-stack {
+    display: grid;
+  }
+  .link-stack a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--s-4);
+    min-height: var(--tap);
+    padding-block: var(--s-3);
+    border-bottom: var(--rule);
+    font: 600 var(--fs-16) / 1.3 var(--font-ui);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition:
+      color var(--ease),
+      padding-left var(--ease);
+  }
+  .link-stack a:first-child {
+    border-top: var(--rule);
+  }
+  .link-stack a:hover {
+    color: var(--accent-text);
+    padding-left: var(--s-2);
+  }
+  .download-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--s-5);
+  }
+  .download-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-2);
+    min-height: 9rem;
+    padding-right: var(--s-8);
+    transition:
+      transform var(--ease),
+      box-shadow var(--ease);
+  }
+  .download-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: var(--shadow-hover);
+  }
+  .download-card strong {
+    font: 400 var(--fs-28) / 1.1 var(--font-display);
+    text-transform: uppercase;
+  }
+  .download-arrow {
+    position: absolute;
+    top: var(--s-4);
+    right: var(--s-4);
+    font-size: var(--fs-28);
+    line-height: 1;
+  }
+  @media (max-width: 700px) {
+    .contact-grid,
+    .contact-details__grid,
+    .download-grid {
+      grid-template-columns: 1fr;
+    }
+    .contact-card {
+      min-height: 0;
+    }
+    .copy-email {
+      margin: var(--s-3) 0 0;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .download-card:hover {
+      transform: none;
+    }
+  }
+</style>

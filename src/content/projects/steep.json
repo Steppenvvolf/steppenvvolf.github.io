@@ -1,0 +1,51 @@
+{
+  "title": "Steep",
+  "tag": "AAA",
+  "studio": "Ubisoft",
+  "role": "Development Tester (online and world)",
+  "engine": "Anvil",
+  "year": "2018–2019",
+  "platform": "PC / Console",
+  "cover": "/assets/projects/steep/steep-01-village.webp",
+  "owned": "Development testing for online and world on Steep. I worked with programmers, artists and level designers on the Japan DLC map and was responsible for checking event flow and free roam during development, before the map went on to QC. I was also part of the QA team that tested the first version of the four-team multiplayer mode.",
+  "brief": "Support a new DLC map, the Japan map, through development.",
+  "problem": "Event flow and free roam had to work while the map was still being built, so that it could go on to QC testing once development finished.",
+  "approach": "Checked event flow and free roam on the Japan map during development.",
+  "result": "The Japan map was announced as a free update in the E3 2019 trailer.",
+  "reflection": "This was a testing role, not a design credit. It is where my eye for edge cases and player flow comes from.",
+  "discipline": ["Level Design"],
+  "category": "games",
+  "featured": false,
+  "order": 7,
+  "summary": "Development tester for online and world on Steep: event flow and free roam on the Japan DLC map, and the first four-team multiplayer mode.",
+  "published": true,
+  "gallery": [
+    {
+      "src": "/assets/projects/steep/steep-01-village.webp",
+      "alt": "Official Steep screenshot: a paraglider above an alpine village of timber chalets, with snowy peaks behind.",
+      "caption": "Official Steep media © Ubisoft. Base game, Alps. The Japan map I tested is not part of the Steam store media."
+    },
+    {
+      "src": "/assets/projects/steep/steep-02-skiing.webp",
+      "alt": "Official Steep screenshot: a skier in a red jacket carving through powder between snowy pine trees.",
+      "caption": "Official Steep media © Ubisoft. Free roam in the base game, the kind of play I checked on the Japan map."
+    },
+    {
+      "src": "/assets/projects/steep/steep-03-wingsuit.webp",
+      "alt": "Official Steep screenshot: a wingsuit flyer diving down a snowy mountain face.",
+      "caption": "Official Steep media © Ubisoft. Wingsuit flight over the base-game open world."
+    }
+  ],
+  "coverAlt": "Official Steep key art: a paraglider above an alpine village of timber chalets, with snowy peaks behind.",
+  "approachItems": [
+    "Checked event flow and free roam on the Japan DLC map during development, before hand-off to QC.",
+    "Worked with programmers, artists and level designers on the map.",
+    "Part of the QA team testing the first version of the four-team multiplayer mode."
+  ],
+  "links": [
+    {
+      "label": "E3 2019 Japan map trailer",
+      "url": "https://youtu.be/gPx1OLALAE4"
+    }
+  ]
+}

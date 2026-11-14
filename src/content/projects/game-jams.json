@@ -1,0 +1,53 @@
+{
+  "title": "Game jams",
+  "tag": "JAM",
+  "studio": "Independent, with friends",
+  "role": "Level design, world building and 3D art",
+  "engine": "Unreal Engine 4 and 5",
+  "year": "2019–2024",
+  "platform": "PC",
+  "cover": "",
+  "owned": "Three jam games made with friends: The Great Esc (Unreal Game Jam 2024, 2nd place, Unreal Engine 4), Duality / It's Just You (Global Game Jam 2022, Unreal Engine 5, where my part was world building, level design and 3D art) and Undeady Issues (Global Game Jam 2019, Unreal Engine 4).",
+  "brief": "Make complete games with friends in constrained jam time, testing design ideas outside the studio pipeline.",
+  "problem": "Time, people and tools are limited, so every decision is a design decision.",
+  "approach": "Three jam games made with friends.",
+  "result": "2nd place at Unreal Game Jam 2024 with The Great Esc.",
+  "reflection": "Jams force the full design loop into a small scope, so you learn what is essential fast.",
+  "discipline": ["Level Design", "Game Design"],
+  "category": "experiments",
+  "featured": false,
+  "order": 8,
+  "summary": "Three jam games made with friends, including The Great Esc, 2nd place at Unreal Game Jam 2024.",
+  "published": true,
+  "gallery": [
+    {
+      "src": "/assets/projects/jams/the-great-esc.webp",
+      "alt": "Two views of The Great Esc: a 3D course with a spinning pinwheel and stacked green blocks, and the title card over a circuit-board background.",
+      "caption": "The Great Esc, Unreal Game Jam 2024 (2nd place), made with friends in Unreal Engine 4."
+    }
+  ],
+  "coverAlt": "",
+  "coverStat": {
+    "value": "2nd",
+    "label": "The Great Esc, Unreal Game Jam 2024"
+  },
+  "approachItems": [
+    "The Great Esc, Unreal Game Jam 2024, 2nd place. Made in Unreal Engine 4 (we missed working in it).",
+    "Duality (It's Just You), Global Game Jam 2022, Unreal Engine 5. My part: world building, level design, 3D art.",
+    "Undeady Issues, Global Game Jam 2019, Unreal Engine 4."
+  ],
+  "links": [
+    {
+      "label": "The Great Esc on itch.io",
+      "url": "https://bojanv03.itch.io/the-great-esc"
+    },
+    {
+      "label": "Duality walkthrough (video)",
+      "url": "https://youtu.be/FvCyeunMSH8"
+    },
+    {
+      "label": "Duality on Global Game Jam",
+      "url": "https://globalgamejam.org/2022/games/duality-0-2"
+    }
+  ]
+}

@@ -2,6 +2,8 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Motion from '../components/Motion.astro';
+import { site } from '../data/site';
 
 interface Props {
   title?: string;
@@ -10,12 +12,24 @@ interface Props {
 }
 
 const {
-  title = 'Stefan Malinovic — Senior Level & Game Designer',
-  description = 'Portfolio of Stefan Malinovic — Senior / Lead Level & Game Designer. Eight years across AAA, VR and open-world at Ubisoft, RedSixteen, PlayStudios and MILC.',
-  ogImage = '/assets/brand/og-image.jpg',
+  title = 'Steppenwolf: The Designer · Stefan Malinovic',
+  description = 'Stefan Malinovic, aka Steppenwolf. Level and game designer with 8+ years in game development at Ubisoft, PlayStudios, RedSixteen and Drill Deep Digital.',
+  ogImage = '/assets/brand/og-steppenwolf.png',
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://steppenvvolf.github.io');
+const canonicalURL = new URL(
+  Astro.url.pathname,
+  Astro.site ?? 'https://steppenvvolf.github.io',
+);
+const person = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: site.name,
+  alternateName: site.brand,
+  url: Astro.site,
+  jobTitle: 'Lead Level Designer and Game Designer',
+  sameAs: site.socials.map((link) => link.href),
+};
 ---
 
 <!doctype html>
@@ -23,6 +37,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://steppenv
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#131211" />
     <meta name="generator" content={Astro.generator} />
 
     <title>{title}</title>
@@ -38,15 +54,23 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://steppenv
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={new URL(ogImage, canonicalURL.origin)} />
+    <meta
+      name="twitter:image"
+      content={new URL(ogImage, canonicalURL.origin)}
+    />
 
-    <link rel="icon" type="image/png" href="/assets/brand/favicon-source.png" />
-    <link rel="icon" href="/favicon.ico" />
+    <meta property="og:site_name" content="Steppenwolf" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/assets/brand/favicon-source.png" />
+    <script type="application/ld+json" set:html={JSON.stringify(person)} />
   </head>
   <body>
+    <Motion />
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <Header />
-    <main>
+    <main id="main-content" tabindex="-1">
       <slot />
     </main>
     <Footer />

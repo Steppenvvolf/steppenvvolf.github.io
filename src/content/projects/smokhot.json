@@ -1,0 +1,57 @@
+{
+  "title": "SmokHot",
+  "descriptor": "Hot-sauce e-shop",
+  "tag": "WEBSITE",
+  "studio": "Freelance",
+  "role": "UI/UX and front-end design",
+  "engine": "Front end: Next.js, React, TypeScript, Tailwind CSS",
+  "year": "2026",
+  "platform": "Web",
+  "layout": "boards",
+  "cover": "/assets/projects/smokhot/smokhot-01-cover.webp",
+  "coverAlt": "SmokHot cover board: a hot-sauce e-shop with a desktop and a mobile screen of the home page.",
+  "brief": "The client produces and sells hot pepper sauces in Serbia and needed a website with a shop, with payment on delivery. The brief asked for something attractive, interactive and unmistakably rock and roll.",
+  "discipline": ["Product Design"],
+  "category": "product",
+  "featured": false,
+  "order": 12,
+  "published": true,
+  "summary": "E-shop for a Serbian hot-sauce brand: 10 products, 6 languages, payment on delivery.",
+  "gallery": [
+    {
+      "src": "/assets/projects/smokhot/smokhot-01-cover.webp",
+      "alt": "SmokHot cover board: a hot-sauce e-shop with a desktop and a mobile screen of the home page.",
+      "caption": "Cover."
+    },
+    {
+      "src": "/assets/projects/smokhot/smokhot-02-problem.webp",
+      "alt": "SmokHot problem board: A shop that looks as loud as the sauce.",
+      "caption": "The brief and who the shop is for."
+    },
+    {
+      "src": "/assets/projects/smokhot/smokhot-03-key-flow.webp",
+      "alt": "SmokHot key flow board: Browse, product, cart.",
+      "caption": "Browse, product and cart screens."
+    },
+    {
+      "src": "/assets/projects/smokhot/smokhot-04-responsive.webp",
+      "alt": "SmokHot responsive board: One layout, two proportions.",
+      "caption": "Desktop and mobile layouts side by side."
+    },
+    {
+      "src": "/assets/projects/smokhot/smokhot-05-design-system.webp",
+      "alt": "SmokHot design system board: Dark base, hot accents.",
+      "caption": "Colours, type and buttons."
+    },
+    {
+      "src": "/assets/projects/smokhot/smokhot-06-details.webp",
+      "alt": "SmokHot details board: Small parts, made carefully.",
+      "caption": "Heat scale, product card, language switch and order summary."
+    },
+    {
+      "src": "/assets/projects/smokhot/smokhot-07-outcome.webp",
+      "alt": "SmokHot outcome board: Live at smokinhot.rs, with products, languages, payment and front-end stack.",
+      "caption": "Outcome in four facts."
+    }
+  ]
+}

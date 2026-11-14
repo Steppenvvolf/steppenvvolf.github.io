@@ -1,0 +1,37 @@
+{
+  "title": "Tetris: Free-to-Play Mobile",
+  "tag": "F2P",
+  "studio": "PlayStudios",
+  "role": "Technical Artist",
+  "engine": "Unity",
+  "year": "2022–2023",
+  "platform": "Mobile",
+  "cover": "/assets/projects/tetris/tetris-cover.webp",
+  "owned": "Integrated production content and gameplay-facing logic in C#, Lua and XML, prepared integrated builds for QA, and improved content workflows and editor tooling on a licensed free-to-play mobile title.",
+  "brief": "Bridge the gap between concept artists, animators, programmers and UX designers on a licensed free-to-play title.",
+  "problem": "Make a technical pipeline work across Design, Art, Programming and QA on a licensed title, under fast live-game delivery schedules.",
+  "approach": "I integrated production content and gameplay-facing logic using C#, Lua and XML, prepared integrated builds for QA, and improved content workflows and editor tooling while coordinating Design, Art, Programming and QA.",
+  "result": "",
+  "reflection": "",
+  "discipline": ["Technical Art", "Development"],
+  "category": "games",
+  "featured": false,
+  "order": 5,
+  "summary": "Integrated production content and gameplay-facing logic on a licensed free-to-play mobile title, and improved content workflows and editor tooling.",
+  "published": true,
+  "gallery": [],
+  "coverAlt": "Store screenshots of PlayStudios' Tetris mobile game (promotional art, not my work).",
+  "coverFit": "contain",
+  "approachItems": [
+    "Set up the technical structure inside Unity, together with the studio's own engine and its Adobe tools for 2D assets.",
+    "Connected the assets and code provided so the game worked logically.",
+    "Integrated content and gameplay-facing logic in C#, Lua and XML, and prepared builds for QA.",
+    "Improved content workflows and editor tooling, coordinating Design, Art, Programming and QA."
+  ],
+  "links": [
+    {
+      "label": "Tetris Story, level 41 (video)",
+      "url": "https://youtu.be/-QJJ66_Os8U"
+    }
+  ]
+}

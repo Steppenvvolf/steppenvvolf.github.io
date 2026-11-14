@@ -1,0 +1,78 @@
+{
+  "title": "Riders Republic",
+  "tag": "AAA",
+  "studio": "Ubisoft",
+  "role": "Level and Mission Designer",
+  "engine": "Anvil",
+  "year": "2020–2021",
+  "platform": "PC / Console",
+  "cover": "/assets/projects/riders-republic/riders-republic-cover-arch.webp",
+  "owned": "All 45 in-world Landmarks, from location scouting and layout to wildlife scripting, cinematic setup and gameplay integration. 11 stunt challenges, including Cloud Flight, Half Dome Vertigo and Wild Yosemite, made together with other level designers. I also contributed to the metrics and flow of the 6v6 Showdown arena.",
+  "brief": "Fill an open world with landmarks and stunt routes that feel real, varied and alive, with a sprinkle of fun.",
+  "problem": "Each landmark had to be a designed moment, and each stunt a readable, replayable route. The stunt feature was tested by several people during production before it reached testers.",
+  "approach": "Landmarks, stunt challenges and the Showdown arena.",
+  "result": "Shipped in Riders Republic.",
+  "reflection": "Small affordances, such as a checkpoint size or a camera tilt, change how a whole space is read and replayed.",
+  "discipline": ["Level Design", "3D/Environment"],
+  "category": "games",
+  "featured": true,
+  "order": 1,
+  "summary": "Owned all 45 in-world landmarks, designed 11 stunt challenges and contributed to the Showdown arena.",
+  "published": true,
+  "gallery": [
+    {
+      "src": "/assets/projects/riders-republic/riders-republic-01.webp",
+      "alt": "Riders Republic landmark screen for The Subway, showing a narrow canyon and the landmark description.",
+      "caption": "The Subway: one of the 45 landmarks I placed, from scouting to scripting."
+    },
+    {
+      "src": "/assets/projects/riders-republic/riders-republic-02.webp",
+      "alt": "Red sandstone Double Arch with the Riders Republic landmark title and description.",
+      "caption": "Double Arch: I animated the camera and tilted the final framing for a stronger composition."
+    },
+    {
+      "src": "/assets/projects/riders-republic/riders-republic-04.webp",
+      "alt": "Delicate Arch silhouetted at night beneath a bright moon, with its Riders Republic landmark description.",
+      "caption": "Delicate Arch: I switched it from day to night and set a flock leaving the arch."
+    },
+    {
+      "src": "/assets/projects/riders-republic/riders-republic-05.webp",
+      "alt": "Riders Republic stunt gameplay showing a rider flying through a ring among Sequoia trees, with timer and progress HUD.",
+      "caption": "Rocket Squirrel: checkpoint and obstacle placement at speed."
+    },
+    {
+      "src": "/assets/projects/riders-republic/riders-republic-07.webp",
+      "alt": "Riders Republic Cloud Flight stunt screen over a snowy forest, with a flight ring, route markers, and score HUD.",
+      "caption": "Cloud Flight: route risk and checkpoint decisions for wingsuit mastery."
+    },
+    {
+      "src": "/assets/projects/riders-republic/riders-republic-06.webp",
+      "alt": "Two Riders Republic stunt gameplay views of a rider on rocky forest trails, with French-language event HUD.",
+      "caption": "Wild Yosemite: one of the 11 stunt challenges."
+    }
+  ],
+  "coverAlt": "Double Arch, a red sandstone arch under a blue sky: one of the 45 landmarks I owned.",
+  "approachItems": [
+    "Landmarks: I was fully responsible for placement in the world, in collaboration with the creative director. Everything was grounded in reality and world logic, so the world read as versatile, beautiful and full of life.",
+    "The Subway: lit from dark to light, with bats and birdsong at the canyon mouth.",
+    "Double Arch: animated the camera and tilted the final framing.",
+    "Delicate Arch: switched to night, with a flock leaving the arch.",
+    "Stunts (11 challenges, made with other level designers): find a location (or take one from the director), block out the route, set up checkpoints and wildlife, replace props such as rocks, trees and bushes, add procedural grass and small bushes with Houdini, then test, iterate and polish.",
+    "Cloud Flight: I requested variation in checkpoint size so players can choose a safer pass or a riskier edge line to save time. Players and streamers use it as a speedrun challenge.",
+    "Showdown arena: the layout of grinds and slopes and the metrics between zones, technically and so that reaching the next zone is never boring. Some of it as a development tester, some as support for the level designer who owned the feature."
+  ],
+  "links": [
+    {
+      "label": "All 45 Landmarks (video)",
+      "url": "https://youtu.be/jg0Kav5u2bY"
+    },
+    {
+      "label": "Stunt challenges (video)",
+      "url": "https://youtu.be/4QCd6p9wmeA"
+    },
+    {
+      "label": "Showdown arena (video)",
+      "url": "https://youtu.be/3MPsMw3f1Bk"
+    }
+  ]
+}
